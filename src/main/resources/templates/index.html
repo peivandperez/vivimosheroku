@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head th:insert="fragments/headerFiles :: headerFiles"></head>
+	<head>
+		
+		<div th:insert="fragments/bootstrap :: headerBootstrap"></div>
+		<div th:insert="fragments/pixels :: pixels"></div>
+		
+	<title>Título de prueba Index</title>
+	
+	</head>	
+
+
 	<body>
 	
 	Hola
@@ -8,7 +17,8 @@
 
 	
 	
-		<div th:insert="fragments/linkedInTag :: linkedInTag"></div>	
+		<div th:insert="fragments/linkedInTag :: linkedInTag"></div>
+		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>			
 	</body>		
 
 </html>
