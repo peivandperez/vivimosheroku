@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
+		
 		<div th:insert="fragments/head :: headGeneral"></div>
 		<div th:insert="fragments/bootstrap :: headerBootstrap"></div>
+		<div th:insert="fragments/head :: customCSS"></div>
 		<div th:insert="fragments/pixels :: pixels"></div>
+		
+		
 
 	<!-- Insertar los tags individuales de cada página -->
 	<title>Título de prueba Index</title>
@@ -22,7 +26,10 @@
 	<body>
 	
 	<div th:insert="fragments/menu :: menu"></div>
+	
+	<div class="container-md">
 	Hola
+	</div>
 	
 
 	
