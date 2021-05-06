@@ -3,6 +3,7 @@
 	<head>
 		<div th:insert="fragments/head :: headGeneral"></div>
 		<div th:insert="fragments/bootstrap :: headerBootstrap"></div>
+		<div th:insert="fragments/head :: customCSS"></div>
 		<div th:insert="fragments/pixels :: pixels"></div>
 
 	<!-- Insertar los tags individuales de cada página -->
@@ -20,6 +21,8 @@
 
 
 	<body>
+	
+	<div th:insert="fragments/menu :: menu"></div>
 	
 	<!-- Jumbotron -->
 	<div class="p-5 text-center bg-light">
