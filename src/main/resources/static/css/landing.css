@@ -2,9 +2,14 @@ body{
 	font-family: 'Open Sans', sans-serif;
 }
 
+.gradient{
+	background: rgb(52,74,81);
+	background: linear-gradient(170deg, rgba(52,74,81,1) 0%, rgba(78,116,127,1) 100%, rgba(0,212,255,1) 100%);
+}
+
 hr.Solid{
 	border-top: 3px solid #ffffff;
-	width: 20%;
+	width: 10%;
 }
 
 
@@ -47,8 +52,8 @@ hr.Solid{
 }
 
 #invierteSeccion01Titulo03{
-	font-weight:bold;
-	font-size: 32px;
+	font-weight:regular;
+	font-size: 17px;
  	color: #ffffff;	
 }
 
