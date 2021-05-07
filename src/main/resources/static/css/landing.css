@@ -2,6 +2,13 @@ body{
 	font-family: 'Open Sans', sans-serif;
 }
 
+.verticalSolidLine
+{
+    border-left: 1px solid black;
+    height: 100%;
+    padding:5px;
+} 
+
 .gradient{
 	background: rgb(52,74,81);
 	background: linear-gradient(170deg, rgba(52,74,81,1) 0%, rgba(78,116,127,1) 100%, rgba(0,212,255,1) 100%);
