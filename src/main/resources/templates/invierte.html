@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		
+		<div th:insert="fragments/head :: headGeneral"></div>
+		<div th:insert="fragments/bootstrap :: headerBootstrap"></div>
+		<div th:insert="fragments/head :: customCSS"></div>
+		<div th:insert="fragments/head :: landingCSS"></div>
+		<div th:insert="fragments/pixels :: pixels"></div>
+		
+		
+		
+		
+
+	<!-- Insertar los tags individuales de cada página -->
+	<title>Invierte en propiedades</title>
+	
+	
+	<!--  
+	<meta name="description" content="HTML meta tags are a cornerstone of coding. 
+	But which are the most essential? We give you a rundown of all the meta tags you need to know."/>
+	
+	<meta name="keywords" content="Como vender departamento">
+	-->
+	
+	</head>	
+
+
+	<body>
+	
+	<div th:insert="fragments/menu :: menu"></div>
+	<header class="page-header gradient">
+		<div class="container-md pt-3">
+			<div class="row">
+				<div class="col-md-8">
+					<h4 id="invierteSeccion01Titulo01">Para Inversionistas</h4>
+					<h1 id="invierteSeccion01Titulo02">Aumenta tu patrimonio,invierte en propiedades usadas</h1>
+				<div class="row align-items-center">
+					<div class="col-sm-2">
+						<p class="dash"></p>
+					</div>
+						<div class="col-sm-6">
+						<p id="invierteSeccion01Titulo03">Suscríbete para recibir información de propiedades usadas ideales para inversión antes que salgan al mercado.
+						</p>
+					</div>
+				</div>		
+					<button type="button" class="btn btn-secondary">correo electrónico</button>
+					<button type="button" class="btn btn-primary ms-3">Invierte</button>	
+				</div>	
+			
+				<div class="col-md-4">
+				<img src="/imgs/ilustraciones_movil-01.png" class="img-fluid" style="margin-top: 130px;">		
+				</div>	
+			</div>
+		</div>	
+	</header>
+	
+	<section>
+		<div class="container-md pt-3">
+			<div class="row">
+				<h4 id="invierteSeccion02Titulo01">¿Quénes Somos?</h4>
+				<h2 id="invierteSeccion02Titulo02">Corredores e inversionistas inmobiliarios con experiencia</h2>
+			</div>
+			
+			<div class="row align-items-center">
+				<div class="col-sm-6">
+					<img src="/imgs/ilustraciones_movil-02.png" class="img-fluid" alt="somos corredores de propiedades e inversionistas inmobiliarios con experiencia">
+				</div>
+				<div class="col-sm-6">
+					<p id="invierteSeccion02Titulo03">Somos corredores de propiedades expertos en propiedades para inversión en Santiago,Chile.Nos enfocamos en el segmento de las UF 1.500 a UF 3.500 .
+				
+				</div>
+			</div>
+		</div>
+	
+	</section>	
+	
+	
+
+	
+	
+		<div th:insert="fragments/linkedInTag :: linkedInTag"></div>
+		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>			
+	</body>		
+
+</html>

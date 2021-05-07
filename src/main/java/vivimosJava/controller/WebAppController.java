@@ -14,4 +14,9 @@ public class WebAppController {
 	public String get5errores() {
 		return "5errores";
 	}
+	
+	@RequestMapping("/invierte")
+	public String getInvierte() {
+		return "invierte";
+	}
 }

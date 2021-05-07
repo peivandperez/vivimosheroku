@@ -1,0 +1,122 @@
+body{
+	font-family: 'Open Sans', sans-serif;
+}
+
+.gradient{
+	background: rgb(52,74,81);
+	background: linear-gradient(170deg, rgba(52,74,81,1) 0%, rgba(78,116,127,1) 100%, rgba(0,212,255,1) 100%);
+}
+
+.dash{
+        border-top: 3px solid white;
+        width: 100%;
+        height: 0px;
+}
+
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: regular;
+ 	font-size: 14px;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-primary {
+    background: #ff8800;
+    color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+
+
+#invierteSeccion01Titulo01{
+	font-weight:light;
+	font-size: 18px;
+ 	color: #ffffff;
+}
+
+#invierteSeccion01Titulo02{
+	font-weight:bold;
+	font-size: 32px;
+ 	color: #ffffff;
+}
+
+#invierteSeccion01Titulo03{
+	font-weight:regular;
+	font-size: 17px;
+ 	color: #ffffff;	
+}
+
+#invierteSeccion02Titulo01{
+	font-weight:light;
+	font-size: 18px;
+ 	color: #414042;
+}
+
+#invierteSeccion02Titulo02{
+	font-weight:bold;
+	font-size: 27px;
+ 	color: #6b6c6f;	
+}
+
+#invierteSeccion02Titulo03{
+	font-weight:regular;
+	font-size: 14px;
+ 	color: #333333;
+ 	line-height: 24px;	
+}
+
+#invierteSeccion03Titulo01{
+	font-weight:bold;
+	font-size: 27px;
+ 	color: #6b6c6f;	
+}
+
+#invierteSeccion03Titulo02{
+	font-weight:regular;
+	font-size: 23px;
+ 	color: #414042;
+ 	line-height: 34px;
+}
+
+.invierteBeneficioTitulo{
+	font-weight:regular;
+	font-size: 23px;
+ 	color: #414042;
+}
+
+.invierteBeneficioTexto{
+	font-weight:regular;
+	font-size: 14px;
+ 	color: #414042;
+ 	line-height: 24px;
+}
+
+#invierteSeccion04Titulo01{
+	font-weight:light;
+	font-size: 18px;
+ 	color: #ffffff;
+}
+
+#invierteSeccion04Titulo02{
+	font-weight:bold;
+	font-size: 32px;
+ 	color: #ffffff;
+}
+
+#invierteSeccion04Titulo03{
+	font-weight:regular;
+	font-size: 19px;
+ 	color: #ffffff;
+}
+
