@@ -19,4 +19,9 @@ public class WebAppController {
 	public String getInvierte() {
 		return "invierte";
 	}
+	
+	@RequestMapping("/gracias-invertir-propiedades")
+	public String getGraciasInvertirPropiedades() {
+		return "gracias-invertir-propiedades";
+	}
 }
