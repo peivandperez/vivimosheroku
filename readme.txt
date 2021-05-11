@@ -11,3 +11,14 @@ Todo en local, sin usar CDN
 No se ocupará Spring Security en este momento
 
 Fecha: 30-04-2021
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
