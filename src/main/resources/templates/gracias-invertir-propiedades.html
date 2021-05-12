@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		
+		<div th:insert="fragments/head :: headGeneral"></div>
+		<div th:insert="fragments/bootstrap :: headerBootstrap"></div>
+		<div th:insert="fragments/head :: customCSS"></div>
+	<!-- 	<div th:insert="fragments/pixels :: pixels"></div>-->	
+		
+		
+
+	<!-- Insertar los tags individuales de cada página -->
+	<title>Gracias por invertir en propiedades</title>
+	
+	
+	<!--  
+	<meta name="description" content="HTML meta tags are a cornerstone of coding. 
+	But which are the most essential? We give you a rundown of all the meta tags you need to know."/>
+	
+	<meta name="keywords" content="Como vender departamento">
+	-->
+	
+	</head>	
+
+
+	<body>
+	
+	<div th:insert="fragments/menu :: menu"></div>
+	
+	<div class="container-md">
+	<p>
+	Gracias <strong><span th:text="${user.email}"></span></strong> por enviar tu mail. Te contactaremos para ayudarte en la búsqueda de tu próxima propiedad para inversión.
+	</p>
+	
+	<p>
+	Revisa tu mail con el mensaje de confirmación que hemos recibido tus datos. (Revisa en la bandeja promociones o sino en SPAM).</br>
+	El mail puede demorarse un poco en llegar.
+	</p>
+	
+
+	
+	<p>
+	Te invitamos a que revises nuestro <a href="https://vivimos.cl/blog">blog</a> para más consejos.
+	</p>
+	
+	<p>
+	Revisa nuestras <a href="https://vivimos.cl/propiedades">propiedades en venta</a> para encontrar buenas alternativas para inversión.
+	</p>
+	
+	<p>
+	También puedes <a href="https://vivimos.cl/como-invertir-en-propiedades">descargar nuestra guía en PDF</a> para invertir en propiedades
+	</p>
+	
+	</div>
+	
+
+	
+	
+	<!--  <div th:insert="fragments/linkedInTag :: linkedInTag"></div>-->	
+		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>			
+	</body>		
+
+</html>

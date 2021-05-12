@@ -30,7 +30,7 @@
 	
 	<div th:insert="fragments/menu :: menu"></div>
 	<header class="page-header gradient">
-		<div class="container-md pt-3">
+		<div class="container-md pt-5">
 			<div class="row">
 				<div class="col-md-8">
 					<h4 id="invierteSeccion01Titulo01">PARA INVERSIONISTAS</h4>
@@ -44,9 +44,11 @@
 						<p id="invierteSeccion01Titulo03">Suscríbete para recibir información de propiedades usadas ideales para inversión antes que salgan al mercado.
 						</p>
 					</div>
-				</div>		
-					<button type="button" class="btn btn-secondary">correo electrónico</button>
-					<button type="button" class="btn btn-primary ms-3">Invierte</button>	
+				</div>	
+					<form action="#" th:action="@{/invierteForm}" th:object="${user}" method="post">
+						<input type="email" class="btn btn-secondary" id="insertEmail" placeholder="correo electrónico" th:field="*{email}" />
+						<input type="submit" class="btn btn-primary ms-3" value="Invierte" />	
+					</form>	
 				</div>	
 			
 				<div class="col-md-4">
@@ -57,10 +59,10 @@
 	</header>
 	
 	<section id="quienesSomos">
-		<div class="container-md pt-3">
+		<div class="container-md pt-3 mt-3 mb-5">
 			<div class="row">
 				<div class="col-md-8">
-					<h4 id="invierteSeccion02Titulo01">¿Quiénes Somos?</h4>
+					<h4 id="invierteSeccion02Titulo01">¿QUIÉNES SOMOS?</h4>
 					<h2 id="invierteSeccion02Titulo02">Corredores e inversionistas inmobiliarios con experiencia</h2>
 				</div>
 			</div>
@@ -79,15 +81,17 @@
 	</section>	
 	
 	<section id="queHacemos" style="background-color:#efefef;">
-		<div class="container-md pt-3">
+		<div class="container-md pt-3 mt-3">
 			<div class="row text-center">
-				<div class="col-md-8">
-					<h2 id="invierteSeccion03Titulo01">¿Qué Hacemos?</h2>
+				<div class="col-md-12">
+					<h2 id="invierteSeccion03Titulo01">¿QUÉ HACEMOS?</h2>
 					<p id="invierteSeccion03Titulo02">En Vivimos.cl te ayudamos a encontrar propiedades usadas 
 					ideales para invertir, con buenas proyecciones y rentabilidad.
 					</p>
-					<button type="button" class="btn btn-secondary">correo electrónico</button>
-					<button type="button" class="btn btn-primary ms-3">Invierte</button>
+					<form action="#" th:action="@{/invierteForm}" th:object="${user}" method="post">
+						<input type="email" class="btn btn-secondary" id="insertEmail" placeholder="correo electrónico" th:field="*{email}" />
+						<input type="submit" class="btn btn-primary ms-3" value="Invierte" />	
+					</form>	
 				</div>
 				
 			</div>
@@ -116,9 +120,11 @@
 		</div>	
 	</section>
 	
+
 	<section id="paraInversionistas" class="gradient">
 		<div class="container-md pt-3">
-			<div class="row">
+		
+			<div class="row pt-5">
 				<div class="col-md-8">
 					<div class="row">
 						<h4 id="invierteSeccion04Titulo01">PARA INVERSIONISTAS</h4>
