@@ -1,4 +1,4 @@
-package vivimosJava.model.dto;
+package vivimosJava.model;
 
 public class UsersSimpleDTO {
 //	private Integer idusers;
