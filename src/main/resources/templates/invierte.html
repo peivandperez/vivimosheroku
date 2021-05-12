@@ -45,8 +45,10 @@
 						</p>
 					</div>
 				</div>	
-					<input type="email" class="btn btn-secondary" id="insertEmail" placeholder="correo electrónico">
-					<button type="button" class="btn btn-primary ms-3">Invierte</button>	
+					<form action="#" th:action="@{/invierteForm}" th:object="${user}" method="post">
+						<input type="email" class="btn btn-secondary" id="insertEmail" placeholder="correo electrónico" th:field="*{email}" />
+						<input type="submit" class="btn btn-primary ms-3" value="Invierte" />	
+					</form>	
 				</div>	
 			
 				<div class="col-md-4">
