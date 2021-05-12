@@ -14,20 +14,17 @@ public class WebAppController {
 	public String get5errores() {
 		return "5errores";
 	}
-	/*
+
 	@RequestMapping("/invierte")
 	public String getInvierte() {
 		return "invierte";
 	}
-	*/
+	
 	
 	@RequestMapping("/gracias-invertir-propiedades")
 	public String getGraciasInvertirPropiedades() {
 		return "gracias-invertir-propiedades";
 	}
 	
-	@RequestMapping("/greetingResult")
-	public String getGreetingResult() {
-		return "greetingResult";
-	}
+	
 }
