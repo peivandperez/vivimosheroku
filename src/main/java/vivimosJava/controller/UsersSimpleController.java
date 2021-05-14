@@ -25,6 +25,9 @@ public class UsersSimpleController {
 	@Autowired
 	UsersSimpleService usersSimpleService;
 	
+	@Autowired
+	RestTemplate restTemplate;
+	
 	@Value("${recaptcha.secret}")
 	private String recaptchaSecret;
 	
