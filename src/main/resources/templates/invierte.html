@@ -23,6 +23,13 @@
 	<meta name="keywords" content="Como vender departamento">
 	-->
 	
+	<!-- GOOGLE Recaptcha -->	
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+     <script>
+       function onSubmit(token) {
+         document.getElementById("formInvierte01").submit();
+       }
+     </script>
 	</head>	
 
 
@@ -45,9 +52,11 @@
 						</p>
 					</div>
 				</div>	
-					<form action="#" th:action="@{/invierteForm}" th:object="${user}" method="post">
-						<input type="email" class="btn btn-secondary" id="insertEmail" placeholder="correo electrónico" th:field="*{email}" />
-						<input type="submit" class="btn btn-primary ms-3" value="Invierte" />	
+					<form action="#" th:action="@{/invierteForm}" th:object="${user}" method="post" id="formInvierte01">
+						
+						<input type="email" class="btn btn-secondary" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required  placeholder="correo electrónico" th:field="*{email}" />
+						<input type="submit" class="btn btn-primary ms-3 " value="Invierte" />
+						<div class="g-recaptcha" th:data-sitekey="${@environment.getProperty('recaptcha.key')}" data-bind="recaptcha-submit" data-callback="onSubmit" th:field="*{g-recaptcha-response}"></div>	
 					</form>	
 				</div>	
 			
@@ -89,7 +98,7 @@
 					ideales para invertir, con buenas proyecciones y rentabilidad.
 					</p>
 					<form action="#" th:action="@{/invierteForm}" th:object="${user}" method="post">
-						<input type="email" class="btn btn-secondary" id="insertEmail" placeholder="correo electrónico" th:field="*{email}" />
+						<input type="email" class="btn btn-secondary" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required  placeholder="correo electrónico" th:field="*{email}" />
 						<input type="submit" class="btn btn-primary ms-3" value="Invierte" />	
 					</form>	
 				</div>
@@ -181,6 +190,7 @@
 	
 	<!--  	<div th:insert="fragments/linkedInTag :: linkedInTag"></div>-->
 		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>			
+		
 	</body>		
 
 </html>
