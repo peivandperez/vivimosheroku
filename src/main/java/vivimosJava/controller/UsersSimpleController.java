@@ -47,10 +47,10 @@ public class UsersSimpleController {
 	
 	 @PostMapping("/invierteForm")
 	 //	public String submitInvierte(HttpServletRequest request, Model model) {
-	   public String submissionResult(@ModelAttribute("user") UsersSimpleDTO person, @RequestParam(name="g-recaptcha-response", required=false) String captchaResponse) {
-				 
-		 String params= "?secret=6LfA9NQaAAAAAD9bb-DopfKuDkcz9JNXI2dvTMpJ&response"+captchaResponse;
-		 System.out.println("params= " + params);
+	   public String submissionResult(@ModelAttribute("user") UsersSimpleDTO person, @RequestParam(name="g-recaptcha-response") String captchaResponse) {
+			 
+		 String params= "?secret="+recaptchaSecret+"&response="+captchaResponse;
+	
 		 System.out.println("captchaResponse= "+captchaResponse);
 		 //String params= "?secret="+recaptchaSecret+"&response="+captchaResponse;
 		 

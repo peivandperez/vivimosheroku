@@ -24,11 +24,8 @@
 	-->
 	
 	<!-- GOOGLE Recaptcha -->	
-	
-  
-			
-		
-	<!-- GOOGLE Recaptcha -->	
+	<script src="https://www.google.com/recaptcha/api.js"></script>
+     
 	</head>	
 
 
@@ -37,9 +34,6 @@
 	<div th:insert="fragments/menu :: menu"></div>
 	<header class="page-header gradient">
 		<div class="container-md pt-5">
-						 <script src="https://www.google.com/recaptcha/api.js"
-        							async defer>
-    </script>
 			<div class="row">
 				<div class="col-md-8">
 					<h4 id="invierteSeccion01Titulo01">PARA INVERSIONISTAS</h4>
@@ -60,8 +54,7 @@
 						<input type="submit" class="btn btn-primary ms-3 " value="Invierte" />
 						<div class="g-recaptcha" th:data-sitekey="${@environment.getProperty('recaptcha.sitekey')}"></div>	
 					</form>	
-	
-				
+				</div>	
 			
 				<div class="col-md-4">
 				<img src="/imgs/ilustraciones_movil-01.png" alt="Obtén información para comprar propiedades usadas aptas para inversión" class="img-fluid" style="margin-top: 130px;">		
@@ -193,7 +186,7 @@
 	
 	<!--  	<div th:insert="fragments/linkedInTag :: linkedInTag"></div>-->
 		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>			
-	
+		
 	</body>		
 
 </html>
