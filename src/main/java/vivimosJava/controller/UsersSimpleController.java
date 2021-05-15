@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import vivimosJava.model.UsersSimpleDTO;
@@ -28,7 +30,7 @@ public class UsersSimpleController {
 	@Autowired
 	RestTemplate restTemplate;
 	
-	@Value("${recaptcha.secret}")
+	@Value("${recaptcha.secretkey}")
 	private String recaptchaSecret;
 	
 	@Value("${recaptcha.serverUrl}")
@@ -37,24 +39,36 @@ public class UsersSimpleController {
 
 	@GetMapping("/invierte")
 	public String showForm(Model model) {
+		
 		model.addAttribute("user", new UsersSimpleDTO());
 		return "invierte";
 	}
 	
+	
 	 @PostMapping("/invierteForm")
 	 //	public String submitInvierte(HttpServletRequest request, Model model) {
-	   public String submissionResult(@ModelAttribute("user") UsersSimpleDTO person) {
-		 	
-		 	
-		 	
-		 	usersSimpleService.insert(person);
+	   public String submissionResult(@ModelAttribute("user") UsersSimpleDTO person, @RequestParam(name="g-recaptcha-response", required=false) String captchaResponse) {
+				 
+		 String params= "?secret=6LfA9NQaAAAAAD9bb-DopfKuDkcz9JNXI2dvTMpJ&response"+captchaResponse;
+		 System.out.println("params= " + params);
+		 System.out.println("captchaResponse= "+captchaResponse);
+		 //String params= "?secret="+recaptchaSecret+"&response="+captchaResponse;
+		 
+		 ReCaptchaResponse reCaptchaResponse= restTemplate.exchange(recaptchaServerUrl+params, HttpMethod.POST,null,ReCaptchaResponse.class).getBody();
+		 
+		 
+		 if(reCaptchaResponse.isSuccess()) {
+			 System.out.println("recaptcha success");
+			 usersSimpleService.insert(person);
+		
+		 }else {
+			 System.out.println("recaptcha falla");
+		 }
+		 
 	        return "gracias-invertir-propiedades";
 	    }
 
-	
-		
-		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 
