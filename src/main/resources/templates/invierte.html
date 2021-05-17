@@ -53,6 +53,10 @@
 						<input type="email" class="btn btn-secondary" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required  placeholder="correo electrónico" th:field="*{email}" />
 						<input type="submit" class="btn btn-primary ms-3 " value="Invierte" />
 						<div class="g-recaptcha" th:data-sitekey="${@environment.getProperty('recaptcha.sitekey')}"></div>	
+	
+						<div id="captchaError" class="alert alert-danger col-sm-4" th:if="${responseClass}==false" th:text="${message}"></div>
+				
+						
 					</form>	
 				</div>	
 			
