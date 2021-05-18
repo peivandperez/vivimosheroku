@@ -51,8 +51,10 @@ public class UsersSimpleController {
 		model.addAttribute("responseClass",true);
 		}else {
 			model.addAttribute("responseClass",false);
+			responseClass=true;
 		}
 		return "invierte";
+	
 	}
 	
 	
