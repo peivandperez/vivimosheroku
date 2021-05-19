@@ -24,12 +24,8 @@
 	-->
 	
 	<!-- GOOGLE Recaptcha -->	
-	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-     <script>
-       function onSubmit(token) {
-         document.getElementById("formInvierte01").submit();
-       }
-     </script>
+	<script src="https://www.google.com/recaptcha/api.js"></script>
+     
 	</head>	
 
 
@@ -56,7 +52,11 @@
 						
 						<input type="email" class="btn btn-secondary" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required  placeholder="correo electrónico" th:field="*{email}" />
 						<input type="submit" class="btn btn-primary ms-3 " value="Invierte" />
-						<div class="g-recaptcha" th:data-sitekey="${@environment.getProperty('recaptcha.key')}" data-bind="recaptcha-submit" data-callback="onSubmit" th:field="*{g-recaptcha-response}"></div>	
+						<div class="g-recaptcha" th:data-sitekey="${@environment.getProperty('recaptcha.sitekey')}"></div>	
+	
+						<div id="captchaError" class="alert alert-danger col-sm-4" th:if="${responseClass}==false" th:text="${message}"></div>
+				
+						
 					</form>	
 				</div>	
 			
