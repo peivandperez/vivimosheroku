@@ -13,7 +13,6 @@ public class ReCaptchaErrorCodes {
 		reCaptchaErrorCodes.put("invalid-input-response	","The response parameter is invalid or malformed.");
 		reCaptchaErrorCodes.put("bad-request","The request is invalid or malformed.");
 		reCaptchaErrorCodes.put("timeout-or-duplicate","The response is no longer valid: either is too old or has been used previously.");
-
 	}
 }
 	

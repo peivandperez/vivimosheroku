@@ -1,7 +1,7 @@
 package vivimosJava.controller.recaptcha;
 
 import java.util.List;
-
+import java.util.stream.Collectors;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ReCaptchaResponse {
@@ -46,6 +46,24 @@ public class ReCaptchaResponse {
 		this.action = action;
 	}
 
+	
+	
+	public List<String> getErrorCodes() {
+		return errorCodes;
+	}
+
+	public void setErrorCodes(List<String> errorCodes) {
+		this.errorCodes = errorCodes;
+	}
+
+	public List<String> getErrors(){
+		if(getErrorCodes() !=null) {
+			return getErrorCodes().stream()
+					.map(ReCaptchaErrorCodes.reCaptchaErrorCodes::get)
+					.collect(Collectors.toList());			
+		}
+		return null;
+	}
 	@Override
 	public String toString() {
 		return "ReCaptchaResponse [success=" + success + ", score=" + score + ", action=" + action + ", challenge_ts="
