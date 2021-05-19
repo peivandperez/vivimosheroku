@@ -23,14 +23,14 @@ import org.springframework.web.client.RestTemplate;
 
 import vivimosJava.controller.recaptcha.ReCaptchaResponse;
 import vivimosJava.model.UsersSimpleDTO;
-import vivimosJava.service.ReCaptchaRegisterService;
+import vivimosJava.service.ReCaptchaRegisterServiceImpl;
 import vivimosJava.service.UsersSimpleService;
 
 @Controller
 public class UsersSimpleController {
 	
 	private final UsersSimpleService usersSimpleService;
-	private final ReCaptchaRegisterService reCaptchaRegisterService;
+	private final ReCaptchaRegisterServiceImpl reCaptchaRegisterService;
 	
 	
 	
@@ -39,7 +39,7 @@ public class UsersSimpleController {
 	
 	@Autowired
 	public UsersSimpleController(UsersSimpleService usersSimpleService,
-			ReCaptchaRegisterService reCaptchaRegisterService) {
+			ReCaptchaRegisterServiceImpl reCaptchaRegisterService) {
 		
 		this.usersSimpleService=usersSimpleService;
 		this.reCaptchaRegisterService = reCaptchaRegisterService;

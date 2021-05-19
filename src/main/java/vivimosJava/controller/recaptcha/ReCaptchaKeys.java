@@ -10,6 +10,7 @@ public class ReCaptchaKeys {
 	private String siteKey;
 	private String secretKey;
 	private String serverUrl;
+	private float threshold;
 	
 	public String getSiteKey() {
 		return siteKey;
@@ -28,6 +29,12 @@ public class ReCaptchaKeys {
 	}
 	public void setServerUrl(String serverUrl) {
 		this.serverUrl = serverUrl;
+	}
+	public float getThreshold() {
+		return threshold;
+	}
+	public void setThreshold(float threshold) {
+		this.threshold = threshold;
 	}
 	
 	

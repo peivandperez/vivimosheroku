@@ -10,14 +10,14 @@ import vivimosJava.controller.recaptcha.ReCaptchaKeys;
 import vivimosJava.controller.recaptcha.ReCaptchaResponse;
 
 @Service
-public class ReCaptchaRegisterService implements ReCaptchaService {
+public class ReCaptchaRegisterServiceImpl implements ReCaptchaService {
 	
 	private final ReCaptchaKeys reCaptchaKeys;
 	private final RestTemplate restTemplate;
 	
 	
 	@Autowired
-	public ReCaptchaRegisterService(ReCaptchaKeys reCaptchaKeys, RestTemplate restTemplate) {
+	public ReCaptchaRegisterServiceImpl(ReCaptchaKeys reCaptchaKeys, RestTemplate restTemplate) {
 		this.reCaptchaKeys=reCaptchaKeys;
 		this.restTemplate=restTemplate;
 	}
@@ -33,6 +33,14 @@ public class ReCaptchaRegisterService implements ReCaptchaService {
 		//make HTTP call using RestTemplate
 		
 		ReCaptchaResponse reCaptchaResponse = restTemplate.getForObject(verifyURI, ReCaptchaResponse.class);
+		
+		
+		if(reCaptchaResponse !=null) {
+			if(reCaptchaResponse.isSuccess() && (reCaptchaResponse.getScore() < reCaptchaKeys.getThreshold() 
+					|| !reCaptchaResponse.getAction().equals("invierteForm"))) {
+				reCaptchaResponse.setSuccess(false);
+			}
+		}	
 		return reCaptchaResponse;
 	}
 		
