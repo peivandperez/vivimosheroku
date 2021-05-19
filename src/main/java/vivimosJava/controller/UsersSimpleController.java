@@ -23,27 +23,30 @@ import org.springframework.web.client.RestTemplate;
 
 import vivimosJava.controller.recaptcha.ReCaptchaResponse;
 import vivimosJava.model.UsersSimpleDTO;
+import vivimosJava.service.ReCaptchaRegisterService;
 import vivimosJava.service.UsersSimpleService;
 
 @Controller
 public class UsersSimpleController {
 	
+	private final UsersSimpleService usersSimpleService;
+	private final ReCaptchaRegisterService reCaptchaRegisterService;
+	
+	
+	
 	boolean responseClass=true;
 
 	
 	@Autowired
-	UsersSimpleService usersSimpleService;
+	public UsersSimpleController(UsersSimpleService usersSimpleService,
+			ReCaptchaRegisterService reCaptchaRegisterService) {
+		
+		this.usersSimpleService=usersSimpleService;
+		this.reCaptchaRegisterService = reCaptchaRegisterService;
 	
-	@Autowired
-	RestTemplate restTemplate;
-	
-	@Value("${google.recaptcha.secretKey}")
-	private String recaptchaSecret;
-	
-	@Value("${google.recaptcha.serverUrl}")
-	private String recaptchaServerUrl;
-	
+	}
 
+	
 	@GetMapping("/invierte")
 	public String showForm(Model model) {
 		model.addAttribute("user", new UsersSimpleDTO());
@@ -62,11 +65,11 @@ public class UsersSimpleController {
 	 @PostMapping("/invierteForm")
 	   public String submissionResult(@ModelAttribute("user") UsersSimpleDTO person, @RequestParam(name="g-recaptcha-response") String response,
 			   BindingResult result,ModelMap model) {
+		 
+		 //Verify ReCaptcha response
+		 reCaptchaRegisterService.verify(response);
 			 
-		 String params= "?secret="+recaptchaSecret+"&response="+response; 
-		 ReCaptchaResponse reCaptchaResponse= restTemplate.exchange(recaptchaServerUrl+params, HttpMethod.POST,null,ReCaptchaResponse.class).getBody();
-		
-
+		 /*
 		 if(reCaptchaResponse.isSuccess()) {
 			 System.out.println("recaptcha success");
 			 System.out.println(reCaptchaResponse.getScore());
@@ -77,7 +80,8 @@ public class UsersSimpleController {
 			 responseClass=false;
 			 return "redirect:invierte";
 		 }
-		 	
+		 */
+		 	return "invierte";
 		
 	    }
 
