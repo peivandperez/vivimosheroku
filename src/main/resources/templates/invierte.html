@@ -55,13 +55,10 @@
 						
 						<input type="email" class="btn btn-secondary" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required  placeholder="correo electrónico" th:field="*{email}" />
 						
-						<button class="g-recaptcha btn btn-primary ms-3" 
-						th:data-sitekey="${@environment.getProperty('recaptcha.sitekey')}"
+						<button class="g-recaptcha btn btn-primary btn-lg" 
+						th:data-sitekey="${@environment.getProperty('google.recaptcha.siteKey')}"
 						data-callback="onSubmit"
 						data-action="submit">Invierte</button>	
-						
-	
-						<div id="captchaError" class="alert alert-danger col-sm-4" th:if="${responseClass}==false" th:text="${message}"></div>
 				
 						
 					</form>	
@@ -107,6 +104,7 @@
 					<form action="#" th:action="@{/invierteForm}" th:object="${user}" method="post">
 						<input type="email" class="btn btn-secondary" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required  placeholder="correo electrónico" th:field="*{email}" />
 						<input type="submit" class="btn btn-primary ms-3" value="Invierte" />	
+					
 					</form>	
 				</div>
 				

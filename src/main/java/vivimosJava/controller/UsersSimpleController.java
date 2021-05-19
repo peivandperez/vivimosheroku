@@ -36,10 +36,10 @@ public class UsersSimpleController {
 	@Autowired
 	RestTemplate restTemplate;
 	
-	@Value("${recaptcha.secretkey}")
+	@Value("${google.recaptcha.secretKey}")
 	private String recaptchaSecret;
 	
-	@Value("${recaptcha.serverUrl}")
+	@Value("${google.recaptcha.serverUrl}")
 	private String recaptchaServerUrl;
 	
 
@@ -68,6 +68,7 @@ public class UsersSimpleController {
 
 		 if(reCaptchaResponse.isSuccess()) {
 			 System.out.println("recaptcha success");
+			 System.out.println(reCaptchaResponse.getScore());
 			 usersSimpleService.insert(person);
 			  return "gracias-invertir-propiedades";
 		
