@@ -23,14 +23,17 @@
 	<meta name="keywords" content="Como vender departamento">
 	-->
 	
-	<!-- GOOGLE Recaptcha -->	
-	<script src="https://www.google.com/recaptcha/api.js"></script>
+
+
      
 	</head>	
 
 
 	<body>
-	
+		<!-- GOOGLE Recaptcha -->	
+	 	<script src="https://www.google.com/recaptcha/api.js"></script>
+	 	<!-- GOOGLE Recaptcha -->
+	 	
 	<div th:insert="fragments/menu :: menu"></div>
 	<header class="page-header gradient">
 		<div class="container-md pt-5">
@@ -51,8 +54,12 @@
 					<form action="#" th:action="@{/invierteForm}" th:object="${user}" method="post" id="formInvierte01">
 						
 						<input type="email" class="btn btn-secondary" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required  placeholder="correo electrónico" th:field="*{email}" />
-						<input type="submit" class="btn btn-primary ms-3 " value="Invierte" />
-						<div class="g-recaptcha" th:data-sitekey="${@environment.getProperty('recaptcha.sitekey')}"></div>	
+						
+						<button class="g-recaptcha btn btn-primary ms-3" 
+						th:data-sitekey="${@environment.getProperty('recaptcha.sitekey')}"
+						data-callback="onSubmit"
+						data-action="submit">Invierte</button>	
+						
 	
 						<div id="captchaError" class="alert alert-danger col-sm-4" th:if="${responseClass}==false" th:text="${message}"></div>
 				
