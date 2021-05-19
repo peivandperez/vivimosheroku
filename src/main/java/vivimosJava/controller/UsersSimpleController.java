@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
+import vivimosJava.controller.recaptcha.ReCaptchaResponse;
 import vivimosJava.model.UsersSimpleDTO;
 import vivimosJava.service.UsersSimpleService;
 
@@ -59,12 +60,12 @@ public class UsersSimpleController {
 	
 	
 	 @PostMapping("/invierteForm")
-	   public String submissionResult(@ModelAttribute("user") UsersSimpleDTO person, @RequestParam(name="g-recaptcha-response") String captchaResponse,
+	   public String submissionResult(@ModelAttribute("user") UsersSimpleDTO person, @RequestParam(name="g-recaptcha-response") String response,
 			   BindingResult result,ModelMap model) {
 			 
-		 String params= "?secret="+recaptchaSecret+"&response="+captchaResponse; 
+		 String params= "?secret="+recaptchaSecret+"&response="+response; 
 		 ReCaptchaResponse reCaptchaResponse= restTemplate.exchange(recaptchaServerUrl+params, HttpMethod.POST,null,ReCaptchaResponse.class).getBody();
-		 
+		
 
 		 if(reCaptchaResponse.isSuccess()) {
 			 System.out.println("recaptcha success");
