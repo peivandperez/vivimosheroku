@@ -10,6 +10,7 @@ public class ReCaptchaKeys {
 	private String siteKey;
 	private String secretKey;
 	private String serverUrl;
+	
 	public String getSiteKey() {
 		return siteKey;
 	}

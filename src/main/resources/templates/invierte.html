@@ -55,10 +55,10 @@
 						
 						<input type="email" class="btn btn-secondary" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required  placeholder="correo electrónico" th:field="*{email}" />
 						
-						<button class="g-recaptcha btn btn-primary btn-lg" 
-						th:data-sitekey="${@environment.getProperty('google.recaptcha.siteKey')}"
+						<button class="g-recaptcha btn btn-primary btn-block" 
+						th:data-sitekey="${@reCaptchaKeys.getSiteKey()}"
 						data-callback="onSubmit"
-						data-action="submit">Invierte</button>	
+						data-action="register">Invierte</button>	
 				
 						
 					</form>	
