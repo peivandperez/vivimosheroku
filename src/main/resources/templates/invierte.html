@@ -7,10 +7,6 @@
 		<div th:insert="fragments/head :: customCSS"></div>
 		<div th:insert="fragments/head :: landingCSS"></div>
 	<!--  	<div th:insert="fragments/pixels :: pixels"></div> -->
-		
-		
-		
-		
 
 	<!-- Insertar los tags individuales de cada página -->
 	<title>Invierte en propiedades</title>
@@ -23,14 +19,15 @@
 	<meta name="keywords" content="Como vender departamento">
 	-->
 	
-	<!-- GOOGLE Recaptcha -->	
-	<script src="https://www.google.com/recaptcha/api.js"></script>
+
+
      
 	</head>	
 
 
 	<body>
 	
+	 	
 	<div th:insert="fragments/menu :: menu"></div>
 	<header class="page-header gradient">
 		<div class="container-md pt-5">
@@ -49,13 +46,18 @@
 					</div>
 				</div>	
 					<form action="#" th:action="@{/invierteForm}" th:object="${user}" method="post" id="formInvierte01">
+						 <input type="hidden" name="g-recaptcha-response" class="recaptchaResponse">
+    					 <input type="hidden" name="action" value="invierteForm">
 						
-						<input type="email" class="btn btn-secondary" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required  placeholder="correo electrónico" th:field="*{email}" />
-						<input type="submit" class="btn btn-primary ms-3 " value="Invierte" />
-						<div class="g-recaptcha" th:data-sitekey="${@environment.getProperty('recaptcha.sitekey')}"></div>	
-	
-						<div id="captchaError" class="alert alert-danger col-sm-4" th:if="${responseClass}==false" th:text="${message}"></div>
-				
+						<input type="email" class="btn btn-secondary" id="validationDefaultUsername01"  aria-describedby="inputGroupPrepend" placeholder="correo electrónico" th:field="*{email}" required />
+						<input type="submit" class="btn btn-primary" value="Invierte" /> 
+						
+						 
+						<div class="my-2" th:if="${reCaptchaError}">
+							<div class="alert alert-danger text-left" th:each="code : ${reCaptchaError}">
+								ReCaptcha: <span th:text="${code}"></span>
+							</div>
+						</div>
 						
 					</form>	
 				</div>	
@@ -97,9 +99,13 @@
 					<p id="invierteSeccion03Titulo02">En Vivimos.cl te ayudamos a encontrar propiedades usadas 
 					ideales para invertir, con buenas proyecciones y rentabilidad.
 					</p>
-					<form action="#" th:action="@{/invierteForm}" th:object="${user}" method="post">
-						<input type="email" class="btn btn-secondary" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required  placeholder="correo electrónico" th:field="*{email}" />
+					
+					<form action="#" th:action="@{/invierteForm}" th:object="${user}" method="post" class="formInvierte">
+						 <input type="hidden" name="g-recaptcha-response" class="recaptchaResponse">
+    					 <input type="hidden" name="action" value="invierteForm">
+						<input type="email" class="btn btn-secondary" id="validationDefaultUsername02"  aria-describedby="inputGroupPrepend2" placeholder="correo electrónico" th:field="*{email}" required />
 						<input type="submit" class="btn btn-primary ms-3" value="Invierte" />	
+					
 					</form>	
 				</div>
 				
@@ -189,7 +195,34 @@
 	
 	
 	<!--  	<div th:insert="fragments/linkedInTag :: linkedInTag"></div>-->
-		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>			
+		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>		
+
+<!-- Google Recaptcha Script -->		
+
+
+
+
+<script src="https://www.google.com/recaptcha/api.js?render=6LcDGdsaAAAAAN5Lj-cfFjVMSFIyWWeeFjxAzYVt"></script>
+<script>
+    grecaptcha.ready(function() {
+    // do request for recaptcha token
+    // response is promise with passed token
+    
+    	
+        grecaptcha.execute('6LcDGdsaAAAAAN5Lj-cfFjVMSFIyWWeeFjxAzYVt', {action:'invierteForm'})
+                  .then(function(token) {
+            // add token value to form
+            document
+            .querySelectorAll(".recaptchaResponse")
+            .forEach(elem => (elem.value = token))
+         
+        });
+    });
+</script>
+	      
+
+
+
 		
 	</body>		
 

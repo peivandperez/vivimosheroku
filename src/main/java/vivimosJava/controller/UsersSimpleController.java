@@ -21,65 +21,50 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
+import vivimosJava.controller.recaptcha.ReCaptchaResponse;
 import vivimosJava.model.UsersSimpleDTO;
+import vivimosJava.service.ReCaptchaRegisterServiceImpl;
 import vivimosJava.service.UsersSimpleService;
 
 @Controller
 public class UsersSimpleController {
 	
-	boolean responseClass=true;
+	private final UsersSimpleService usersSimpleService;
+	private final ReCaptchaRegisterServiceImpl reCaptchaRegisterService;
+		
+	@Autowired
+	public UsersSimpleController(UsersSimpleService usersSimpleService,
+			ReCaptchaRegisterServiceImpl reCaptchaRegisterService) {
+		this.usersSimpleService=usersSimpleService;
+		this.reCaptchaRegisterService = reCaptchaRegisterService;	
+	}
 
 	
-	@Autowired
-	UsersSimpleService usersSimpleService;
-	
-	@Autowired
-	RestTemplate restTemplate;
-	
-	@Value("${recaptcha.secretkey}")
-	private String recaptchaSecret;
-	
-	@Value("${recaptcha.serverUrl}")
-	private String recaptchaServerUrl;
-	
-
 	@GetMapping("/invierte")
 	public String showForm(Model model) {
 		model.addAttribute("user", new UsersSimpleDTO());
-		model.addAttribute("message", "Completa el captcha");
-		if(responseClass==true) {
-		model.addAttribute("responseClass",true);
-		}else {
-			model.addAttribute("responseClass",false);
-			responseClass=true;
-		}
 		return "invierte";
 	
 	}
 	
 	
 	 @PostMapping("/invierteForm")
-	   public String submissionResult(@ModelAttribute("user") UsersSimpleDTO person, @RequestParam(name="g-recaptcha-response") String captchaResponse,
+	   public String submissionResult(@ModelAttribute("user") UsersSimpleDTO person, @RequestParam(name="g-recaptcha-response") String response,
 			   BindingResult result,ModelMap model) {
-			 
-		 String params= "?secret="+recaptchaSecret+"&response="+captchaResponse; 
-		 ReCaptchaResponse reCaptchaResponse= restTemplate.exchange(recaptchaServerUrl+params, HttpMethod.POST,null,ReCaptchaResponse.class).getBody();
 		 
-
-		 if(reCaptchaResponse.isSuccess()) {
-			 System.out.println("recaptcha success");
-			 usersSimpleService.insert(person);
-			  return "gracias-invertir-propiedades";
-		
-		 }else {
-			 responseClass=false;
-			 return "redirect:invierte";
-		 }
-		 	
-		
-	    }
-
-
+		 //Verify ReCaptcha response
+		 ReCaptchaResponse reCaptchaResponse= reCaptchaRegisterService.verify(response);
+		 	if(!reCaptchaResponse.isSuccess()) {
+		 		model.addAttribute("reCaptchaError", reCaptchaResponse.getErrors());
+		 	System.out.println(reCaptchaResponse.getErrorCodes());
+		 		return "invierte";
+		 	}else {
+		 		 System.out.println("recaptcha success");
+				 System.out.println(reCaptchaResponse.getScore());
+				 usersSimpleService.insert(person);
+				 return "gracias-invertir-propiedades";
+		 	}		 
+	    } 
 	}
 
 
