@@ -31,32 +31,18 @@ public class UsersSimpleController {
 	
 	private final UsersSimpleService usersSimpleService;
 	private final ReCaptchaRegisterServiceImpl reCaptchaRegisterService;
-	
-	
-	
-	boolean responseClass=true;
-
-	
+		
 	@Autowired
 	public UsersSimpleController(UsersSimpleService usersSimpleService,
 			ReCaptchaRegisterServiceImpl reCaptchaRegisterService) {
-		
 		this.usersSimpleService=usersSimpleService;
-		this.reCaptchaRegisterService = reCaptchaRegisterService;
-	
+		this.reCaptchaRegisterService = reCaptchaRegisterService;	
 	}
 
 	
 	@GetMapping("/invierte")
 	public String showForm(Model model) {
 		model.addAttribute("user", new UsersSimpleDTO());
-		model.addAttribute("message", "Completa el captcha");
-		if(responseClass==true) {
-		model.addAttribute("responseClass",true);
-		}else {
-			model.addAttribute("responseClass",false);
-			responseClass=true;
-		}
 		return "invierte";
 	
 	}
@@ -67,25 +53,18 @@ public class UsersSimpleController {
 			   BindingResult result,ModelMap model) {
 		 
 		 //Verify ReCaptcha response
-		 reCaptchaRegisterService.verify(response);
-			 
-		 /*
-		 if(reCaptchaResponse.isSuccess()) {
-			 System.out.println("recaptcha success");
-			 System.out.println(reCaptchaResponse.getScore());
-			 usersSimpleService.insert(person);
-			  return "gracias-invertir-propiedades";
-		
-		 }else {
-			 responseClass=false;
-			 return "redirect:invierte";
-		 }
-		 */
-		 	return "invierte";
-		
-	    }
-
-
+		 ReCaptchaResponse reCaptchaResponse= reCaptchaRegisterService.verify(response);
+		 	if(!reCaptchaResponse.isSuccess()) {
+		 		model.addAttribute("reCaptchaError", reCaptchaResponse.getErrors());
+		 	//	System.out.println(reCaptchaResponse.getErrorCodes());
+		 		return "invierte";
+		 	}else {
+		 		// System.out.println("recaptcha success");
+				 //System.out.println(reCaptchaResponse.getScore());
+				 usersSimpleService.insert(person);
+				 return "gracias-invertir-propiedades";
+		 	}		 
+	    } 
 	}
 
 

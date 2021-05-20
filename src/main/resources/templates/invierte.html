@@ -7,10 +7,6 @@
 		<div th:insert="fragments/head :: customCSS"></div>
 		<div th:insert="fragments/head :: landingCSS"></div>
 	<!--  	<div th:insert="fragments/pixels :: pixels"></div> -->
-		
-		
-		
-		
 
 	<!-- Insertar los tags individuales de cada página -->
 	<title>Invierte en propiedades</title>
@@ -59,7 +55,11 @@
 						th:data-sitekey="${@reCaptchaKeys.getSiteKey()}"
 						data-callback="onSubmit"
 						data-action="invierteForm">Invierte</button>	
-				
+						<div class="my-2" th:if="${reCaptchaError}">
+							<div class="alert alert-danger text-left" th:each="code : ${reCaptchaError}">
+								ReCaptcha: <span th:text="${code}"></span>
+							</div>
+						</div>
 						
 					</form>	
 				</div>	
