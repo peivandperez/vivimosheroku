@@ -45,11 +45,11 @@
 						</p>
 					</div>
 				</div>	
-					<form action="#" th:action="@{/invierteForm}" th:object="${user}" method="post" id="formInvierte01" class="needs-validation" novalidate>
-						 <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+					<form action="#" th:action="@{/invierteForm}" th:object="${user}" method="post" id="formInvierte01">
+						 <input type="hidden" name="g-recaptcha-response" class="recaptchaResponse">
     					 <input type="hidden" name="action" value="invierteForm">
 						
-						<input type="email" class="btn btn-secondary" id="validationDefaultUsername01"  aria-describedby="inputGroupPrepend" required  placeholder="correo electrónico" th:field="*{email}" />
+						<input type="email" class="btn btn-secondary" id="validationDefaultUsername01"  aria-describedby="inputGroupPrepend" placeholder="correo electrónico" th:field="*{email}" required />
 						<input type="submit" class="btn btn-primary" value="Invierte" /> 
 						
 						 
@@ -101,9 +101,9 @@
 					</p>
 					
 					<form action="#" th:action="@{/invierteForm}" th:object="${user}" method="post" class="formInvierte">
-						 <input type="hidden" id="g-recaptcha-response02" name="g-recaptcha-response">
+						 <input type="hidden" name="g-recaptcha-response" class="recaptchaResponse">
     					 <input type="hidden" name="action" value="invierteForm">
-						<input type="email" class="btn btn-secondary" id="validationDefaultUsername02"  aria-describedby="inputGroupPrepend2" required  placeholder="correo electrónico" th:field="*{email}" />
+						<input type="email" class="btn btn-secondary" id="validationDefaultUsername02"  aria-describedby="inputGroupPrepend2" placeholder="correo electrónico" th:field="*{email}" required />
 						<input type="submit" class="btn btn-primary ms-3" value="Invierte" />	
 					
 					</form>	
@@ -212,8 +212,10 @@
         grecaptcha.execute('6LcDGdsaAAAAAN5Lj-cfFjVMSFIyWWeeFjxAzYVt', {action:'invierteForm'})
                   .then(function(token) {
             // add token value to form
-            document.getElementById('g-recaptcha-response').value = token;
-            document.getElementById('g-recaptcha-response02').value = token;
+            document
+            .querySelectorAll(".recaptchaResponse")
+            .forEach(elem => (elem.value = token))
+         
         });
     });
 </script>
