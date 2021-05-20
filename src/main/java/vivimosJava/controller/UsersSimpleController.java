@@ -56,11 +56,11 @@ public class UsersSimpleController {
 		 ReCaptchaResponse reCaptchaResponse= reCaptchaRegisterService.verify(response);
 		 	if(!reCaptchaResponse.isSuccess()) {
 		 		model.addAttribute("reCaptchaError", reCaptchaResponse.getErrors());
-		 	//	System.out.println(reCaptchaResponse.getErrorCodes());
+		 	System.out.println(reCaptchaResponse.getErrorCodes());
 		 		return "invierte";
 		 	}else {
-		 		// System.out.println("recaptcha success");
-				 //System.out.println(reCaptchaResponse.getScore());
+		 		 System.out.println("recaptcha success");
+				 System.out.println(reCaptchaResponse.getScore());
 				 usersSimpleService.insert(person);
 				 return "gracias-invertir-propiedades";
 		 	}		 
