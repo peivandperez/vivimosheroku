@@ -194,36 +194,12 @@
 
 	
 	
-	<!--  	<div th:insert="fragments/linkedInTag :: linkedInTag"></div>-->
+<!--  	<div th:insert="fragments/linkedInTag :: linkedInTag"></div>-->
 		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>		
 
 <!-- Google Recaptcha Script -->		
-
-
-
-
-<script src="https://www.google.com/recaptcha/api.js?render=6LcDGdsaAAAAAN5Lj-cfFjVMSFIyWWeeFjxAzYVt"></script>
-<script>
-    grecaptcha.ready(function() {
-    // do request for recaptcha token
-    // response is promise with passed token
-    
-    	
-        grecaptcha.execute('6LcDGdsaAAAAAN5Lj-cfFjVMSFIyWWeeFjxAzYVt', {action:'invierteForm'})
-                  .then(function(token) {
-            // add token value to form
-            document
-            .querySelectorAll(".recaptchaResponse")
-            .forEach(elem => (elem.value = token))
-         
-        });
-    });
-</script>
-	      
-
-
-
-		
+	<div th:insert="fragments/reCaptcha :: reCaptcha"></div>	
+	     
 	</body>		
 
 </html>

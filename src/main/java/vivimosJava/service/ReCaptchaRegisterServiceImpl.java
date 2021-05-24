@@ -25,6 +25,7 @@ public class ReCaptchaRegisterServiceImpl implements ReCaptchaService {
 	@Override
 	public ReCaptchaResponse verify(String response) {
 		
+	
 		//API request
 		URI verifyURI= URI.create(
 				String.format("https://www.google.com/recaptcha/api/siteverify?secret=%s&response=%s",

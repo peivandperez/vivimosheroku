@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+
+<body>
+<div th:fragment="reCaptcha">
+	
+	<script th:src="@{'https://www.google.com/recaptcha/api.js?render='+${@environment.getProperty('google.recaptcha.siteKey')}}"></script>
+	<script th:inline="javascript">
+    grecaptcha.ready(function() {
+    	
+    // do request for recaptcha token
+    // response is promise with passed token
+ 
+    	
+    var siteKey= [[${@environment.getProperty('google.recaptcha.siteKey')}]]
+
+        grecaptcha.execute(siteKey, {action:'invierteForm'})
+                  .then(function(token) {
+            // add token value to form
+            document
+            .querySelectorAll(".recaptchaResponse")
+            .forEach(elem => (elem.value = token))
+         
+        });
+    });
+	 
+   </script> 
+ </div>
+	
+
+</body>
+  
+	 
+	
+	
+
+</html>
