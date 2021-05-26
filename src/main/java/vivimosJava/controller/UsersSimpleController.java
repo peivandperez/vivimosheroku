@@ -1,6 +1,9 @@
 package vivimosJava.controller;
 
 
+import java.io.UnsupportedEncodingException;
+
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +26,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import vivimosJava.controller.recaptcha.ReCaptchaResponse;
+import vivimosJava.model.MailDTO;
 import vivimosJava.model.UsersSimpleDTO;
-import vivimosJava.service.MailService;
+import vivimosJava.service.MailServiceImpl;
 import vivimosJava.service.ReCaptchaRegisterServiceImpl;
 import vivimosJava.service.UsersSimpleService;
 
@@ -42,8 +46,8 @@ public class UsersSimpleController {
 	}
 	
 	@Autowired
-	private MailService mailService;
-
+	private MailServiceImpl mailServiceImpl;
+	
 	
 	@GetMapping("/invierte")
 	public String showForm(Model model) {
@@ -54,8 +58,8 @@ public class UsersSimpleController {
 	
 	
 	 @PostMapping("/invierteForm")
-	   public String submissionResult(@ModelAttribute("user") UsersSimpleDTO person, @RequestParam(name="g-recaptcha-response") String response,
-			   BindingResult result,ModelMap model) {
+	   public String submissionResult(@ModelAttribute("user") UsersSimpleDTO person, MailDTO mailDTO, @RequestParam(name="g-recaptcha-response") String response,
+			   BindingResult result,ModelMap model) throws MessagingException, UnsupportedEncodingException {
 		 
 		 //Verify ReCaptcha response
 		 ReCaptchaResponse reCaptchaResponse= reCaptchaRegisterService.verify(response);
@@ -66,7 +70,14 @@ public class UsersSimpleController {
 		 	}else {
 		 		 System.out.println("recaptcha success");
 				 System.out.println(reCaptchaResponse.getScore());
-				 mailService.sendEmail(person.getEmail(), "Invierte en propiedades", "Hola, gracias por invertir con nosotros");
+				 mailDTO.setMailTo(person.getEmail());
+				 mailDTO.setMailFrom("p.perez@vivimos.cl");
+				 mailDTO.setMailSubject("Gracias por querer invertir con nosotros");
+				 mailDTO.setMailContent("<html>Hola, <b>muchas gracias</b> por escribirnos. Te dejamos los siguientes links</html>");
+				
+				 mailServiceImpl.sendMail(mailDTO);
+				 //mailServiceImpl.sendMailAttachment(mailDTO);
+		
 				 usersSimpleService.insert(person);
 				 return "gracias-invertir-propiedades";
 		 	}		 

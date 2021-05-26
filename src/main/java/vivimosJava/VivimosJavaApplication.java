@@ -18,4 +18,5 @@ public class VivimosJavaApplication {
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
+	
 }
