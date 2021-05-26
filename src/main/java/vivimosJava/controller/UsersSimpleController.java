@@ -73,8 +73,8 @@ public class UsersSimpleController {
 				 mailDTO.setMailTo(person.getEmail());
 				 mailDTO.setMailFrom("p.perez@vivimos.cl");
 				 mailDTO.setMailSubject("Gracias por querer invertir con nosotros");
-				 mailDTO.setMailContent("<html>Hola, <b>muchas gracias</b> por escribirnos. Te dejamos los siguientes links</html>");
-				
+				 mailDTO.setMailContent("<html>Hola, <b>muchas gracias</b> por escribirnos. <p>Te dejamos los siguientes links</p></br><a href='https://vivimos.cl'>Vivimos.cl</a></html>");
+		
 				 mailServiceImpl.sendMail(mailDTO);
 				 //mailServiceImpl.sendMailAttachment(mailDTO);
 		

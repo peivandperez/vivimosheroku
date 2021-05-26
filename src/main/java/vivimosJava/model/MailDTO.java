@@ -2,6 +2,8 @@ package vivimosJava.model;
 
 import java.util.List;
 
+import javax.mail.Multipart;
+
 public class MailDTO {
 	private String mailFrom;
 	private String mailTo;
@@ -60,8 +62,8 @@ public class MailDTO {
 		return mailContent;
 	}
 
-	public void setMailContent(String mailContent) {
-		this.mailContent = mailContent;
+	public void setMailContent(String string) {
+		this.mailContent = string;
 	}
 
 	public String getContentType() {

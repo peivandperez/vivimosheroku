@@ -3,15 +3,17 @@ package vivimosJava.service;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 
+import javax.mail.BodyPart;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
 import javax.mail.internet.MimeMessage;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.mail.internet.MimeMultipart;
+
 import org.springframework.core.io.FileSystemResource;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import org.springframework.mail.javamail.MimeMessageHelper;  
+import org.springframework.mail.javamail.MimeMessageHelper;
 
 import vivimosJava.model.MailDTO;
 
@@ -32,14 +34,15 @@ public class MailServiceImpl {
 		MimeMessage mimeMessage=javaMailSender.createMimeMessage();
 		MimeMessageHelper mimeMessageHelper= new MimeMessageHelper(mimeMessage);
 		
+		
+		
 		try {
 			
 			mimeMessageHelper.setSubject(mailDTO.getMailSubject());
 			mimeMessageHelper.setFrom(mailDTO.getMailFrom(),"Invierte Vivimos");
 			mimeMessageHelper.setTo(mailDTO.getMailTo()+"<"+mailDTO.getMailTo()+">");
 			mimeMessageHelper.setText(mailDTO.getMailContent(),true);
-			
-			
+					
 			javaMailSender.send(mimeMessage);
 			
 		} catch (MessagingException e) {
