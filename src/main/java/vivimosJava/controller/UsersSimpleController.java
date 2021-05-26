@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -23,6 +24,7 @@ import org.springframework.web.client.RestTemplate;
 
 import vivimosJava.controller.recaptcha.ReCaptchaResponse;
 import vivimosJava.model.UsersSimpleDTO;
+import vivimosJava.service.MailService;
 import vivimosJava.service.ReCaptchaRegisterServiceImpl;
 import vivimosJava.service.UsersSimpleService;
 
@@ -38,6 +40,9 @@ public class UsersSimpleController {
 		this.usersSimpleService=usersSimpleService;
 		this.reCaptchaRegisterService = reCaptchaRegisterService;	
 	}
+	
+	@Autowired
+	private MailService mailService;
 
 	
 	@GetMapping("/invierte")
@@ -61,6 +66,7 @@ public class UsersSimpleController {
 		 	}else {
 		 		 System.out.println("recaptcha success");
 				 System.out.println(reCaptchaResponse.getScore());
+				 mailService.sendEmail(person.getEmail(), "Invierte en propiedades", "Hola, gracias por invertir con nosotros");
 				 usersSimpleService.insert(person);
 				 return "gracias-invertir-propiedades";
 		 	}		 

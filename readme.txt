@@ -22,3 +22,10 @@ Fecha: 30-04-2021
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		
+		
+		
+spring.mail.host=mail.vivimos.cl
+spring.mail.port=465
+spring.mail.username=p.perez@vivimos.cl
+spring.mail.password=po098765		
