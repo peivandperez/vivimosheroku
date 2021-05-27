@@ -28,6 +28,7 @@ import org.springframework.web.client.RestTemplate;
 import vivimosJava.controller.recaptcha.ReCaptchaResponse;
 import vivimosJava.model.MailDTO;
 import vivimosJava.model.UsersSimpleDTO;
+import vivimosJava.service.MailService;
 import vivimosJava.service.MailServiceImpl;
 import vivimosJava.service.ReCaptchaRegisterServiceImpl;
 import vivimosJava.service.UsersSimpleService;
@@ -46,7 +47,7 @@ public class UsersSimpleController {
 	}
 	
 	@Autowired
-	private MailServiceImpl mailServiceImpl;
+	MailService mailService;
 	
 	
 	@GetMapping("/invierte")
@@ -72,11 +73,12 @@ public class UsersSimpleController {
 				 System.out.println(reCaptchaResponse.getScore());
 				 mailDTO.setMailTo(person.getEmail());
 				 mailDTO.setMailFrom("p.perez@vivimos.cl");
+				 mailDTO.setMailFromPersonal("Invierte Vivimos");
 				 mailDTO.setMailSubject("Gracias por querer invertir con nosotros");
 				 mailDTO.setMailContent("<html>Hola, <b>muchas gracias</b> por escribirnos. <p>Te dejamos los siguientes links</p></br><a href='https://vivimos.cl'>Vivimos.cl</a></html>");
 		
-				 mailServiceImpl.sendMail(mailDTO);
-				 //mailServiceImpl.sendMailAttachment(mailDTO);
+				 mailService.sendMail(mailDTO);
+				 //mailService.sendMailAttachment(mailDTO);
 		
 				 usersSimpleService.insert(person);
 				 return "gracias-invertir-propiedades";

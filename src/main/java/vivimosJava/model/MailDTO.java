@@ -13,6 +13,7 @@ public class MailDTO {
 	private String mailContent;
 	private String contentType;
 	private List< Object > attachments;
+	private String mailFromPersonal;
 	
 	public MailDTO(){
 		contentType="text/plain";
@@ -80,6 +81,14 @@ public class MailDTO {
 
 	public void setAttachments(List<Object> attachments) {
 		this.attachments = attachments;
+	}
+
+	public String getMailFromPersonal() {
+		return mailFromPersonal;
+	}
+
+	public void setMailFromPersonal(String mailFromPersonal) {
+		this.mailFromPersonal = mailFromPersonal;
 	}
 	
 }

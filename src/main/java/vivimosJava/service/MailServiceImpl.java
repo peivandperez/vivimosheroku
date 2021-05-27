@@ -9,6 +9,7 @@ import javax.mail.Multipart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
@@ -18,9 +19,10 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import vivimosJava.model.MailDTO;
 
 @Service
-public class MailServiceImpl {
-
-	private JavaMailSender javaMailSender;
+public class MailServiceImpl implements MailService {
+	
+	@Autowired
+	JavaMailSender javaMailSender;
 	
 	public MailServiceImpl(JavaMailSender javaMailSender) {
 		this.javaMailSender=javaMailSender;	
@@ -30,6 +32,7 @@ public class MailServiceImpl {
 
 	
 	@Async
+	@Override
 	public void sendMail(MailDTO mailDTO) throws UnsupportedEncodingException {
 		MimeMessage mimeMessage=javaMailSender.createMimeMessage();
 		MimeMessageHelper mimeMessageHelper= new MimeMessageHelper(mimeMessage);
@@ -39,7 +42,7 @@ public class MailServiceImpl {
 		try {
 			
 			mimeMessageHelper.setSubject(mailDTO.getMailSubject());
-			mimeMessageHelper.setFrom(mailDTO.getMailFrom(),"Invierte Vivimos");
+			mimeMessageHelper.setFrom(mailDTO.getMailFrom(), mailDTO.getMailFromPersonal());
 			mimeMessageHelper.setTo(mailDTO.getMailTo()+"<"+mailDTO.getMailTo()+">");
 			mimeMessageHelper.setText(mailDTO.getMailContent(),true);
 					
@@ -51,6 +54,7 @@ public class MailServiceImpl {
 	}
 	
 	@Async
+	@Override
 	public void sendMailAttachment(MailDTO mailDTO) throws MessagingException {
 		MimeMessage mimeMessage=javaMailSender.createMimeMessage();
 		MimeMessageHelper mimeMessageHelper= new MimeMessageHelper(mimeMessage,true);

@@ -12,7 +12,6 @@ public class UsersSimpleServiceImpl implements UsersSimpleService {
 	@Autowired
 	UsersSimpleDAO usersSimpleDAO;
 
-
 	@Override
 	public int insert(UsersSimpleDTO usersSimpleDTO) {
 		return usersSimpleDAO.insert(usersSimpleDTO);
