@@ -4,34 +4,24 @@ package vivimosJava.controller;
 import java.io.UnsupportedEncodingException;
 
 import javax.mail.MessagingException;
-import javax.servlet.http.HttpServletRequest;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.mail.javamail.JavaMailSender;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.util.LinkedMultiValueMap;
+
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.client.RestTemplate;
-
 import vivimosJava.controller.recaptcha.ReCaptchaResponse;
 import vivimosJava.model.MailDTO;
 import vivimosJava.model.UsersSimpleDTO;
 import vivimosJava.service.MailDetails;
-import vivimosJava.service.MailDetailsImpl;
 import vivimosJava.service.MailService;
-import vivimosJava.service.MailServiceImpl;
 import vivimosJava.service.ReCaptchaRegisterServiceImpl;
 import vivimosJava.service.UsersSimpleService;
 
