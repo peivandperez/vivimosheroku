@@ -43,7 +43,7 @@ public class MailServiceImpl implements MailService {
 			
 			mimeMessageHelper.setSubject(mailDTO.getMailSubject());
 			mimeMessageHelper.setFrom(mailDTO.getMailFrom(), mailDTO.getMailFromPersonal());
-			mimeMessageHelper.setTo(mailDTO.getMailTo()+"<"+mailDTO.getMailTo()+">");
+			mimeMessageHelper.setTo(mailDTO.getMailToName()+"<"+mailDTO.getMailTo()+">");
 			mimeMessageHelper.setText(mailDTO.getMailContent(),true);
 					
 			javaMailSender.send(mimeMessage);

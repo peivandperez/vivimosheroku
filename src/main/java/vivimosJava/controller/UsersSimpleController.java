@@ -72,6 +72,7 @@ public class UsersSimpleController {
 		 		 System.out.println("recaptcha success");
 				 System.out.println(reCaptchaResponse.getScore());
 				 mailDTO.setMailTo(person.getEmail());
+				 mailDTO.setMailToName(person.getEmail());
 				 mailDTO.setMailFrom("p.perez@vivimos.cl");
 				 mailDTO.setMailFromPersonal("Invierte Vivimos");
 				 mailDTO.setMailSubject("Gracias por querer invertir con nosotros");
