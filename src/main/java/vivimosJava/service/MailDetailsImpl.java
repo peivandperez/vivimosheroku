@@ -13,7 +13,7 @@ public class MailDetailsImpl implements MailDetails{
 		
 		String from="p.perez@vivimos.cl";
 		String fromPersonal="Invierte Vivimos";
-		String subjectDetail="Hola";
+		String subjectDetail="Invierte en propiedades con Vivimos.cl";
 		String content="<html>Hola, <b>muchas gracias</b> por escribirnos. <p>Te dejamos los siguientes links</p></br><a href='https://vivimos.cl'>Vivimos.cl</a></html>'";
 		
 		mailDTO.setMailFrom(from);
