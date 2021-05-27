@@ -8,6 +8,7 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableAsync
+
 public class VivimosJavaApplication {
 
 	public static void main(String[] args) {
@@ -18,4 +19,8 @@ public class VivimosJavaApplication {
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
+	
+	
+
+
 }

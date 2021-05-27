@@ -1,31 +1,14 @@
 package vivimosJava.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Service;
+import java.io.UnsupportedEncodingException;
+import javax.mail.MessagingException;
 
-@Service
-public class MailService {
-	@Autowired
-	private JavaMailSender javaMailSender;
+import org.springframework.context.annotation.Bean;
+
+import vivimosJava.model.MailDTO;
+
+public interface MailService {
 	
-	public MailService(JavaMailSender javaMailSender) {
-		this.javaMailSender=javaMailSender;	
-		}
-	
-	
-	@Async
-	public void sendEmail(String toMail,String subject,String text) {
-	
-		
-		SimpleMailMessage message=new SimpleMailMessage();
-		message.setTo(toMail);
-		message.setSubject(subject);
-		message.setText(text);
-		message.setFrom("p.perez@vivimos.cl");
-		javaMailSender.send(message);
-	}
-	
+	public void sendMail(MailDTO mailDTO) throws UnsupportedEncodingException;
+	public void sendMailAttachment(MailDTO mailDTO) throws MessagingException;
 }
