@@ -2,6 +2,7 @@ package vivimosJava.service;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
+import java.util.Map;
 
 import javax.mail.BodyPart;
 import javax.mail.MessagingException;
@@ -14,6 +15,8 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.context.Context;
+import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.springframework.mail.javamail.MimeMessageHelper;
 
 import vivimosJava.model.MailDTO;
@@ -27,6 +30,19 @@ public class MailServiceImpl implements MailService {
 	public MailServiceImpl(JavaMailSender javaMailSender) {
 		this.javaMailSender=javaMailSender;	
 		}
+	
+	@Autowired
+	private SpringTemplateEngine thymeleafTemplateEngine;
+	
+	@Async
+	public void sendMessageUsingThymleafTemplate(MailDTO mailDTO, Map<String,Object> templateModel)
+			throws MessagingException {
+		Context thymeleafContext = new Context();
+		thymeleafContext.setVariables(templateModel);
+		String htmlBody= thymeleafTemplateEngine.process("NewFile.html", thymeleafContext);
+	}
+	
+	
 	
 	@Async
 	@Override
