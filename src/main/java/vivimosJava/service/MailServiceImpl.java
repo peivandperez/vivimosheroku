@@ -28,9 +28,6 @@ public class MailServiceImpl implements MailService {
 		this.javaMailSender=javaMailSender;	
 		}
 	
-	
-
-	
 	@Async
 	@Override
 	public void sendMail(MailDTO mailDTO) throws UnsupportedEncodingException {
@@ -41,9 +38,9 @@ public class MailServiceImpl implements MailService {
 		
 		try {
 			
-			mimeMessageHelper.setSubject(mailDTO.getMailSubject());
 			mimeMessageHelper.setFrom(mailDTO.getMailFrom(), mailDTO.getMailFromPersonal());
 			mimeMessageHelper.setTo(mailDTO.getMailToName()+"<"+mailDTO.getMailTo()+">");
+			mimeMessageHelper.setSubject(mailDTO.getMailSubject());
 			mimeMessageHelper.setText(mailDTO.getMailContent(),true);
 					
 			javaMailSender.send(mimeMessage);
