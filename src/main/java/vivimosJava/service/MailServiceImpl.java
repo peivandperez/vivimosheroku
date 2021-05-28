@@ -38,9 +38,9 @@ public class MailServiceImpl implements MailService {
 	
 	@Override
 	@Async
-	public void sendMessageUsingThymleafTemplate(MailDTO mailDTO, final Locale locale)
+	public void sendMessageUsingThymleafTemplate(MailDTO mailDTO)
 			throws MessagingException, UnsupportedEncodingException {
-		Context thymeleafContext = new Context(locale);
+		Context thymeleafContext = new Context();
 		
 		MimeMessage mimeMessage=javaMailSender.createMimeMessage();
 		MimeMessageHelper mimeMessageHelper= new MimeMessageHelper(mimeMessage,true,"UTF-8");
@@ -49,8 +49,11 @@ public class MailServiceImpl implements MailService {
 		System.out.println("context " + thymeleafContext.getVariable("email"));
 		//thymeleafContext.setVariables(model);
 	
-		String htmlBody= this.thymeleafTemplateEngine.process("mailThymeleaf", thymeleafContext);
-		//String htmlBody= thymeleafTemplateEngine.process("mailThymeleaf.html", thymeleafContext);
+		String htmlBody= thymeleafTemplateEngine.process("mailInvierte", thymeleafContext);
+		System.out.println("mail procesado por thymelaf");
+
+		
+		
 		
 		try {
 			
@@ -60,6 +63,7 @@ public class MailServiceImpl implements MailService {
 			mimeMessageHelper.setText(htmlBody,true); //(HTML body, true)
 					
 			javaMailSender.send(mimeMessage);
+			System.out.println("mail enviado");
 			
 		} catch (MessagingException e) {
 			e.printStackTrace();

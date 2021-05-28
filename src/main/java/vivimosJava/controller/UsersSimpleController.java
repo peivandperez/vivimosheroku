@@ -69,7 +69,7 @@ public class UsersSimpleController {
 				 mailDetails.mailInvierte(mailDTO);
 				 mailDTO.setMailTo(usersSimpleDTO.getEmail());
 				 mailDTO.setMailToName(usersSimpleDTO.getEmail());
-				 mailService.sendMessageUsingThymleafTemplate(mailDTO, null);
+				 mailService.sendMessageUsingThymleafTemplate(mailDTO);
 			
 				 usersSimpleService.insert(usersSimpleDTO);
 				 return "gracias-invertir-propiedades";
