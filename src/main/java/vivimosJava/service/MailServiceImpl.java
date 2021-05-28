@@ -2,6 +2,7 @@ package vivimosJava.service;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.mail.BodyPart;
@@ -15,6 +16,7 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -34,12 +36,36 @@ public class MailServiceImpl implements MailService {
 	@Autowired
 	private SpringTemplateEngine thymeleafTemplateEngine;
 	
+	@Override
 	@Async
-	public void sendMessageUsingThymleafTemplate(MailDTO mailDTO, Map<String,Object> templateModel)
-			throws MessagingException {
-		Context thymeleafContext = new Context();
-		thymeleafContext.setVariables(templateModel);
-		String htmlBody= thymeleafTemplateEngine.process("NewFile.html", thymeleafContext);
+	public void sendMessageUsingThymleafTemplate(MailDTO mailDTO, final Locale locale)
+			throws MessagingException, UnsupportedEncodingException {
+		Context thymeleafContext = new Context(locale);
+		
+		MimeMessage mimeMessage=javaMailSender.createMimeMessage();
+		MimeMessageHelper mimeMessageHelper= new MimeMessageHelper(mimeMessage,true,"UTF-8");
+		thymeleafContext.setVariable("email", mailDTO.getMailTo());
+		//thymeleafContext.getVariable("email");
+		System.out.println("context " + thymeleafContext.getVariable("email"));
+		//thymeleafContext.setVariables(model);
+	
+		String htmlBody= this.thymeleafTemplateEngine.process("mailThymeleaf", thymeleafContext);
+		//String htmlBody= thymeleafTemplateEngine.process("mailThymeleaf.html", thymeleafContext);
+		
+		try {
+			
+			mimeMessageHelper.setFrom(mailDTO.getMailFrom(), mailDTO.getMailFromPersonal());
+			mimeMessageHelper.setTo(mailDTO.getMailToName()+"<"+mailDTO.getMailTo()+">");
+			mimeMessageHelper.setSubject(mailDTO.getMailSubject());
+			mimeMessageHelper.setText(htmlBody,true); //(HTML body, true)
+					
+			javaMailSender.send(mimeMessage);
+			
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		}
+		
+		
 	}
 	
 	
@@ -49,9 +75,7 @@ public class MailServiceImpl implements MailService {
 	public void sendMail(MailDTO mailDTO) throws UnsupportedEncodingException, MessagingException {
 		MimeMessage mimeMessage=javaMailSender.createMimeMessage();
 		MimeMessageHelper mimeMessageHelper= new MimeMessageHelper(mimeMessage,true,"UTF-8");
-		
-		
-		
+	
 		try {
 			
 			mimeMessageHelper.setFrom(mailDTO.getMailFrom(), mailDTO.getMailFromPersonal());

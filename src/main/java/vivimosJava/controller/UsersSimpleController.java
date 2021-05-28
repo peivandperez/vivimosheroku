@@ -55,7 +55,7 @@ public class UsersSimpleController {
 	
 	
 	 @PostMapping("/invierteForm")
-	   public String submissionResult(@ModelAttribute("user") UsersSimpleDTO person, MailDTO mailDTO, @RequestParam(name="g-recaptcha-response") String response,
+	   public String submissionResult(@ModelAttribute("user") UsersSimpleDTO usersSimpleDTO, MailDTO mailDTO, @RequestParam(name="g-recaptcha-response") String response,
 			   BindingResult result,ModelMap model) throws MessagingException, UnsupportedEncodingException {
 		 
 		 //Verify ReCaptcha response
@@ -67,11 +67,11 @@ public class UsersSimpleController {
 		 	}else {
 		 		
 				 mailDetails.mailInvierte(mailDTO);
-				 mailDTO.setMailTo(person.getEmail());
-				 mailDTO.setMailToName(person.getEmail());
-				 mailService.sendMail(mailDTO);
+				 mailDTO.setMailTo(usersSimpleDTO.getEmail());
+				 mailDTO.setMailToName(usersSimpleDTO.getEmail());
+				 mailService.sendMessageUsingThymleafTemplate(mailDTO, null);
 			
-				 usersSimpleService.insert(person);
+				 usersSimpleService.insert(usersSimpleDTO);
 				 return "gracias-invertir-propiedades";
 		 	}		 
 	    } 

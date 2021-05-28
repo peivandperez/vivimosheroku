@@ -19,6 +19,6 @@ public class MailDetailsImpl implements MailDetails{
 		mailDTO.setMailFrom(from);
 		mailDTO.setMailFromPersonal(fromPersonal);
 		mailDTO.setMailSubject(subjectDetail);
-		mailDTO.setMailContent(content);
+		//mailDTO.setMailContent(content);
 	}
 }
