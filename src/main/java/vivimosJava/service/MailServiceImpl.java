@@ -45,22 +45,16 @@ public class MailServiceImpl implements MailService {
 		MimeMessage mimeMessage=javaMailSender.createMimeMessage();
 		MimeMessageHelper mimeMessageHelper= new MimeMessageHelper(mimeMessage,true,"UTF-8");
 		thymeleafContext.setVariable("email", mailDTO.getMailTo());
-		//thymeleafContext.getVariable("email");
-		System.out.println("context " + thymeleafContext.getVariable("email"));
-		//thymeleafContext.setVariables(model);
 	
-		String htmlBody= thymeleafTemplateEngine.process("mailInvierte", thymeleafContext);
-		System.out.println("mail procesado por thymelaf");
+		String htmlBody= thymeleafTemplateEngine.process("mailThymeleaf", thymeleafContext);
 
-		
-		
-		
 		try {
 			
 			mimeMessageHelper.setFrom(mailDTO.getMailFrom(), mailDTO.getMailFromPersonal());
 			mimeMessageHelper.setTo(mailDTO.getMailToName()+"<"+mailDTO.getMailTo()+">");
 			mimeMessageHelper.setSubject(mailDTO.getMailSubject());
 			mimeMessageHelper.setText(htmlBody,true); //(HTML body, true)
+		
 					
 			javaMailSender.send(mimeMessage);
 			System.out.println("mail enviado");
