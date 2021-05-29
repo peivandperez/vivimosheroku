@@ -33,27 +33,22 @@ public class MailServiceImpl implements MailService {
 		this.javaMailSender=javaMailSender;	
 		}
 	
-	@Autowired
-	private SpringTemplateEngine thymeleafTemplateEngine;
 	
 	@Override
 	@Async
 	public void sendMessageUsingThymleafTemplate(MailDTO mailDTO)
 			throws MessagingException, UnsupportedEncodingException {
-		Context thymeleafContext = new Context();
 		
 		MimeMessage mimeMessage=javaMailSender.createMimeMessage();
 		MimeMessageHelper mimeMessageHelper= new MimeMessageHelper(mimeMessage,true,"UTF-8");
-		thymeleafContext.setVariable("email", mailDTO.getMailTo());
 	
-		String htmlBody= thymeleafTemplateEngine.process("mailThymeleaf", thymeleafContext);
 
 		try {
 			
 			mimeMessageHelper.setFrom(mailDTO.getMailFrom(), mailDTO.getMailFromPersonal());
 			mimeMessageHelper.setTo(mailDTO.getMailToName()+"<"+mailDTO.getMailTo()+">");
 			mimeMessageHelper.setSubject(mailDTO.getMailSubject());
-			mimeMessageHelper.setText(htmlBody,true); //(HTML body, true)
+			mimeMessageHelper.setText(mailDTO.getMailContent(),true);
 		
 					
 			javaMailSender.send(mimeMessage);

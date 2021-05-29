@@ -66,9 +66,9 @@ public class UsersSimpleController {
 		 		return "invierte";
 		 	}else {
 		 		
-				 mailDetails.mailInvierte(mailDTO);
-				 mailDTO.setMailTo(usersSimpleDTO.getEmail());
+		 		 mailDTO.setMailTo(usersSimpleDTO.getEmail());
 				 mailDTO.setMailToName(usersSimpleDTO.getEmail());
+				 mailDetails.mailInvierte(mailDTO); 
 				 mailService.sendMessageUsingThymleafTemplate(mailDTO);
 			
 				 usersSimpleService.insert(usersSimpleDTO);

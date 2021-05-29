@@ -1,31 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<meta charset="UTF-8">
-
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Change Title Name</title>
 	</head>
 
 	<body>
-		Hola,
-		<p>Bienvenido a InvierteVivimos.
-		Queremos ayudarte a invertir en propiedades de manera intuitiva y fácil.
-		</p>
+			Hola, 
+			<p>Te damos la bienvenida a InvierteVivimos de <i>Vivimos.cl</i></p>
+			<p>
+			Queremos ayudarte a invertir en propiedades de manera intuitiva y fácil.
+			</p>
+	
+			<p>
+			¿Quieres una introducción rápida a la inversión en propiedades?</br>
+			<a th:href="@{https://vivimos.cl/como-invertir-en-propiedades}">Puedes descargar nuestra guía en PDF aquí.</a></p>
+	
+			
+			<h4>Ver algunas de nuestras propiedades disponibles:</h4>
+			<ul>
+				<li><a th:href="@{https://vivimos.cl/product/estcentral2dorm-santa-petronila-32-cod-1320}"> Metro Las Rejas (L1)</a>, Estación Central, UF 2.290</li>
+				<li><a th:href="@{https://vivimos.cl/product/stgo1dorm_santa_rosa_991_cod_1267}"> Metro Matta (L3), Santiago Centro</a>, UF 2.190</li>
+			
+			</ul>
+			
+	
+			<h4>¿No sabes bien qué necesitas? </h4>
+			Puedes conversar con nosotros para recibir una asesoría personalizada.</br>
+			Puedes contestar este mail, mandarnos un <a th:href="@{'https://api.whatsapp.com/send?phone=56989997466&text=Hola, quisiera consultar por propiedades para inversión. Mi mail es: '+${email}}">WhatsApp</a>, o llamarnos al <a href="tel:56989997466">+56 9 8999 7466</a> 
+		
+			</p>
 
-		<p>
-		¿Quieres una introducción rápida a la inversión en propiedades? 
-		<a href='https://vivimos.cl/como-invertir-en-propiedades'>Puedes descargar nuestra guía en PDF aquí.</a></p>
-
-		<p>
-		<h4>Ver algunas de nuestras propiedades disponibles:</h4>
-		 Metro Las Rejas (L1), Estación Central, UF 2.290 <a href='https://vivimos.cl/product/estcentral2dorm-santa-petronila-32-cod-1320/'>Depto 2 Dorm + 1 Baño + Estacionamiento + Bodega</a></br>
-		 Metro Matta (L3), Santiago Centro, UF 2.190 <a href='https://vivimos.cl/product/stgo1dorm_santa_rosa_991_cod_1267/'>Depto 1 Dorm + 1 Baño</a>
-		</p>
-<p>
-¿No sabes bien qué necesitas? Puedes conversar con nosotros para recibir una asesoría personalizada. Puedes contestar este mail, mandarnos un WhatsApp o llamarnos al +56 9 8999 7466. 
-</p>
-
-Quedamos atentos a cualquier duda!</br>
-Equipo Vivimos.cl
+			
+	<p>
+	¡Quedamos atentos a cualquier duda!</br>
+	Equipo Vivimos.cl
+	</p>		
+	
 	</body>		
 
 </html>
