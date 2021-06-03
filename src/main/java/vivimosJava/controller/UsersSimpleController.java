@@ -1,6 +1,7 @@
 package vivimosJava.controller;
 
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import javax.mail.MessagingException;
@@ -68,8 +69,14 @@ public class UsersSimpleController {
 		 		
 		 		 mailDTO.setMailTo(usersSimpleDTO.getEmail());
 				 mailDTO.setMailToName(usersSimpleDTO.getEmail());
-				 mailDetails.mailInvierte(mailDTO); 
-				 mailService.sendMessageUsingThymleafTemplate(mailDTO);
+				 try {
+					mailService.sendMailSendgrid(mailDTO);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				 //mailDetails.mailInvierte(mailDTO); 
+				// mailService.sendMessageUsingThymleafTemplate(mailDTO);
 			
 				 usersSimpleService.insert(usersSimpleDTO);
 				 return "gracias-invertir-propiedades";

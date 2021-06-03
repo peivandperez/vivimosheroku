@@ -1,7 +1,9 @@
 package vivimosJava.service;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Map;
 
@@ -12,6 +14,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
@@ -19,12 +22,28 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring5.SpringTemplateEngine;
+
+import com.sendgrid.Method;
+import com.sendgrid.Request;
+import com.sendgrid.Response;
+import com.sendgrid.SendGrid;
+import com.sendgrid.helpers.mail.Mail;
+import com.sendgrid.helpers.mail.objects.Email;
+import com.sendgrid.helpers.mail.objects.Personalization;
+
 import org.springframework.mail.javamail.MimeMessageHelper;
 
 import vivimosJava.model.MailDTO;
 
 @Service
 public class MailServiceImpl implements MailService {
+	
+	@Value("${sendgrid.api.key}")
+	private String sendGridApiKey;
+	
+	@Value("{sendgrid.templateId}")
+	private String emailTemplateId;
+	
 	
 	@Autowired
 	JavaMailSender javaMailSender;
@@ -100,6 +119,53 @@ public class MailServiceImpl implements MailService {
 		javaMailSender.send(mimeMessage);
 		
 		
+	}
+
+
+	@Override
+	public void sendMailSendgrid(MailDTO mailDTO) throws IOException {
+		
+	
+	
+		ArrayList<String> listaMails=new ArrayList<String>();
+		listaMails.add("peivandp@gmail.com");
+		listaMails.add("info@vivimos.cl");
+		listaMails.add("portalinmobiliario@vivimos.cl");
+		listaMails.add("p.perez@vivimos.cl");
+		listaMails.add("visitas@vivimos.cl");
+	
+		
+		Mail mail= new Mail();
+		Email fromEmail=new Email();
+		fromEmail.setEmail("p.perez@vivimos.cl");
+		fromEmail.setName("Invierte Vivimos");
+		
+		
+		Personalization personalization = new Personalization();
+		
+		//esto está en los dynamic templates de sendgrid, son las "{{user_name}}"
+			personalization.addDynamicTemplateData("depto1", "https://vivimos.cl/product/estcentral2dorm-santa-petronila-32-cod-1320");
+			personalization.addDynamicTemplateData("depto2", "https://vivimos.cl/product/stgo1dorm_santa_rosa_991_cod_1267");
+			personalization.addDynamicTemplateData("mail","hola@gmail.com");
+			personalization.addTo(fromEmail);
+			mail.setTemplateId(emailTemplateId);
+			mail.addPersonalization(personalization);
+			
+
+			SendGrid sg=new SendGrid(sendGridApiKey);
+			Request request=new Request();
+			try {
+				  request.setMethod(Method.POST);
+			      request.setEndpoint("mail/send");
+			      request.setBody(mail.build());
+			      Response response = sg.api(request);
+			      System.out.println(response.getStatusCode());
+			      System.out.println(response.getBody());
+			      System.out.println(response.getHeaders());
+			} catch (IOException ex) {
+				throw ex;
+			}
+	
 	}
 
 }
