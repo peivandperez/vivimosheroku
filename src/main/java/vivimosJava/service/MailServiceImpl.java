@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 
@@ -125,15 +127,25 @@ public class MailServiceImpl implements MailService {
 	@Override
 	public void sendMailSendgrid(MailDTO mailDTO) throws IOException {
 		
+		
+		String linkWhatsapp="https://api.whatsapp.com/send?phone=56989997466&text=Hola, quisiera consultar por propiedades para inversión. Mi mail es : ";
+		String linkWhatsappCliente=linkWhatsapp;
+		//linkWhatsapp = linkWhatsapp + mailDTO.getMailTo();
+		
+		String urlDepto1="https://vivimos.cl/product/estcentral2dorm-santa-petronila-32-cod-1320";
+		String urlDepto2="https://vivimos.cl/product/stgo1dorm_santa_rosa_991_cod_1267";
+		
 	
-	/*
+		
 		ArrayList<String> listaMails=new ArrayList<String>();
-		listaMails.add("peivandp@gmail.com");
+		ArrayList<Personalization> listaPersonalization=new ArrayList<Personalization>();
+		
 		listaMails.add("info@vivimos.cl");
 		listaMails.add("portalinmobiliario@vivimos.cl");
 		listaMails.add("p.perez@vivimos.cl");
 		listaMails.add("visitas@vivimos.cl");
-	*/
+		listaMails.add("peivandp@gmail.com");
+	
 		
 		Mail mail= new Mail();
 		Email fromEmail=new Email();
@@ -143,10 +155,34 @@ public class MailServiceImpl implements MailService {
 		mail.setFrom(fromEmail);
 		mail.setTemplateId(emailTemplateId);
 		
-		String linkWhatsapp="https://api.whatsapp.com/send?phone=56989997466&text=Hola, quisiera consultar por propiedades para inversión. Mi mail es : ";
-		linkWhatsapp = linkWhatsapp + mailDTO.getMailTo();
-		System.out.println(linkWhatsapp);
 		
+	for (int i=0; i<listaMails.size();i++) {
+		//String personalizationIndex=((String)listaMails.get(i));
+		Personalization personalization= new Personalization();
+		listaPersonalization.add(personalization);
+		
+		
+		personalization.addDynamicTemplateData("depto1", "https://vivimos.cl/product/estcentral2dorm-santa-petronila-32-cod-1320");
+		personalization.addDynamicTemplateData("depto2", "https://vivimos.cl/product/stgo1dorm_santa_rosa_991_cod_1267");
+		
+		linkWhatsappCliente=linkWhatsapp+listaMails.get(i);
+
+		personalization.addDynamicTemplateData("linkWhatsapp", linkWhatsappCliente);
+		personalization.addTo(to);
+		mail.addPersonalization(personalization);
+		System.out.println("personalization : " + mail.getPersonalization());
+
+		linkWhatsappCliente="";
+	
+	}
+	
+	System.out.println("imprimir personalization " + mail.getPersonalization().toString());
+	System.out.println("Ahora imprimimos el array list de personalization : ");
+	for (int i = 0; i < listaPersonalization.size(); i++) {
+		System.out.println(listaPersonalization.get(i));
+	}
+	
+		/*
 		Personalization personalization = new Personalization();
 		
 		//esto está en los dynamic templates de sendgrid, son las "{{user_name}}"
@@ -156,19 +192,18 @@ public class MailServiceImpl implements MailService {
 			personalization.addDynamicTemplateData("depto2", "https://vivimos.cl/product/stgo1dorm_santa_rosa_991_cod_1267");
 			personalization.addDynamicTemplateData("linkWhatsapp", linkWhatsapp);
 			personalization.addTo(to);
-			
+	
 			mail.addPersonalization(personalization);
-			System.out.println("carga peronalization");
-			System.out.println("peronalization :" + personalization.getDynamicTemplateData());
-			
-
+		*/
 			SendGrid sg=new SendGrid(sendGridApiKey);
 			sg.addRequestHeader("X-Mock","true");
+			
 			Request request=new Request();
 			try {
 				  request.setMethod(Method.POST);
 			      request.setEndpoint("mail/send");
 			      request.setBody(mail.build());
+			     
 			      Response response = sg.api(request);
 			      System.out.println(response.getStatusCode());
 			      System.out.println(response.getBody());
