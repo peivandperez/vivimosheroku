@@ -41,7 +41,7 @@ public class MailServiceImpl implements MailService {
 	@Value("${sendgrid.api.key}")
 	private String sendGridApiKey;
 	
-	@Value("{sendgrid.templateId}")
+	@Value("${sendgrid.templateId}")
 	private String emailTemplateId;
 	
 	
@@ -126,33 +126,44 @@ public class MailServiceImpl implements MailService {
 	public void sendMailSendgrid(MailDTO mailDTO) throws IOException {
 		
 	
-	
+	/*
 		ArrayList<String> listaMails=new ArrayList<String>();
 		listaMails.add("peivandp@gmail.com");
 		listaMails.add("info@vivimos.cl");
 		listaMails.add("portalinmobiliario@vivimos.cl");
 		listaMails.add("p.perez@vivimos.cl");
 		listaMails.add("visitas@vivimos.cl");
-	
+	*/
 		
 		Mail mail= new Mail();
 		Email fromEmail=new Email();
-		fromEmail.setEmail("p.perez@vivimos.cl");
+		fromEmail.setEmail("info@vivimos.cl");
 		fromEmail.setName("Invierte Vivimos");
+		Email to = new Email(mailDTO.getMailTo());
+		mail.setFrom(fromEmail);
+		mail.setTemplateId(emailTemplateId);
 		
+		String linkWhatsapp="https://api.whatsapp.com/send?phone=56989997466&text=Hola, quisiera consultar por propiedades para inversión. Mi mail es : ";
+		linkWhatsapp = linkWhatsapp + mailDTO.getMailTo();
+		System.out.println(linkWhatsapp);
 		
 		Personalization personalization = new Personalization();
 		
 		//esto está en los dynamic templates de sendgrid, son las "{{user_name}}"
+			
+			//personalization.setSubject("Invierte en propiedades con Vivimos.cl");
 			personalization.addDynamicTemplateData("depto1", "https://vivimos.cl/product/estcentral2dorm-santa-petronila-32-cod-1320");
 			personalization.addDynamicTemplateData("depto2", "https://vivimos.cl/product/stgo1dorm_santa_rosa_991_cod_1267");
-			personalization.addDynamicTemplateData("mail","hola@gmail.com");
-			personalization.addTo(fromEmail);
-			mail.setTemplateId(emailTemplateId);
+			personalization.addDynamicTemplateData("linkWhatsapp", linkWhatsapp);
+			personalization.addTo(to);
+			
 			mail.addPersonalization(personalization);
+			System.out.println("carga peronalization");
+			System.out.println("peronalization :" + personalization.getDynamicTemplateData());
 			
 
 			SendGrid sg=new SendGrid(sendGridApiKey);
+			sg.addRequestHeader("X-Mock","true");
 			Request request=new Request();
 			try {
 				  request.setMethod(Method.POST);
