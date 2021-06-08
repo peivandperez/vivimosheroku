@@ -190,22 +190,26 @@ public class MailServiceImpl implements MailService {
 	
 	}
 
-
+	@Async
 	@Override
 	public void sendMailInversionista() throws IOException {
+		System.out.println("entra a mail inversionista");
 		
 		String direccion="Santa Rosa 249";
 		String sector="Metro Santa Lucía";
 		String linkWhatsappNombre="Mi nombre es: ";
 		String linkWhatsappMail=" y mi correo es : ";
-		String linkWhatsapp="https://api.whatsapp.com/send?phone=56989997466&text=Hola, quisiera consultar por la propiedad de " + direccion +"."+ linkWhatsappNombre + linkWhatsappMail;
-		String subject="Interesante propiedad para inversión en "+ sector + "Mírala antes que se publique ";
-		String preHeader="Mira esta propiedad antes que se publique en " + sector + "Revisa aquí la información";
+		String linkWhatsapp="https://api.whatsapp.com/send?phone=56989997466&text=Hola, quisiera consultar por la propiedad de ";
+		String linkWhatsappCliente="";
 		
-		linkWhatsapp+=direccion;
+		String subject="Antes que se publique.Propiedad para inversión en "+ sector;
+		String preHeader="Mírala antes que la publiquemos. Revisa aquí la información ";
 		
-		String linkWhatsappCliente=linkWhatsapp;
+		
 		ArrayList<String> listaMails=new ArrayList<String>();
+		listaMails.add("peivandp@gmail.com");
+		listaMails.add("p.perez@vivimos.cl");
+		listaMails.add("info@vivimos.cl");
 		
 		
 		Mail mail= new Mail();
@@ -221,15 +225,15 @@ public class MailServiceImpl implements MailService {
 		for (int i=0; i<listaMails.size();i++) {
 			Email to=new Email(listaMails.get(i));
 			Personalization personalization= new Personalization();
-			personalization.setSubject(subject);
-			personalization.addDynamicTemplateData("preHeader", "");
-			personalization.addDynamicTemplateData("primerNombre", "");
+			personalization.addDynamicTemplateData("subject", subject);
+			personalization.addDynamicTemplateData("preHeader", preHeader);
+			personalization.addDynamicTemplateData("primerNombre", "Peivand");
 			
-			linkWhatsappNombre+="Mi Nombre";//getNombre	
-			linkWhatsappMail+="miMail@gmail.com";//getMail
-			System.out.println("linkWhatsapp: "+linkWhatsapp);
+			linkWhatsappNombre=linkWhatsappNombre + "Mi Nombre";//getNombre	
+			linkWhatsappMail=linkWhatsappMail + listaMails.get(i) ;//getMail
 			
-			linkWhatsappCliente=linkWhatsapp+listaMails.get(i);
+			linkWhatsapp=linkWhatsapp + direccion +"."+ linkWhatsappNombre + linkWhatsappMail;	
+			linkWhatsappCliente=linkWhatsapp;
 
 			personalization.addDynamicTemplateData("linkWhatsapp", linkWhatsappCliente);
 			personalization.addTo(to);
