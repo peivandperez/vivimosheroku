@@ -46,6 +46,8 @@ public class MailServiceImpl implements MailService {
 	@Value("${sendgrid.templateId}")
 	private String emailTemplateId;
 	
+	private String emailTemplateIdSantaRosa ="d-2c353fcbd118457088bbaf96de517742";
+	
 	
 	@Autowired
 	JavaMailSender javaMailSender;
@@ -186,6 +188,58 @@ public class MailServiceImpl implements MailService {
 				throw ex;
 			}
 	
+	}
+
+
+	@Override
+	public void sendMailInversionista() throws IOException {
+		
+		String linkWhatsapp="https://api.whatsapp.com/send?phone=56989997466&text=Hola, quisiera consultar por propiedades para inversión. Mi mail es : ";
+		String linkWhatsappCliente=linkWhatsapp;
+		ArrayList<String> listaMails=new ArrayList<String>();
+		
+		
+		Mail mail= new Mail();
+		Email fromEmail=new Email();
+		fromEmail.setEmail("info@vivimos.cl");
+		fromEmail.setName("Invierte Vivimos");
+		mail.setFrom(fromEmail);
+		mail.setTemplateId(emailTemplateIdSantaRosa);
+		
+		
+		for (int i=0; i<listaMails.size();i++) {
+			Email to=new Email(listaMails.get(i));
+			Personalization personalization= new Personalization();
+			personalization.addDynamicTemplateData("primer_nombre", "");
+			
+			
+			linkWhatsappCliente=linkWhatsapp+listaMails.get(i);
+
+			personalization.addDynamicTemplateData("linkWhatsapp", linkWhatsappCliente);
+			personalization.addTo(to);
+			mail.addPersonalization(personalization);
+			
+			linkWhatsappCliente="";
+		
+		}
+		
+		SendGrid sg=new SendGrid(sendGridApiKey);
+		sg.addRequestHeader("X-Mock","true");
+		
+		Request request=new Request();
+		try {
+			  request.setMethod(Method.POST);
+		      request.setEndpoint("mail/send");
+		      request.setBody(mail.build());
+		     
+		      Response response = sg.api(request);
+		      System.out.println(response.getStatusCode());
+		      System.out.println(response.getBody());
+		      System.out.println(response.getHeaders());
+		} catch (IOException ex) {
+			throw ex;
+		}
+		
 	}
 
 }

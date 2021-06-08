@@ -18,5 +18,6 @@ public interface MailService {
 	public void sendMailAttachment(MailDTO mailDTO) throws MessagingException;
 	public void sendMessageUsingThymleafTemplate(MailDTO mailDTO) throws MessagingException, UnsupportedEncodingException;
 	public void sendMailSendgrid(MailDTO mailDTO) throws IOException;
+	public void sendMailInversionista() throws IOException;
 
 }
