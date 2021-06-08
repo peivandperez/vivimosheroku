@@ -194,7 +194,16 @@ public class MailServiceImpl implements MailService {
 	@Override
 	public void sendMailInversionista() throws IOException {
 		
-		String linkWhatsapp="https://api.whatsapp.com/send?phone=56989997466&text=Hola, quisiera consultar por propiedades para inversión. Mi mail es : ";
+		String direccion="Santa Rosa 249";
+		String sector="Metro Santa Lucía";
+		String linkWhatsappNombre="Mi nombre es: ";
+		String linkWhatsappMail=" y mi correo es : ";
+		String linkWhatsapp="https://api.whatsapp.com/send?phone=56989997466&text=Hola, quisiera consultar por la propiedad de " + direccion +"."+ linkWhatsappNombre + linkWhatsappMail;
+		String subject="Interesante propiedad para inversión en "+ sector + "Mírala antes que se publique ";
+		String preHeader="Mira esta propiedad antes que se publique en " + sector + "Revisa aquí la información";
+		
+		linkWhatsapp+=direccion;
+		
 		String linkWhatsappCliente=linkWhatsapp;
 		ArrayList<String> listaMails=new ArrayList<String>();
 		
@@ -207,11 +216,18 @@ public class MailServiceImpl implements MailService {
 		mail.setTemplateId(emailTemplateIdSantaRosa);
 		
 		
+		
+		
 		for (int i=0; i<listaMails.size();i++) {
 			Email to=new Email(listaMails.get(i));
 			Personalization personalization= new Personalization();
-			personalization.addDynamicTemplateData("primer_nombre", "");
+			personalization.setSubject(subject);
+			personalization.addDynamicTemplateData("preHeader", "");
+			personalization.addDynamicTemplateData("primerNombre", "");
 			
+			linkWhatsappNombre+="Mi Nombre";//getNombre	
+			linkWhatsappMail+="miMail@gmail.com";//getMail
+			System.out.println("linkWhatsapp: "+linkWhatsapp);
 			
 			linkWhatsappCliente=linkWhatsapp+listaMails.get(i);
 
@@ -220,6 +236,9 @@ public class MailServiceImpl implements MailService {
 			mail.addPersonalization(personalization);
 			
 			linkWhatsappCliente="";
+			linkWhatsappNombre="";
+			linkWhatsappMail="";
+					
 		
 		}
 		
