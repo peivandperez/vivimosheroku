@@ -1,6 +1,7 @@
 package vivimosJava.controller;
 
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import javax.mail.MessagingException;
@@ -55,7 +56,7 @@ public class UsersSimpleController {
 	
 	
 	 @PostMapping("/invierteForm")
-	   public String submissionResult(@ModelAttribute("user") UsersSimpleDTO person, MailDTO mailDTO, @RequestParam(name="g-recaptcha-response") String response,
+	   public String submissionResult(@ModelAttribute("user") UsersSimpleDTO usersSimpleDTO, MailDTO mailDTO, @RequestParam(name="g-recaptcha-response") String response,
 			   BindingResult result,ModelMap model) throws MessagingException, UnsupportedEncodingException {
 		 
 		 //Verify ReCaptcha response
@@ -66,12 +67,12 @@ public class UsersSimpleController {
 		 		return "invierte";
 		 	}else {
 		 		
-				 mailDetails.mailInvierte(mailDTO);
-				 mailDTO.setMailTo(person.getEmail());
-				 mailDTO.setMailToName(person.getEmail());
-				 mailService.sendMail(mailDTO);
+		 		 mailDTO.setMailTo(usersSimpleDTO.getEmail());
+				 mailDTO.setMailToName(usersSimpleDTO.getEmail());
+				 mailDetails.mailInvierte(mailDTO); 
+				 mailService.sendMessageUsingThymleafTemplate(mailDTO);
 			
-				 usersSimpleService.insert(person);
+				 usersSimpleService.insert(usersSimpleDTO);
 				 return "gracias-invertir-propiedades";
 		 	}		 
 	    } 
