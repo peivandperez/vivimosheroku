@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Change Title Name</title>
+		<title>Bienvenido a InvierteVivimos</title>
 	</head>
 
 	<body>
@@ -14,20 +14,20 @@
 	
 			<p>
 			¿Quieres una introducción rápida a la inversión en propiedades?</br>
-			<a th:href="@{https://vivimos.cl/como-invertir-en-propiedades}">Puedes descargar nuestra guía en PDF aquí.</a></p>
+			<a href="https://vivimos.cl/como-invertir-en-propiedades">Puedes descargar nuestra guía en PDF aquí.</a></p>
 	
 			
 			<h4>Ver algunas de nuestras propiedades disponibles:</h4>
 			<ul>
-				<li><a th:href="@{https://vivimos.cl/product/estcentral2dorm-santa-petronila-32-cod-1320}"> Metro Las Rejas (L1)</a>, Estación Central, UF 2.290</li>
-				<li><a th:href="@{https://vivimos.cl/product/stgo1dorm_santa_rosa_991_cod_1267}"> Metro Matta (L3), Santiago Centro</a>, UF 2.190</li>
+				<li><a href="https://vivimos.cl/product/estcentral2dorm-santa-petronila-32-cod-1320"> Metro Las Rejas (L1)</a>, Estación Central, UF 2.290</li>
+				<li><a href="https://vivimos.cl/product/stgo1dorm_santa_rosa_991_cod_1267"> Metro Matta (L3), Santiago Centro</a>, UF 2.190</li>
 			
 			</ul>
 			
 	
 			<h4>¿No sabes bien qué necesitas? </h4>
 			Puedes conversar con nosotros para recibir una asesoría personalizada.</br>
-			Puedes contestar este mail, mandarnos un <a th:href="@{'https://api.whatsapp.com/send?phone=56989997466&text=Hola, quisiera consultar por propiedades para inversión. Mi mail es: '+${email}}">WhatsApp</a>, o llamarnos al <a href="tel:56989997466">+56 9 8999 7466</a> 
+			Puedes contestar este mail, mandarnos un <a href="'https://api.whatsapp.com/send?phone=56989997466&text=Hola, quisiera consultar por propiedades para inversión. Mi mail es: '+${{email}}">WhatsApp</a>, o llamarnos al <a href="tel:56989997466">+56 9 8999 7466</a> 
 		
 			</p>
 

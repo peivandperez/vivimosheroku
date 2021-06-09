@@ -26,5 +26,9 @@ public class WebAppController {
 		return "gracias-invertir-propiedades";
 	}
 	
+	@RequestMapping("/enviarMail")
+	public String getEnviarMail() {
+		return "enviarMail";
+	}
 	
 }

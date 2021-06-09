@@ -1,6 +1,7 @@
 package vivimosJava.controller;
 
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import javax.mail.MessagingException;
