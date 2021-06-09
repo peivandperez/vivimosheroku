@@ -6,6 +6,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ import com.sendgrid.helpers.mail.objects.Personalization;
 
 import org.springframework.mail.javamail.MimeMessageHelper;
 
+import vivimosJava.model.InversionistasTestingDAO;
+import vivimosJava.model.InversionistasTestingDTO;
 import vivimosJava.model.MailDTO;
 
 @Service
@@ -51,6 +54,10 @@ public class MailServiceImpl implements MailService {
 	
 	@Autowired
 	JavaMailSender javaMailSender;
+	
+	@Autowired
+	InversionistasTestingDAO inversionistasTestingDAO;
+	
 	
 	public MailServiceImpl(JavaMailSender javaMailSender) {
 		this.javaMailSender=javaMailSender;	
@@ -137,6 +144,7 @@ public class MailServiceImpl implements MailService {
 		String urlDepto2="https://vivimos.cl/product/stgo1dorm_santa_rosa_991_cod_1267";
 		
 		
+		
 		ArrayList<String> listaMails=new ArrayList<String>();
 	
 		listaMails.add("info@vivimos.cl");
@@ -144,7 +152,8 @@ public class MailServiceImpl implements MailService {
 		listaMails.add("p.perez@vivimos.cl");
 		listaMails.add("visitas@vivimos.cl");
 		listaMails.add("peivandp@gmail.com");
-	
+
+		
 		
 		Mail mail= new Mail();
 		Email fromEmail=new Email();
@@ -154,6 +163,11 @@ public class MailServiceImpl implements MailService {
 		mail.setTemplateId(emailTemplateId);
 		
 		
+		
+		
+		
+		
+	
 	for (int i=0; i<listaMails.size();i++) {
 		//String personalizationIndex=((String)listaMails.get(i));
 		Email to=new Email(listaMails.get(i));
@@ -168,7 +182,7 @@ public class MailServiceImpl implements MailService {
 		mail.addPersonalization(personalization);
 		
 		linkWhatsappCliente="";
-	
+		
 	}
 	
 			SendGrid sg=new SendGrid(sendGridApiKey);
@@ -193,8 +207,7 @@ public class MailServiceImpl implements MailService {
 	@Async
 	@Override
 	public void sendMailInversionista() throws IOException {
-		System.out.println("entra a mail inversionista");
-		
+
 		String direccion="Santa Rosa 249";
 		String sector="Metro Santa Lucía";
 		String linkWhatsappNombre="Mi nombre es: ";
@@ -205,11 +218,12 @@ public class MailServiceImpl implements MailService {
 		String subject="Antes que se publique.Propiedad para inversión en "+ sector;
 		String preHeader="Mírala antes que la publiquemos. Revisa aquí la información ";
 		
-		
+	
 		ArrayList<String> listaMails=new ArrayList<String>();
 		listaMails.add("peivandp@gmail.com");
 		listaMails.add("p.perez@vivimos.cl");
 		listaMails.add("info@vivimos.cl");
+
 		
 		
 		Mail mail= new Mail();
@@ -219,18 +233,17 @@ public class MailServiceImpl implements MailService {
 		mail.setFrom(fromEmail);
 		mail.setTemplateId(emailTemplateIdSantaRosa);
 		
-		
-		
-		
-		for (int i=0; i<listaMails.size();i++) {
-			Email to=new Email(listaMails.get(i));
+		List<InversionistasTestingDTO> lista=inversionistasTestingDAO.listaInversionistasTesting();
+		for(InversionistasTestingDTO inversionistasTestingDTO:lista) {
+			
+			Email to=new Email(inversionistasTestingDTO.getMail());
 			Personalization personalization= new Personalization();
 			personalization.addDynamicTemplateData("subject", subject);
 			personalization.addDynamicTemplateData("preHeader", preHeader);
-			personalization.addDynamicTemplateData("primerNombre", "Peivand");
+			personalization.addDynamicTemplateData("primerNombre", inversionistasTestingDTO.getNombre());
 			
-			linkWhatsappNombre=linkWhatsappNombre + "Mi Nombre";//getNombre	
-			linkWhatsappMail=linkWhatsappMail + listaMails.get(i) ;//getMail
+			linkWhatsappNombre=linkWhatsappNombre + inversionistasTestingDTO.getNombre();
+			linkWhatsappMail=linkWhatsappMail + inversionistasTestingDTO.getMail() ;//getMail
 			
 			linkWhatsapp=linkWhatsapp + direccion +"."+ linkWhatsappNombre + linkWhatsappMail;	
 			linkWhatsappCliente=linkWhatsapp;
@@ -239,12 +252,13 @@ public class MailServiceImpl implements MailService {
 			personalization.addTo(to);
 			mail.addPersonalization(personalization);
 			
+			
 			linkWhatsappCliente="";
 			linkWhatsappNombre="";
 			linkWhatsappMail="";
-					
-		
 		}
+		
+
 		
 		SendGrid sg=new SendGrid(sendGridApiKey);
 		sg.addRequestHeader("X-Mock","true");

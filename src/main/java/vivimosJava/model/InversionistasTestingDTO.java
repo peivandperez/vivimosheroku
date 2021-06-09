@@ -1,15 +1,17 @@
 package vivimosJava.model;
 
 public class InversionistasTestingDTO {
-	private int id;
+	private int idlista_reducida;
 	private String nombre;
 	private String apellido;
 	private String mail;
-	public int getId() {
-		return id;
+	
+	
+	public int getIdlista_reducida() {
+		return idlista_reducida;
 	}
 	public void setId(int id) {
-		this.id = id;
+		this.idlista_reducida = idlista_reducida;
 	}
 	public String getNombre() {
 		return nombre;
@@ -28,6 +30,13 @@ public class InversionistasTestingDTO {
 	}
 	public void setMail(String mail) {
 		this.mail = mail;
+	}
+	public InversionistasTestingDTO(String nombre, String apellido, String mail) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.mail = mail;
+	}
+	public InversionistasTestingDTO() {
 	}
 	
 	
