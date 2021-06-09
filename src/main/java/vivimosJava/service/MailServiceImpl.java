@@ -217,15 +217,7 @@ public class MailServiceImpl implements MailService {
 		
 		String subject="Antes que se publique.Propiedad para inversión en "+ sector;
 		String preHeader="Mírala antes que la publiquemos. Revisa aquí la información ";
-		
 	
-		ArrayList<String> listaMails=new ArrayList<String>();
-		listaMails.add("peivandp@gmail.com");
-		listaMails.add("p.perez@vivimos.cl");
-		listaMails.add("info@vivimos.cl");
-
-		
-		
 		Mail mail= new Mail();
 		Email fromEmail=new Email();
 		fromEmail.setEmail("info@vivimos.cl");
@@ -243,8 +235,7 @@ public class MailServiceImpl implements MailService {
 			personalization.addDynamicTemplateData("primerNombre", inversionistasTestingDTO.getNombre());
 			
 			linkWhatsappNombre=linkWhatsappNombre + inversionistasTestingDTO.getNombre();
-			linkWhatsappMail=linkWhatsappMail + inversionistasTestingDTO.getMail() ;//getMail
-			
+			linkWhatsappMail=linkWhatsappMail + inversionistasTestingDTO.getMail();
 			linkWhatsapp=linkWhatsapp + direccion +"."+ linkWhatsappNombre + linkWhatsappMail;	
 			linkWhatsappCliente=linkWhatsapp;
 
