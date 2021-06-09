@@ -69,14 +69,8 @@ public class UsersSimpleController {
 		 		
 		 		 mailDTO.setMailTo(usersSimpleDTO.getEmail());
 				 mailDTO.setMailToName(usersSimpleDTO.getEmail());
-				 try {
-					mailService.sendMailSendgrid(mailDTO);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				 //mailDetails.mailInvierte(mailDTO); 
-				// mailService.sendMessageUsingThymleafTemplate(mailDTO);
+				 mailDetails.mailInvierte(mailDTO); 
+				 mailService.sendMessageUsingThymleafTemplate(mailDTO);
 			
 				 usersSimpleService.insert(usersSimpleDTO);
 				 return "gracias-invertir-propiedades";
