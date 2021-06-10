@@ -30,7 +30,7 @@
 	<main id="propiedades">
 	<div class="container-md">
 	Propiedades Disponibles
-		<article th:each="p : ${propiedadesTotales}">
+		<article th:each="p : ${todasPropiedades}">
 			<h3 th:text="${p.direccion}">Dirección</h3>
 				<ul>
 					<li th:text="{p.tipologia}">Tipología</li>
