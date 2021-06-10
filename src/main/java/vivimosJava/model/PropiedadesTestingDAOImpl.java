@@ -20,8 +20,10 @@ public class PropiedadesTestingDAOImpl implements PropiedadesTestingDAO {
 	
 	@Override
 	public List<PropiedadesTestingDTO> todas() {
+		
 		List<PropiedadesTestingDTO> listaPropiedadesTesting=namedParam.query(sqlTodas, BeanPropertyRowMapper.newInstance(PropiedadesTestingDTO.class));
 		return listaPropiedadesTesting;
+	
 	}
 
 }
