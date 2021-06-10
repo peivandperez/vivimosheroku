@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		
+		<div th:insert="fragments/head :: headGeneral"></div>
+		<div th:insert="fragments/bootstrap :: headerBootstrap"></div>
+		<div th:insert="fragments/head :: customCSS"></div>
+		<!--  <div th:insert="fragments/pixels :: pixels"></div>-->
+		
+		
+
+	<!-- Insertar los tags individuales de cada página -->
+	<title>Propiedades Disponibles</title>
+	
+	
+	<!--  
+	<meta name="description" content="HTML meta tags are a cornerstone of coding. 
+	But which are the most essential? We give you a rundown of all the meta tags you need to know."/>
+	
+	<meta name="keywords" content="Como vender departamento">
+	-->
+	
+	</head>	
+
+
+	<body>
+	
+	<div th:insert="fragments/menu :: menu"></div>
+	
+	<main id="propiedades">
+	<div class="container-md">
+	Propiedades Disponibles
+		<article th:each="p : ${propiedadesTotales}">
+			<h3 th:text="${p.direccion}">Dirección</h3>
+				<ul>
+					<li th:text="{p.tipologia}">Tipología</li>
+					<li th:text="{p.precio}">Precio</li>
+				</ul>
+		
+		</article>
+	
+	</div>
+	</main>
+
+	
+	
+	<!-- 	<div th:insert="fragments/linkedInTag :: linkedInTag"></div> -->
+		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>			
+	</body>		
+
+</html>
