@@ -12,16 +12,17 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class InversionistasTestingDAOImpl implements InversionistasTestingDAO {
 
-	private String listaInversionistasReducido="SELECT * FROM lista_reducida";
-	private String listaInversionistas="SELECT * FROM lista_completa limit 100";
+	private String listaInversionistasReducido="SELECT * FROM lista_chica";
+	private String listaInversionistas="SELECT * FROM lista_completa ORDER BY idlista_completa limit 95 ";
 	
 	@Autowired
 	NamedParameterJdbcTemplate namedParam;
 	
 	@Override
 	public List<InversionistasTestingDTO> listaInversionistasTesting() {
+			
 		List<InversionistasTestingDTO> listaInversionistasTesting=namedParam.query(listaInversionistas, BeanPropertyRowMapper.newInstance(InversionistasTestingDTO.class));
-	
+		
 		return listaInversionistasTesting;
 	}
 

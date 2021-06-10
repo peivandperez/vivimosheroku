@@ -229,6 +229,7 @@ public class MailServiceImpl implements MailService {
 		for(InversionistasTestingDTO inversionistasTestingDTO:lista) {
 			
 			Email to=new Email(inversionistasTestingDTO.getMail());
+
 			Personalization personalization= new Personalization();
 			personalization.addDynamicTemplateData("subject", subject);
 			personalization.addDynamicTemplateData("preHeader", preHeader);
@@ -242,14 +243,9 @@ public class MailServiceImpl implements MailService {
 			personalization.addDynamicTemplateData("linkWhatsapp", linkWhatsappCliente);
 			personalization.addTo(to);
 			mail.addPersonalization(personalization);
-			
-			
-			linkWhatsappCliente="";
-			linkWhatsappNombre="";
-			linkWhatsappMail="";
-		}
 		
-
+			
+		}
 		
 		SendGrid sg=new SendGrid(sendGridApiKey);
 		sg.addRequestHeader("X-Mock","true");
