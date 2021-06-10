@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class InversionistasTestingDAOImpl implements InversionistasTestingDAO {
 
 	private String listaInversionistasReducido="SELECT * FROM lista_reducida";
-	private String listaInversionistas="SELECT * FROM lista_completa";
+	private String listaInversionistas="SELECT * FROM lista_completa limit 100";
 	
 	@Autowired
 	NamedParameterJdbcTemplate namedParam;

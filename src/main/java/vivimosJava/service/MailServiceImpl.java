@@ -215,8 +215,8 @@ public class MailServiceImpl implements MailService {
 		String linkWhatsapp="https://api.whatsapp.com/send?phone=56989997466&text=Hola, quisiera consultar por la propiedad de ";
 		String linkWhatsappCliente="";
 		
-		String subject="Antes que se publique.Propiedad para inversión en "+ sector;
-		String preHeader="Mírala antes que la publiquemos. Revisa aquí la información ";
+		String subject="Propiedad para inversión en "+ sector;
+		String preHeader=" Mírala antes que la publiquemos. Revisa aquí la información ";
 	
 		Mail mail= new Mail();
 		Email fromEmail=new Email();
