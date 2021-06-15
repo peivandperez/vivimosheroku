@@ -1,16 +1,16 @@
 package vivimosJava.model;
 
 public class PropiedadesTestingDTO {
-	private int idpropiedadesTesting;
+	private int id;
 	private String direccion;
 	private String precio;
 	private String tipologia;
 	
-	public int getIdpropiedadesTesting() {
-		return idpropiedadesTesting;
+	public int getId() {
+		return id;
 	}
-	public void setIdpropiedadesTesting(int idpropiedadesTesting) {
-		this.idpropiedadesTesting = idpropiedadesTesting;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getDireccion() {
 		return direccion;
@@ -35,7 +35,15 @@ public class PropiedadesTestingDTO {
 		this.precio = precio;
 		this.tipologia = tipologia;
 	}
+	
+	
 	public PropiedadesTestingDTO() {
+	}
+	public PropiedadesTestingDTO(int id, String direccion, String precio, String tipologia) {
+		this.id = id;
+		this.direccion = direccion;
+		this.precio = precio;
+		this.tipologia = tipologia;
 	}
 	
 	

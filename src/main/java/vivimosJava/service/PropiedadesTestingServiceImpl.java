@@ -20,4 +20,10 @@ public class PropiedadesTestingServiceImpl implements PropiedadesTestingService 
 		
 	}
 
+	@Override
+	public PropiedadesTestingDTO findById(int id) {
+		PropiedadesTestingDTO findById=propiedadesTestingDAO.findById(id);
+		return findById;
+	}
+
 }

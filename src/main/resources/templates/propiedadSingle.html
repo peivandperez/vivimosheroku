@@ -29,14 +29,14 @@
 	
 	<main id="propiedades">
 	<div class="container-md">
-	Propiedades Disponibles
-		<article th:each="p: ${todasPropiedades}">
-			<h4 th:text="${p.direccion}" >Dirección</h4>
+	Propiedades 
+		<article>
+			<h4 th:text="${propiedad.direccion}" >Dirección</h4>
 			
 			<ul>
-				<li th:text="${p.tipologia}">Tipología</li>
-				<li th:text="${p.precio}">Precio</li>
-				<li th:text="${p.id}"></li>
+				<li th:text="${propiedad.tipologia}">Tipología</li>
+				<li th:text="${propiedad.precio}">Precio</li>
+				
 			</ul>
 
 		</article>
