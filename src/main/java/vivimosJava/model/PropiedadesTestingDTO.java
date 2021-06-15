@@ -5,7 +5,14 @@ public class PropiedadesTestingDTO {
 	private String direccion;
 	private String precio;
 	private String tipologia;
+	private String url;
 	
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
 	public int getId() {
 		return id;
 	}
@@ -45,6 +52,21 @@ public class PropiedadesTestingDTO {
 		this.precio = precio;
 		this.tipologia = tipologia;
 	}
+	public PropiedadesTestingDTO(int id, String direccion, String precio, String tipologia, String url) {
+		this.id = id;
+		this.direccion = direccion;
+		this.precio = precio;
+		this.tipologia = tipologia;
+		this.url = url;
+	}
+	public PropiedadesTestingDTO(String direccion, String precio, String tipologia, String url) {
+		this.direccion = direccion;
+		this.precio = precio;
+		this.tipologia = tipologia;
+		this.url = url;
+	}
+	
+	
 	
 	
 }

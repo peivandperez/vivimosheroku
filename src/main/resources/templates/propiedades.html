@@ -37,7 +37,7 @@
 				<li th:text="${p.tipologia}">Tipología</li>
 				<li th:text="${p.precio}">Precio</li>
 				<li th:text="${p.id}"></li>
-				<li><a href="#" th:href="@{propiedadSingle/{id}/(id=${p.id})}">Link</a>
+				<li><a href="#" th:href="@{propiedadSingle/{direccion}/(direccion=${p.url})}">Link</a>
 			</ul>
 
 		</article>

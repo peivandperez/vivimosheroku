@@ -15,6 +15,7 @@ public class PropiedadesTestingDAOImpl implements PropiedadesTestingDAO {
 	
 	private String sqlTodas="SELECT * FROM propiedades_testing";
 	private String sqlFindById="SELECT * FROM propiedades_testing WHERE id= :id";
+	private String sqlFindByDireccion= "SELECT * FROM propiedades_testing WHERE url= :direccion";
 
 	@Autowired
 	NamedParameterJdbcTemplate namedParam;
@@ -37,6 +38,21 @@ public class PropiedadesTestingDAOImpl implements PropiedadesTestingDAO {
 		
 		try {
 			propiedadesTestingDTO=namedParam.queryForObject(sqlFindById, params, BeanPropertyRowMapper.newInstance(PropiedadesTestingDTO.class));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return propiedadesTestingDTO;
+	}
+
+
+	@Override
+	public PropiedadesTestingDTO findByDireccion(String url) {
+		PropiedadesTestingDTO propiedadesTestingDTO = new PropiedadesTestingDTO();
+		MapSqlParameterSource params =new MapSqlParameterSource();
+		params.addValue("direccion", url);
+		
+		try {
+			propiedadesTestingDTO=namedParam.queryForObject(sqlFindByDireccion, params, BeanPropertyRowMapper.newInstance(PropiedadesTestingDTO.class));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
