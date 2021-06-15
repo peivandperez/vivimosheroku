@@ -19,9 +19,9 @@ public class PropiedadesController {
 	@Autowired
 	PropiedadesTestingService propiedadesTestingService;
 	
-	@RequestMapping("/propiedadSingle/{direccion}")
-		public String propiedadId(@PathVariable("direccion") String direccion, Model model) {
-			PropiedadesTestingDTO propiedad= propiedadesTestingService.findByDireccion(direccion);
+	@RequestMapping("/propiedadSingle/{url}")
+		public String propiedadId(@PathVariable("url") String url, Model model) {
+			PropiedadesTestingDTO propiedad= propiedadesTestingService.findByUrl(url);
 			model.addAttribute("propiedad", propiedad);
 			
 			return "propiedadSingle";

@@ -37,21 +37,11 @@ public class PropiedadesTestingDTO {
 	public void setTipologia(String tipologia) {
 		this.tipologia = tipologia;
 	}
-	public PropiedadesTestingDTO(String direccion, String precio, String tipologia) {
-		this.direccion = direccion;
-		this.precio = precio;
-		this.tipologia = tipologia;
-	}
-	
+
 	
 	public PropiedadesTestingDTO() {
 	}
-	public PropiedadesTestingDTO(int id, String direccion, String precio, String tipologia) {
-		this.id = id;
-		this.direccion = direccion;
-		this.precio = precio;
-		this.tipologia = tipologia;
-	}
+
 	public PropiedadesTestingDTO(int id, String direccion, String precio, String tipologia, String url) {
 		this.id = id;
 		this.direccion = direccion;
@@ -64,6 +54,11 @@ public class PropiedadesTestingDTO {
 		this.precio = precio;
 		this.tipologia = tipologia;
 		this.url = url;
+	}
+	@Override
+	public String toString() {
+		return "PropiedadesTestingDTO [id=" + id + ", direccion=" + direccion + ", precio=" + precio + ", tipologia="
+				+ tipologia + ", url=" + url + "]";
 	}
 	
 	
