@@ -26,4 +26,16 @@ public class PropiedadesTestingServiceImpl implements PropiedadesTestingService 
 		return findById;
 	}
 
+	@Override
+	public PropiedadesTestingDTO findByDireccion(String direccion) {
+		PropiedadesTestingDTO findByDireccion=propiedadesTestingDAO.findByDireccion(direccion);
+		return findByDireccion;
+	}
+
+	@Override
+	public PropiedadesTestingDTO findByUrl(String url) {
+		PropiedadesTestingDTO findByUrl=propiedadesTestingDAO.findByUrl(url);
+		return findByUrl;
+	}
+
 }
