@@ -22,9 +22,16 @@ public class PropiedadesController {
 	@RequestMapping("/propiedadSingle/{url}")
 		public String propiedadId(@PathVariable("url") String url, Model model) {
 			PropiedadesTestingDTO propiedad= propiedadesTestingService.findByUrl(url);
+			
+			if (propiedad==null) {
+				return "error";
+			}else {
+			
+			System.out.println("entra directo a llenar template thymeleaf");
 			model.addAttribute("propiedad", propiedad);
 			
 			return "propiedadSingle";
+			}
 		}
 	
 	@RequestMapping("/propiedades")

@@ -3,6 +3,7 @@ package vivimosJava.model;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -39,6 +40,7 @@ public class PropiedadesTestingDAOImpl implements PropiedadesTestingDAO {
 		
 		try {
 			propiedadesTestingDTO=namedParam.queryForObject(sqlFindById, params, BeanPropertyRowMapper.newInstance(PropiedadesTestingDTO.class));
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -53,7 +55,9 @@ public class PropiedadesTestingDAOImpl implements PropiedadesTestingDAO {
 		params.addValue("direccion", direccion);
 		
 		try {
+			
 			propiedadesTestingDTO=namedParam.queryForObject(sqlFindByDireccion, params, BeanPropertyRowMapper.newInstance(PropiedadesTestingDTO.class));
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -65,14 +69,19 @@ public class PropiedadesTestingDAOImpl implements PropiedadesTestingDAO {
 		PropiedadesTestingDTO propiedadesTestingDTO = new PropiedadesTestingDTO();
 		MapSqlParameterSource params =new MapSqlParameterSource();
 		params.addValue("url", url);
-		
+			
 		try {
 			propiedadesTestingDTO=namedParam.queryForObject(sqlFindByUrl, params, BeanPropertyRowMapper.newInstance(PropiedadesTestingDTO.class));
-		} catch (Exception e) {
+		} catch (EmptyResultDataAccessException e) {
 			e.printStackTrace();
+			return null;
 		}
 		
 		return propiedadesTestingDTO;
 	}
 
-}
+		
+	
+	}
+
+

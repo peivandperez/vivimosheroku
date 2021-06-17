@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		
+		<div th:insert="fragments/head :: headGeneral"></div>
+		<div th:insert="fragments/bootstrap :: headerBootstrap"></div>
+		<div th:insert="fragments/head :: customCSS"></div>
+		<div th:insert="fragments/pixels :: pixels"></div>
+		
+		
+
+	<!-- Insertar los tags individuales de cada página -->
+	<title>Título de prueba Index</title>
+	
+	
+	</head>	
+
+
+	<body>
+	
+	<div th:insert="fragments/menu :: menu"></div>
+	
+	<div class="container-md">
+		Ha ocurrido un error. Avísanos para poder solucionarlo
+		</br></br>
+		
+		
+		 <th:block th:switch="${error}">
+            
+                <div th:case="'Not Found'">
+                    <h5>Página no existe, Error 404</h5>
+                    <p>Has escrito una dirección web que no existe</p>
+                   
+                </div>
+                <div th:case="'Bad Request'">
+                   	<h5>Solicitud equivocada</h5> 
+                </div>
+                <div th:case="'Forbidden'">
+                	<h5>No tienes acceso a esta página</h5>
+                    
+                </div>
+                
+                 <div th:case="*">
+                	<h5>Página no existe, Error 404</h5>
+                    <p>Has escrito una dirección web que no existe</p>
+                	
+                    
+                </div>
+            </th:block>
+		
+	</div>
+	
+
+	
+	
+		<div th:insert="fragments/linkedInTag :: linkedInTag"></div>
+		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>			
+	</body>		
+
+</html>
