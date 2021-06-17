@@ -73,7 +73,6 @@ public class PropiedadesTestingDAOImpl implements PropiedadesTestingDAO {
 		try {
 			propiedadesTestingDTO=namedParam.queryForObject(sqlFindByUrl, params, BeanPropertyRowMapper.newInstance(PropiedadesTestingDTO.class));
 		} catch (EmptyResultDataAccessException e) {
-			e.printStackTrace();
 			return null;
 		}
 		

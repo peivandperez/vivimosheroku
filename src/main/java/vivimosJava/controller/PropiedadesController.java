@@ -26,8 +26,7 @@ public class PropiedadesController {
 			if (propiedad==null) {
 				return "error";
 			}else {
-			
-			System.out.println("entra directo a llenar template thymeleaf");
+		
 			model.addAttribute("propiedad", propiedad);
 			
 			return "propiedadSingle";
