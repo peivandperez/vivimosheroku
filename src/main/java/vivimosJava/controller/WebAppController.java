@@ -1,10 +1,22 @@
 package vivimosJava.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import vivimosJava.model.TestimonialesDTO;
+import vivimosJava.service.TestimonialesService;
 
 @Controller
 public class WebAppController {
+	
+	@Autowired
+	TestimonialesService testimonialesService;
+	
+	
 	@RequestMapping("/index")
 	public String getIndex() {
 		return "index";
@@ -32,7 +44,9 @@ public class WebAppController {
 	}
 	
 	@RequestMapping("/como-invertir-en-propiedades")
-	public String getComoInvertirEnPropiedades() {
+	public String getComoInvertirEnPropiedades(Model model) {
+		List<TestimonialesDTO> testimoniales=testimonialesService.todas();
+		model.addAttribute("testimoniales", testimoniales);
 		return "como-invertir-en-propiedades";
 	}
 	

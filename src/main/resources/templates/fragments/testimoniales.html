@@ -1,0 +1,36 @@
+<html>
+<body>
+<div th:fragment="testimoniales">
+	<section id="sectionTestimonials" style="background-color:#efefef;">
+		<div class="container-md py-5 px-5">
+			<div class="row md-mx-5">
+				<div class="col-md-8 mx-5">
+					<div id="carouselTestimonials" class="carousel slide  w-70 ms-auto me-auto" data-bs-ride="carousel">	
+					  <div class="carousel-inner">
+					  	<h3>Nuestros clientes</h3>	
+					    <div th:each="t,iterstat : ${testimoniales}" th:class="${iterstat.index}== 0  ? 'carousel-item active':'carousel-item'">
+					    	
+					    	<p th:text="${t.info}">Hola Testimonial 1</p>
+					    	<p th:text="${t.nombre}">Juanito Perez</p>
+					    	
+					   	
+					    </div>
+					  
+					  </div>
+					  <button class="carousel-control-prev" type="button" data-bs-target="#carouselTestimonials" data-bs-slide="prev">
+					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					    <span class="visually-hidden">Previous</span>
+					  </button>
+					  <button class="carousel-control-next" type="button" data-bs-target="#carouselTestimonials" data-bs-slide="next">
+					    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+					    <span class="visually-hidden">Next</span>
+					  </button>
+</div>
+
+ </div>
+
+</div>
+</div>
+</section>
+</body>
+</html>
