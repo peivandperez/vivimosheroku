@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		
+		<div th:insert="fragments/head :: headGeneral"></div>
+		<div th:insert="fragments/bootstrap :: headerBootstrap"></div>
+		<div th:insert="fragments/head :: customCSS"></div>
+		<div th:insert="fragments/head :: landingCSS"></div>
+	<!--  	<div th:insert="fragments/pixels :: pixels"></div> -->
+
+	<!-- Insertar los tags individuales de cada página -->
+	<title>Invierte en propiedades</title>
+	
+	
+	<!--  
+	<meta name="description" content="HTML meta tags are a cornerstone of coding. 
+	But which are the most essential? We give you a rundown of all the meta tags you need to know."/>
+	
+	<meta name="keywords" content="Como vender departamento">
+	-->
+	
+
+
+     
+	</head>	
+
+
+
+	<body>
+	
+	 	
+	<div th:insert="fragments/menu :: menu"></div>
+	<header class="page-header gradient">
+		<div class="container-md py-5 px-5">
+			<div class="col-md-8 ml-5">
+			<div class="row md-mx-5">
+				<div class="col-md-8">
+					<h4 id="invierteSeccion01Titulo01">PARA INVERSIONISTAS</h4>
+					<h1 id="invierteSeccion01Titulo02">¿Cómo invertir en propiedades?</h1>
+				<div class="row align-items-center">
+					
+					<div class="col-12">
+						
+							<ul id="invierteSeccion01Titulo03">
+								<li>¿Tienes la intención, pero no sabes cómo?</li>
+								<li>¿No sabes cómo empezar, qué pasos seguir?</li>
+								<li>¿Qué necesitas para invertir?</li>
+								<li>Nosotros te ayudamos</li>
+								<li>Descarga nuestra guía para inversión en propiedades</li>
+								
+							</ul>	
+						
+					</div>
+				</div>	
+			
+				</div>	
+			
+				<div class="col-md-4">
+				<img src="/imgs/ilustraciones_movil-01.png" alt="Obtén información para comprar propiedades usadas aptas para inversión" class="img-fluid" style="margin-top: 130px;">		
+				</div>	
+			</div>
+			</div>
+		</div>	
+	</header>
+	
+	<section id="quienesSomos">
+		<div class="container-md py-5 px-5">
+			<div class="row md-mx-5">
+			<div class="col-md-8">
+				<div class="row py-5">
+					<div class="col-md-12">
+						<h4 id="invierteSeccion02Titulo01">DESCARGA LA GUÍA EN PDF</h4>
+						<h2 id="invierteSeccion02Titulo02">Somos corredores de propiedades especialistas en propiedades para inversión </h2>
+					</div>
+				</div>
+			<div class="row justify-content-center align-items-center">
+				<div class="col col-sm-6 text-center">
+					<img src="/imgs/guia-inversion-propiedades.png" class="img-fluid" alt="Descarga la guía de cómo invertir en propiedades. Propiedades para inversión">
+				</div>
+				<div class="col-7 col-sm-6">
+					<p id="invierteSeccion02Titulo03" class="verticalSolidLine">Somos corredores de propiedades expertos en <strong>propiedades para inversión</strong> en Santiago,Chile. 
+						</br>Nos enfocamos en el segmento de las UF 1.500 a UF 3.500.</br></br>
+						
+						Descarga nuestra guía para ver qué pasos tienes que seguir
+					</p>
+					
+					
+				</div>
+				<div class="col-md-4 py-5">
+					<button class="btn btn-primary">DESCARGA GUÍA EN PDF</button>
+				</div>	
+			</div>
+			</div>
+			</div>
+		</div>
+	
+	</section>	
+	
+	<section id="queHacemos" style="background-color:#efefef;">
+		<div class="container-md py-5 px-5">
+			<div class="row md-mx-5">
+				<div class="col-md-8">
+		
+			
+			<div class="row py-5 text-center justify-content-center">
+				<div class="col-md-4 my-3">
+					<img src="imgs/invertir_ilustraciones_001.png" class="img-fluid" alt="Aprende a invertir, los mejores consejos para comprar propiedades para inversión. Departamentos inversión">
+					<h5 class="invierteBeneficioTitulo">APRENDE A INVERTIR</h5>
+						<ul class="text-start">
+							<li>Ubicación</li>
+							<li>Precio</li>
+							<li>Tamaño</li>
+							<li>Financiamiento</li>		
+						</ul>
+				</div>
+				
+				<div class="col-md-4 my-3">
+					<img src="imgs/invertir_ilustraciones_002.png" class="img-fluid" alt="Cómo comprar un departamento para inversión. Los pasos a seguir para comprar un departamento inversión">
+					<h5 class="invierteBeneficioTitulo">PASOS A SEGUIR</h5>
+						<ul class="text-start">
+							<li>¿Por dónde emprezar?</li>
+							<li>¿Cuáles son los pasos a seguir?</li>		
+						</ul>
+				</div>
+				
+				<div class="col-md-4 my-3">
+					<img src="imgs/invertir_ilustraciones_003.png" class="img-fluid" alt="Compra informado. Cómo analilzar los números en la decisión de inversión. Cómo determinar qué propiedad es mejor para inversión">
+					<h5 class="invierteBeneficioTitulo">COMPRA INFORMADO</h5>
+						<ul class="text-start">
+							<li>Mejora tu rentabilidad</li>
+							<li>Disminuye tu riesgo</li>		
+						</ul>
+				</div>
+			
+			</div>
+			</div>
+		</div>
+		</div>	
+	</section>
+	
+	<section id="descargaPDF">
+	<div class="container-md py-5 px-5">
+			<div class="row md-mx-5">
+				<div class="col-md-8">
+					<iframe th:src="@{/pdf/como_invertir_en_propiedades.pdf}" width="80%" height="500px"></iframe>
+			</div>
+		</div>			
+	 </div>	
+	</section>
+	
+	
+					
+	
+
+	<section id="paraInversionistas" class="gradient">
+		<div class="container-md py-5 px-5">
+			<div class="row md-mx-5">
+				<div class="col-md-8">
+			
+				<div class="row py-5">
+					<div class="col-md-8">
+						<div class="embed-responsive embed-responsive-16by9">
+	  						<iframe class="embed-responsive-item" width="445" height="315" src="https://www.youtube.com/embed/IGTXAaizko4?rel=0" allowfullscreen></iframe>
+						</div>
+						
+					</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+			
+	
+	</section>
+	
+
+	
+	
+<!--  	<div th:insert="fragments/linkedInTag :: linkedInTag"></div>-->
+		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>		
+
+
+	     
+	</body>		
+
+</html>
