@@ -31,4 +31,9 @@ public class WebAppController {
 		return "enviarMail";
 	}
 	
+	@RequestMapping("/como-invertir-en-propiedades")
+	public String getComoInvertirEnPropiedades() {
+		return "como-invertir-en-propiedades";
+	}
+	
 }

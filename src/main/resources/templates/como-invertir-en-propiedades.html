@@ -25,42 +25,34 @@
 	</head>	
 
 
+
 	<body>
 	
 	 	
 	<div th:insert="fragments/menu :: menu"></div>
 	<header class="page-header gradient">
-	<div class="container-md py-5 px-5">
-	
-			<div class="row">
+		<div class="container-md py-5 px-5">
+			<div class="col-md-8 ml-5">
+			<div class="row md-mx-5">
 				<div class="col-md-8">
 					<h4 id="invierteSeccion01Titulo01">PARA INVERSIONISTAS</h4>
-					<h1 id="invierteSeccion01Titulo02">Aumenta tu patrimonio,invierte en propiedades usadas</h1>
+					<h1 id="invierteSeccion01Titulo02">¿Cómo invertir en propiedades?</h1>
 				<div class="row align-items-center">
-					<div class="col col-sm-2">
-						<p class="dash"></p>
-					</div>
 					
-					<div class="col-9 col-sm-6">
-						<p id="invierteSeccion01Titulo03">Suscríbete a InvierteVivimos para recibir información de propiedades usadas ideales para inversión antes que salgan al mercado.
-						</p>
+					<div class="col-12">
+						
+							<ul id="invierteSeccion01Titulo03">
+								<li>¿Tienes la intención, pero no sabes cómo?</li>
+								<li>¿No sabes cómo empezar, qué pasos seguir?</li>
+								<li>¿Qué necesitas para invertir?</li>
+								<li>Nosotros te ayudamos</li>
+								<li>Descarga nuestra guía para inversión en propiedades</li>
+								
+							</ul>	
+						
 					</div>
 				</div>	
-					<form action="#" th:action="@{/invierteForm}" th:object="${user}" method="post" id="formInvierte01">
-						 <input type="hidden" name="g-recaptcha-response" class="recaptchaResponse">
-    					 <input type="hidden" name="action" value="invierteForm">
-						
-						<input type="email" class="btn btn-secondary" id="validationDefaultUsername01"  aria-describedby="inputGroupPrepend" placeholder="correo electrónico" th:field="*{email}" required />
-						<input type="submit" class="btn btn-primary" value="Invierte" /> 
-						
-						 
-						<div class="my-2" th:if="${reCaptchaError}">
-							<div class="alert alert-danger text-left" th:each="code : ${reCaptchaError}">
-								ReCaptcha: <span th:text="${code}"></span>
-							</div>
-						</div>
-						
-					</form>	
+			
 				</div>	
 			
 				<div class="col-md-4">
@@ -68,8 +60,7 @@
 				</div>	
 			</div>
 			</div>
-		
-
+		</div>	
 	</header>
 	
 	<section id="quienesSomos">
@@ -78,13 +69,13 @@
 			<div class="col-md-8">
 				<div class="row py-5">
 					<div class="col-md-12">
-					<h4 id="invierteSeccion02Titulo01">¿QUIÉNES SOMOS?</h4>
-					<h2 id="invierteSeccion02Titulo02">Corredores e inversionistas inmobiliarios con experiencia</h2>
+						<h4 id="invierteSeccion02Titulo01">¿QUIÉNES SOMOS?</h4>
+						<h2 id="invierteSeccion02Titulo02">Corredores e inversionistas inmobiliarios con experiencia</h2>
+					</div>
 				</div>
-			</div>
 			<div class="row justify-content-center align-items-center">
 				<div class="col col-sm-6 text-center">
-					<img src="/imgs/ilustraciones_movil-02.png" class="img-fluid" alt="somos corredores de propiedades e inversionistas inmobiliarios con experiencia">
+					<img src="/imgs/guia-inversion-propiedades.png" class="img-fluid" alt="Descarga la guía de cómo invertir en propiedades. Propiedades para inversión">
 				</div>
 				<div class="col-7 col-sm-6">
 					<p id="invierteSeccion02Titulo03" class="verticalSolidLine">Somos corredores de propiedades expertos en <strong>propiedades para inversión</strong> en Santiago,Chile. 
@@ -92,8 +83,8 @@
 					</p>
 				</div>
 			</div>
-		</div>
-		</div>	
+			</div>
+			</div>
 		</div>
 	
 	</section>	
@@ -103,26 +94,20 @@
 			<div class="row md-mx-5">
 				<div class="col-md-8">
 				<div class="row py-5 text-center">
-				<div class="col-md-12">
-					<h2 id="invierteSeccion03Titulo01">¿QUÉ HACEMOS?</h2>
-					<p id="invierteSeccion03Titulo02">En InvierteVivimos te ayudamos a encontrar propiedades usadas 
-					ideales para invertir, con buenas proyecciones y rentabilidad.
-					</p>
+					<div class="col-md-12">
+						<h2 id="invierteSeccion03Titulo01">¿QUÉ HACEMOS?</h2>
+						<p id="invierteSeccion03Titulo02">En InvierteVivimos te ayudamos a encontrar propiedades usadas 
+						ideales para invertir, con buenas proyecciones y rentabilidad.
+						</p>
+						
 					
-					<form action="#" th:action="@{/invierteForm}" th:object="${user}" method="post" class="formInvierte">
-						 <input type="hidden" name="g-recaptcha-response" class="recaptchaResponse">
-    					 <input type="hidden" name="action" value="invierteForm">
-						<input type="email" class="btn btn-secondary" id="validationDefaultUsername02"  aria-describedby="inputGroupPrepend2" placeholder="correo electrónico" th:field="*{email}" required />
-						<input type="submit" class="btn btn-primary ms-3" value="Invierte" />	
+					</div>
 					
-					</form>	
 				</div>
-				
-			</div>
 		
 						
 			
-			<div class="row p-5 text-center justify-content-center">
+			<div class="row py-5 text-center justify-content-center">
 				<div class="col-md-4">
 					<img src="imgs/ilustraciones_movil-04.png" class="img-fluid" alt="Somos corredores de propiedades especializados en propiedades para inversión. Te damos asesoría integral para comprar propiedades para inversión">
 					<h5 class="invierteBeneficioTitulo">Asesoría Integral</h5>
@@ -137,69 +122,69 @@
 				
 				<div class="col-md-4">
 					<img src="imgs/ilustraciones_movil-06.png" class="img-fluid" alt="Nos encargamos del proceso de compraventa al comprar propiedades aptas para inversión.">
-					<h5 class="invierteBeneficioTitulo">Proceso de Compraventa</h5>
+					<h5 class="invierteBeneficioTitulo">Información Temprana</h5>
 					<p class="invierteBeneficioTexto">Nos encargamos del proceso de compraventa completo para que la experiencia sea fácil y rápida. Nuestra comisión es del 2%+ IVA.</p>
 				</div>
 			</div>
+			</div>
 		</div>
-	</div>
-	</div>		
+		</div>	
 	</section>
 	
 
 	<section id="paraInversionistas" class="gradient">
-	<div class="container-md py-5 px-5">
+		<div class="container-md py-5 px-5">
 			<div class="row md-mx-5">
 				<div class="col-md-8">
 			
 				<div class="row py-5">
 					<div class="col-md-8">
 						<div class="row">
-						<h4 id="invierteSeccion04Titulo01">PARA INVERSIONISTAS</h4>
-						<h1 id="invierteSeccion04Titulo02">¿Por qué elegir propiedades usadas?</h2>		
-					</div>
-					
-					<div class="row align-items-center">
-						<div class="col col-sm-2">
-							<p class="dash"></p>
+							<h4 id="invierteSeccion04Titulo01">PARA INVERSIONISTAS</h4>
+							<h1 id="invierteSeccion04Titulo02">¿Por qué elegir propiedades usadas?</h2>		
 						</div>
-						<div class="col-9 col-sm-6">
-							<p class="invierteSeccion04Titulo03">Rentabilidad Inmediata</p>
-						</div>		
-					</div>
-					
-					<div class="row align-items-center">
-						<div class="col col-sm-2">
-							<p class="dash"></p>
-						</div>
-						<div class="col-9 col-sm-6">
-							<p class="invierteSeccion04Titulo03">Sin pagar sobreprecio</p>
-						</div>		
-					</div>
-					
-					<div class="row align-items-center">
-						<div class="col col-sm-2">
-							<p class="dash"></p>
-						</div>
-						<div class="col-9 col-sm-6">
-							<p class="invierteSeccion04Titulo03">Apuesta Segura</p>
-						</div>		
-					</div>
-					
-					<div class="text-center">
 						
-						<a href="#invierteSeccion03Titulo02"> <button type="button" class="btn btn-primary ms-3">APRENDE MÁS</button></a>
+						<div class="row align-items-center">
+							<div class="col col-sm-2">
+								<p class="dash"></p>
+							</div>
+							<div class="col-9 col-sm-6">
+								<p class="invierteSeccion04Titulo03">Rentabilidad Inmediata</p>
+							</div>		
+						</div>
+						
+						<div class="row align-items-center">
+							<div class="col col-sm-2">
+								<p class="dash"></p>
+							</div>
+							<div class="col-9 col-sm-6">
+								<p class="invierteSeccion04Titulo03">Sin pagar sobreprecio</p>
+							</div>		
+						</div>
+						
+						<div class="row align-items-center">
+							<div class="col col-sm-2">
+								<p class="dash"></p>
+							</div>
+							<div class="col-9 col-sm-6">
+								<p class="invierteSeccion04Titulo03">Apuesta Segura</p>
+							</div>		
+						</div>
+						
+						<div class="text-center">
+							
+							<a href="#invierteSeccion03Titulo02"> <button type="button" class="btn btn-primary ms-3">APRENDE MÁS</button></a>
+							
+						</div>
 						
 					</div>
 					
-				</div>
-				
-				<div class="p-3 col-md-4">
-				<img src="/imgs/ilustraciones_movil-03.png" class="img-fluid" style="margin-top: 90px;">
+					<div class="p-3 col-md-4">
+					<img src="/imgs/ilustraciones_movil-03.png" class="img-fluid" style="margin-top: 90px;">
+					</div>
+					</div>
 				</div>
 			</div>
-		</div>
-		</div>
 		</div>
 			
 	
@@ -211,8 +196,7 @@
 <!--  	<div th:insert="fragments/linkedInTag :: linkedInTag"></div>-->
 		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>		
 
-<!-- Google Recaptcha Script -->		
-	<div th:insert="fragments/reCaptcha :: reCaptcha"></div>	
+
 	     
 	</body>		
 
