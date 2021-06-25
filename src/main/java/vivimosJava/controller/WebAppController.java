@@ -33,14 +33,7 @@ public class WebAppController {
 		return "gracias-invertir-propiedades";
 	}
 	
-	/*
-	@RequestMapping("/fragments/testimoniales")
-	public String getFragmentsTestimoniales(Model model) {
-		List<TestimonialesDTO> testimoniales=testimonialesService.todas();
-		model.addAttribute("testimoniales", testimoniales);
-		return "fragments/testimoniales";
-	}
-	*/
+	
 	
 	@RequestMapping("/enviarMail")
 	public String getEnviarMail() {
@@ -49,7 +42,6 @@ public class WebAppController {
 	
 	@RequestMapping("/como-invertir-en-propiedades")
 	public String getComoInvertirEnPropiedades(Model model) {
-		System.out.println("entra a metodo");
 		List<TestimonialesDTO> testimoniales=testimonialesService.todas();
 		model.addAttribute("testimoniales", testimoniales);
 		return "como-invertir-en-propiedades";
