@@ -3,6 +3,7 @@ package vivimosJava.controller;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 import javax.mail.MessagingException;
 
@@ -25,6 +26,8 @@ import vivimosJava.service.MailDetails;
 import vivimosJava.service.MailService;
 import vivimosJava.service.ReCaptchaRegisterServiceImpl;
 import vivimosJava.service.UsersSimpleService;
+import vivimosJava.model.TestimonialesDTO;
+import vivimosJava.service.TestimonialesService;
 
 @Controller
 public class UsersSimpleController {
@@ -46,10 +49,16 @@ public class UsersSimpleController {
 	@Autowired
 	MailDetails mailDetails;
 	
+	@Autowired
+	TestimonialesService testimonialesService;
+	
 	
 	@GetMapping("/invierte")
 	public String showForm(Model model) {
 		model.addAttribute("user", new UsersSimpleDTO());
+		List<TestimonialesDTO> testimoniales=testimonialesService.todas();
+		model.addAttribute("testimoniales", testimoniales);
+		System.out.println("pide modelo");
 		return "invierte";
 	
 	}

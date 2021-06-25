@@ -17,7 +17,9 @@ public class TestimonialesServiceImpl implements TestimonialesService {
 
 	@Override
 	public List<TestimonialesDTO> todas() {
+		System.out.println("entra a testimoniales service");
 		List<TestimonialesDTO> testimoniales=testimonialesDAO.todas();
+		
 		return testimoniales;
 	}
 
