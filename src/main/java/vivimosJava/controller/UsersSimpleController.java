@@ -58,7 +58,6 @@ public class UsersSimpleController {
 		model.addAttribute("user", new UsersSimpleDTO());
 		List<TestimonialesDTO> testimoniales=testimonialesService.todas();
 		model.addAttribute("testimoniales", testimoniales);
-		System.out.println("pide modelo");
 		return "invierte";
 	
 	}

@@ -25,7 +25,6 @@ public class TestimonialesDAOImpl implements TestimonialesDAO {
 		List<TestimonialesDTO> testimoniales=new ArrayList<TestimonialesDTO>();
 		try {
 			testimoniales=namedParam.query(sqlTodas, BeanPropertyRowMapper.newInstance(TestimonialesDTO.class));
-			System.out.println("hace query en sql");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
