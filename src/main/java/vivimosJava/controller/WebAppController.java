@@ -47,4 +47,8 @@ public class WebAppController {
 		return "como-invertir-en-propiedades";
 	}
 	
+	@RequestMapping("/index2")
+	public String getIndex2() {
+		return "index2";
+	}
 }

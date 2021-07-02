@@ -49,8 +49,8 @@ public class MailServiceImpl implements MailService {
 	@Value("${sendgrid.templateId}")
 	private String emailTemplateId;
 	
-	private String emailTemplateIdSantaRosa ="d-2c353fcbd118457088bbaf96de517742";
-	
+	private String emailTemplateIdDeptoDinamico ="d-2c353fcbd118457088bbaf96de517742";
+
 	
 	@Autowired
 	JavaMailSender javaMailSender;
@@ -208,8 +208,8 @@ public class MailServiceImpl implements MailService {
 	@Override
 	public void sendMailInversionista() throws IOException {
 
-		String direccion="Santa Rosa 249";
-		String sector="Metro Santa Lucía";
+		String direccion="Lastarria 104";
+		String sector="Barrio Lastarria ";
 		String linkWhatsappNombre="Mi nombre es: ";
 		String linkWhatsappMail=" y mi correo es : ";
 		String linkWhatsapp="https://api.whatsapp.com/send?phone=56989997466&text=Hola, quisiera consultar por la propiedad de ";
@@ -223,7 +223,7 @@ public class MailServiceImpl implements MailService {
 		fromEmail.setEmail("info@vivimos.cl");
 		fromEmail.setName("Invierte Vivimos");
 		mail.setFrom(fromEmail);
-		mail.setTemplateId(emailTemplateIdSantaRosa);
+		mail.setTemplateId(emailTemplateIdDeptoDinamico);
 		
 		List<InversionistasTestingDTO> lista=inversionistasTestingDAO.listaInversionistasTesting();
 		for(InversionistasTestingDTO inversionistasTestingDTO:lista) {
