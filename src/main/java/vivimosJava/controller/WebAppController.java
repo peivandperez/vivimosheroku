@@ -51,4 +51,9 @@ public class WebAppController {
 	public String getIndex2() {
 		return "index2";
 	}
+	
+	@RequestMapping("/descargaGuia")
+	public String getDescargaGuia() {
+		return "graciasDescargaGuia";
+	}
 }
