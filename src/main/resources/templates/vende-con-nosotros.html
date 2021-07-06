@@ -51,7 +51,7 @@
     					 <input type="hidden" name="action" value="invierteForm">
 						
 						<input type="email" class="btn btn-secondary" id="validationDefaultUsername01"  aria-describedby="inputGroupPrepend" placeholder="correo electrónico" th:field="*{email}" required />
-						<input type="submit" class="btn btn-primary" value="Invierte" /> 
+						<input type="submit" class="btn btn-primary" value="Vende con nosotros" /> 
 						
 						 
 						<div class="my-2" th:if="${reCaptchaError}">
@@ -87,8 +87,9 @@
 					<img src="/imgs/ilustraciones_movil-02.png" class="img-fluid" alt="somos corredores de propiedades e inversionistas inmobiliarios con experiencia">
 				</div>
 				<div class="col-7 col-sm-6">
-					<p id="invierteSeccion02Titulo03" class="verticalSolidLine">Somos corredores de propiedades expertos en <strong>propiedades para inversión</strong> en Santiago,Chile. 
-						</br>Nos enfocamos en el segmento de las UF 1.500 a UF 3.500.
+					<p id="invierteSeccion02Titulo03" class="verticalSolidLine">Somos corredores de propiedades expertos en <strong>propiedades para inversión</strong> en Santiago Centro y comunas aledañas.
+						Tenemos una red de inversionistas interesados en propiedades. 
+					
 					</p>
 				</div>
 			</div>
@@ -105,15 +106,15 @@
 				<div class="row py-5 text-center">
 				<div class="col-md-12">
 					<h2 id="invierteSeccion03Titulo01">¿QUÉ HACEMOS?</h2>
-					<p id="invierteSeccion03Titulo02">En InvierteVivimos te ayudamos a encontrar propiedades usadas 
-					ideales para invertir, con buenas proyecciones y rentabilidad.
-					</p>
+					<p>En Vivimos.cl te ayudamos a vender tu propiedad de manera expedita y fácil.</p>
+					<p>Desde le asesoría de precio, toma de fotogrfía y video profesional hasta la entrega de la propiedad, te apoyamos en cada paso.</p>
 					
-					<form action="#" th:action="@{/invierteForm}" th:object="${user}" method="post" class="formInvierte">
+					
+					<form action="#" th:action="@{/VendeForm}" th:object="${user}" method="post" class="formInvierte">
 						 <input type="hidden" name="g-recaptcha-response" class="recaptchaResponse">
     					 <input type="hidden" name="action" value="invierteForm">
 						<input type="email" class="btn btn-secondary" id="validationDefaultUsername02"  aria-describedby="inputGroupPrepend2" placeholder="correo electrónico" th:field="*{email}" required />
-						<input type="submit" class="btn btn-primary ms-3" value="Invierte" />	
+						<input type="submit" class="btn btn-primary ms-3" value="Vende con nosotros" />	
 					
 					</form>	
 				</div>
@@ -124,21 +125,21 @@
 			
 			<div class="row p-5 text-center justify-content-center">
 				<div class="col-md-4">
-					<img src="imgs/ilustraciones_movil-04.png" class="img-fluid" alt="Somos corredores de propiedades especializados en propiedades para inversión. Te damos asesoría integral para comprar propiedades para inversión">
-					<h5 class="invierteBeneficioTitulo">Asesoría Integral</h5>
-					<p class="invierteBeneficioTexto">Te ayudamos a encontrar la propiedad perfecta para tí, acorde a tu capacidad de pago y proyecciones.</p>
+					<img src="imgs/ilustraciones_movil-04.png" class="img-fluid" alt="Somos corredores de propiedades especializados en propiedades para inversión. Te damos asesoría integral para vender tu propiedad">
+					<h5 class="invierteBeneficioTitulo">ASESORÍA INTEGRAL</h5>
+					<p class="invierteBeneficioTexto">Apoyamos el proceso de compraventa completo,desde el avalúo y la publicación hasta la entrega al nuevo dueño.</p>
 				</div>
 				
 				<div class="col-md-4">
-					<img src="imgs/ilustraciones_movil-05.png" class="img-fluid" alt="Te enviamos información de propiedades a la venta ideales para inversión antes que salgan al mercado">
-					<h5 class="invierteBeneficioTitulo">Información Temprana</h5>
-					<p class="invierteBeneficioTexto">Enviamos información de propiedades usadas antes de que se publiquen en el mercado, con un informe de rentabilidad potencial.</p>
+					<img src="imgs/ilustraciones_movil-05.png" class="img-fluid" alt="Tomamos la información de mercado relevante para vender la propiedad de manera fácil y rápida">
+					<h5 class="invierteBeneficioTitulo">INFORMACIÓN DE MERCADO</h5>
+					<p class="invierteBeneficioTexto">Hacemos estudios de mercado para asegurar el precio de tu propiedad sea el óptimo para la venta.</p>
 				</div>
 				
 				<div class="col-md-4">
 					<img src="imgs/ilustraciones_movil-06.png" class="img-fluid" alt="Nos encargamos del proceso de compraventa al comprar propiedades aptas para inversión.">
-					<h5 class="invierteBeneficioTitulo">Proceso de Compraventa</h5>
-					<p class="invierteBeneficioTexto">Nos encargamos del proceso de compraventa completo para que la experiencia sea fácil y rápida. Nuestra comisión es del 2%+ IVA.</p>
+					<h5 class="invierteBeneficioTitulo">PROCESO DE COMPRAVENTA</h5>
+					<p class="invierteBeneficioTexto">Hacemos todo lo posible para facilitar y agilizar el proceso de compraventa. Nuestra comisión es del 2%+ IVA.</p>
 				</div>
 			</div>
 		</div>
@@ -155,8 +156,8 @@
 				<div class="row py-5">
 					<div class="col-md-8">
 						<div class="row">
-						<h4 id="invierteSeccion04Titulo01">PARA INVERSIONISTAS</h4>
-						<h1 id="invierteSeccion04Titulo02">¿Por qué elegir propiedades usadas?</h2>		
+						<h4 id="invierteSeccion04Titulo01">CORRETAJE</h4>
+						<h1 id="invierteSeccion04Titulo02">¿Por qué vender con Vivimos.cl?</h2>		
 					</div>
 					
 					<div class="row align-items-center">
@@ -164,7 +165,7 @@
 							<p class="dash"></p>
 						</div>
 						<div class="col-9 col-sm-6">
-							<p class="invierteSeccion04Titulo03">Rentabilidad Inmediata</p>
+							<p class="invierteSeccion04Titulo03">Tenemos una red de inversionistas interesados en propiedades para inversión.</p>
 						</div>		
 					</div>
 					
@@ -173,7 +174,7 @@
 							<p class="dash"></p>
 						</div>
 						<div class="col-9 col-sm-6">
-							<p class="invierteSeccion04Titulo03">Sin pagar sobreprecio</p>
+							<p class="invierteSeccion04Titulo03">Experiencia extensa en compra, venta e inversión.</p>
 						</div>		
 					</div>
 					
@@ -182,7 +183,7 @@
 							<p class="dash"></p>
 						</div>
 						<div class="col-9 col-sm-6">
-							<p class="invierteSeccion04Titulo03">Apuesta Segura</p>
+							<p class="invierteSeccion04Titulo03">Apoyo de servicios profesionales de fotografía, video y legal</p>
 						</div>		
 					</div>
 					
