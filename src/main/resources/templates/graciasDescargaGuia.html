@@ -5,12 +5,12 @@
 		<div th:insert="fragments/head :: headGeneral"></div>
 		<div th:insert="fragments/bootstrap :: headerBootstrap"></div>
 		<div th:insert="fragments/head :: customCSS"></div>
-	<!-- 	<div th:insert="fragments/pixels :: pixels"></div>-->	
+		<div th:insert="fragments/pixels :: pixels"></div>
 		
 		
 
 	<!-- Insertar los tags individuales de cada página -->
-	<title>Gracias por invertir en propiedades</title>
+	<title>Gracias por descargar la guía para invertir en propiedades	</title>
 	
 	
 	
@@ -23,24 +23,20 @@
 	<div th:insert="fragments/menu :: menu"></div>
 	
 	<div class="container-md">
-
+	Gracias por descargar la guia de cómo invertir en propiedades</br></br>
 	
 	<p>
-		Mail Enviado
+	Si quieres invertir en propiedades y contactarte con nosotros, <a th:href="@{/invierte}">lo puedes hacer acá </a>
 	</p>
-	
-
-	
-	
-	
 	</div>
 	
 
 	
-	
 
-		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>		
-		
+	
+	
+		<div th:insert="fragments/linkedInTag :: linkedInTag"></div>
+		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>			
 	</body>		
 
 </html>
