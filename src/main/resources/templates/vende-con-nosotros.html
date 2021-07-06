@@ -29,24 +29,24 @@
 	
 	 	
 	<div th:insert="fragments/menu :: menu"></div>
-	<header class="page-header gradient">
+	<header class="page-header gradientVende">
 	<div class="container-md py-5 px-5">
 	
 			<div class="row">
 				<div class="col-md-8">
-					<h4 id="invierteSeccion01Titulo01">PARA INVERSIONISTAS</h4>
-					<h1 id="invierteSeccion01Titulo02">Aumenta tu patrimonio,invierte en propiedades usadas</h1>
+					<h4 id="invierteSeccion01Titulo01">VENTA DE PROPIEDADES</h4>
+					
 				<div class="row align-items-center">
 					<div class="col col-sm-2">
 						<p class="dash"></p>
 					</div>
 					
 					<div class="col-9 col-sm-6">
-						<p id="invierteSeccion01Titulo03">Suscríbete a InvierteVivimos para recibir información de propiedades usadas ideales para inversión antes que salgan al mercado.
+						<p id="invierteSeccion01Titulo03">En Vivimos.cl te ayudamos a vender tu propiedad, apoyando el proceso completo.
 						</p>
 					</div>
 				</div>	
-					<form action="#" th:action="@{/invierteForm}" th:object="${user}" method="post" id="formInvierte01">
+					<form action="#" th:action="@{/vendeForm}" th:object="${user}" method="post" id="formInvierte01">
 						 <input type="hidden" name="g-recaptcha-response" class="recaptchaResponse">
     					 <input type="hidden" name="action" value="invierteForm">
 						
@@ -147,7 +147,7 @@
 	</section>
 	
 
-	<section id="paraInversionistas" class="gradient">
+	<section id="paraInversionistas" class="gradientVende">
 	<div class="container-md py-5 px-5">
 			<div class="row md-mx-5">
 				<div class="col-md-8">

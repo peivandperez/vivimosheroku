@@ -62,9 +62,18 @@ public class UsersSimpleController {
 	
 	}
 	
+	@GetMapping("/vende-con-nosotros")
+	public String showFormVenderPropiedad(Model model) {
+		model.addAttribute("user", new UsersSimpleDTO());
+		List<TestimonialesDTO> testimoniales=testimonialesService.todas();
+		model.addAttribute("testimoniales", testimoniales);
+		return "vende-con-nosotros";
+	
+	}
+	
 	
 	 @PostMapping("/invierteForm")
-	   public String submissionResult(@ModelAttribute("user") UsersSimpleDTO usersSimpleDTO, MailDTO mailDTO, @RequestParam(name="g-recaptcha-response") String response,
+	   public String submissionResultInvierte(@ModelAttribute("user") UsersSimpleDTO usersSimpleDTO, MailDTO mailDTO, @RequestParam(name="g-recaptcha-response") String response,
 			   BindingResult result,ModelMap model) throws MessagingException, UnsupportedEncodingException {
 		 
 		 //Verify ReCaptcha response
@@ -82,6 +91,28 @@ public class UsersSimpleController {
 			
 				 usersSimpleService.insert(usersSimpleDTO);
 				 return "gracias-invertir-propiedades";
+		 	}		 
+	    } 
+	 
+	 @PostMapping("/vendeForm")
+	   public String submissionResultVende(@ModelAttribute("user") UsersSimpleDTO usersSimpleDTO, MailDTO mailDTO, @RequestParam(name="g-recaptcha-response") String response,
+			   BindingResult result,ModelMap model) throws MessagingException, UnsupportedEncodingException {
+		 
+		 //Verify ReCaptcha response
+		 ReCaptchaResponse reCaptchaResponse= reCaptchaRegisterService.verify(response);
+		 	if(!reCaptchaResponse.isSuccess()) {
+		 		model.addAttribute("reCaptchaError", reCaptchaResponse.getErrors());
+		 	System.out.println(reCaptchaResponse.getErrorCodes());
+		 		return "invierte";
+		 	}else {
+		 		
+		 		 mailDTO.setMailTo(usersSimpleDTO.getEmail());
+				 mailDTO.setMailToName(usersSimpleDTO.getEmail());
+				 mailDetails.mailInvierte(mailDTO); 
+				 mailService.sendMessageUsingThymleafTemplate(mailDTO);
+			
+				 usersSimpleService.insert(usersSimpleDTO);
+				 return "gracias-vende-con-nosotros";
 		 	}		 
 	    } 
 	}
