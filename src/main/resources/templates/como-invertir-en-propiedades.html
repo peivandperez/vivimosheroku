@@ -89,7 +89,7 @@
 				
 				<div class="col-md-4 py-5">
 				
-					<button class="btn btn-primary" th:onclick="|window.location.href='/descargaGuia'|"> DESCARGA GUÍA EN PDF</button>
+					<button class="btn btn-primary" th:onclick="descargaGuia()"> DESCARGA GUÍA EN PDF</button>
 				
 				</div>	
 			</div>
@@ -144,12 +144,16 @@
 	<section id="descargaPDF">
 	<div class="container-md py-5 px-5">
 			<div class="row md-mx-5">
-				<div class="col-md-8">
+				<div class="col-md-8 ">
 					<iframe th:src="@{/pdf/como_invertir_en_propiedades.pdf}" width="80%" height="500px"></iframe>
-			</div>
+					<button class="btn btn-primary" th:onclick="descargaGuia()"> DESCARGA GUÍA EN PDF</button>	
+				</div>
+			
 		</div>			
 	 </div>	
+	 
 	</section>
+	
 	
 	
 					
@@ -165,7 +169,20 @@
 <!--  	<div th:insert="fragments/linkedInTag :: linkedInTag"></div>-->
 		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>		
 
+<script th:inline="javascript">
+	
+		function descargaGuia(){
+			
+			var urlPDF=/*[[@{/pdf/como_invertir_en_propiedades.pdf}]]*/"";
+			window.open(urlPDF);
 
+			setTimeout(function(){
+			            window.location.href = ("descargaGuia");
+			       }, 1000);
+
+			}
+
+</script>
 	     
 	</body>		
 
