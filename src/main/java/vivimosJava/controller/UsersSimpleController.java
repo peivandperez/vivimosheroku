@@ -18,6 +18,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import vivimosJava.controller.recaptcha.ReCaptchaResponse;
 import vivimosJava.model.MailDTO;
@@ -68,6 +69,18 @@ public class UsersSimpleController {
 		List<TestimonialesDTO> testimoniales=testimonialesService.todas();
 		model.addAttribute("testimoniales", testimoniales);
 		return "vende-con-nosotros";
+	
+	}
+	
+	@RequestMapping("/propiedadSingleTestingMock")
+	public String getPropiedadSingleTestingMock(){
+		
+	/*public String showFormVenderPropiedad(Model model) {
+		model.addAttribute("user", new UsersSimpleDTO());
+		List<TestimonialesDTO> testimoniales=testimonialesService.todas();
+		model.addAttribute("testimoniales", testimoniales);
+	*/
+		return "propiedadSingleTestingMock";
 	
 	}
 	

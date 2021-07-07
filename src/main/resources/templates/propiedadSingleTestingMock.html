@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		
+		<div th:insert="fragments/head :: headGeneral"></div>
+		<div th:insert="fragments/bootstrap :: headerBootstrap"></div>
+		<div th:insert="fragments/head :: customCSS"></div>
+		<div th:insert="fragments/head :: landingCSS"></div>
+		<!--  <div th:insert="fragments/pixels :: pixels"></div>-->
+		
+		
+
+	<!-- Insertar los tags individuales de cada página -->
+	<title>Departamento 1 Dormitorio + 1 Baño , Metro Santa Lucía. Santa Rosa 249</title>
+	
+	
+	<!--  
+	<meta name="description" content="HTML meta tags are a cornerstone of coding. 
+	But which are the most essential? We give you a rundown of all the meta tags you need to know."/>
+	
+	<meta name="keywords" content="Como vender departamento">
+	-->
+	
+	</head>	
+
+
+	<body>
+	
+	<div th:insert="fragments/menu :: menu"></div>
+	
+	<main id="propiedad">
+	<div class="container-md">
+		<div class="row justify-content-center">
+			<div class="col-md-8">
+				<h1>Departamento 1 Dormitorio + 1 Baño, Metro Santa Lucía. Santa Rosa 249, Santiago Centro</h1>
+				<div class="row my-5 mx-3">
+				<!-- Insertar galería  -->
+				Acá va la galería
+				</div>
+				
+				<div class="row my-5 mx-3">
+					<h3> Departamento en venta, 1 Dormitorio + 1 Baño en Metro Santa Lucía. Santa Rosa 249. Valor UF 2.100</h3>
+					<p>Luminoso departamento de 1 dormitorio ubicado en Metro Santa Lucía. Ideal para inversión</p>
+				</div>
+				
+				<div class="row my-5 mx-3">
+					<div class="col md-4">
+						<button class="btn btn-primary" >AGENDAR VISITA</button>
+					</div>	
+				</div>
+				
+				<div class="row my-5 mx-3">
+					<h4>Resumen de la propiedad</h4>
+						<ul>
+							<li>Departamento en venta</li>
+							<li>Santa Rosa 249, Santiago Centro</li>
+							<li>Metro Santa Lucía</li>
+							<li>UF 2.100 </li>
+							<li>1 Dormitorio + 1 Baño</li>
+							<li>Sin estacionamiento</li>
+							<li>Sin bodega</li>
+							<li>30 m2</li>			
+						</ul>
+				</div>
+				
+				<div class="row my-5 mx-3">
+					<div class="col md-4">
+						<button class="btn btn-primary">AGENDAR VISITA</button>
+					</div>	
+				</div>
+				
+				<div class="row my-5 mx-3">
+					<h4>Detalles de la propiedad</h4>
+						<ul>
+							<li>Sin terraza</li>
+							<li>Orientación norponiente</li>
+							<li>Cocina americana</li>
+							
+						</ul>
+				</div>
+				
+				<div class="row my-5 mx-3">
+					<h4>Edificio</h4>
+						<ul>
+							<li>Año 2008</li>
+							<li>Gimnasio</li>
+							<li>Quincho</li>
+							<li>Piscina</li>
+							<li>Sala eventos</li>
+							<li>Conserjería</li>
+							<li>Juegos infantiles</li>
+							<li>Gastos comunes: $45.000 mensual</li>
+							<li>Contribuciones: Exento</li>
+							<li>Basuras: $12.000 trimestral</li>
+							
+						</ul>	
+				</div>	
+				
+				<div class="row my-5 mx-3">
+					<h4>Otros</h4>
+						<ul>
+							<li>Requiere arreglos menores</li>
+								<ul>
+									<li>Guardapolvos</li>
+									<li>Muebles de cocina</li>
+								</ul>
+						</ul>
+				</div>	
+			</div>
+		</div>
+	</div>
+	</main>
+	
+	<!-- 	<div th:insert="fragments/linkedInTag :: linkedInTag"></div> -->
+		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>			
+	</body>		
+
+</html>
