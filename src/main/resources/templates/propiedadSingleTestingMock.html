@@ -6,6 +6,13 @@
 		<div th:insert="fragments/bootstrap :: headerBootstrap"></div>
 		<div th:insert="fragments/head :: customCSS"></div>
 		<div th:insert="fragments/head :: landingCSS"></div>
+		
+		<!-- jQuery 1.8 or later, 33 KB -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Fotorama from CDNJS, 19 KB -->
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
 		<!--  <div th:insert="fragments/pixels :: pixels"></div>-->
 		
 		
@@ -33,74 +40,29 @@
 		<div class="row justify-content-center">
 			<div class="col-md-8">
 				<h1>Departamento 1 Dormitorio + 1 Baño, Metro Santa Lucía. Santa Rosa 249, Santiago Centro</h1>
-				<div class="row my-5 mx-3">
 				
-					<div id="galeriaTesting" class="carousel slide  w-40 ms-auto me-auto" data-bs-ride="carousel">	
-					  <div class="carousel-inner">
-					  		
-					    <div class="carousel-item active">
-					    
-					      <img th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  29.JPG}" class="d-block w-100" alt="...">
-					    </div>
-					    <div class="carousel-item">
-					      <img th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  1.JPG}" class="d-block w-100" alt="...">
-					    </div>
-					    <div class="carousel-item">
-					      <img th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  10.JPG}" class="d-block w-100" alt="...">
-					    </div>
-					    <div class="carousel-item">
-					      <img th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  11.JPG}" class="d-block w-100" alt="...">
-					    </div>
-					    <div class="carousel-item">
-					      <img th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  12.JPG}" class="d-block w-100" alt="...">
-					    </div>
-					    <div class="carousel-item">
-					      <img th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  15.JPG}" class="d-block w-100" alt="...">
-					    </div>
-					    <div class="carousel-item">
-					      <img th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  16.JPG}" class="d-block w-100" alt="...">
-					    </div>
-					    <div class="carousel-item">
-					      <img th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  17.JPG}" class="d-block w-100" alt="...">
-					    </div>
-					    <div class="carousel-item">
-					      <img th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  18.JPG}" class="d-block w-100" alt="...">
-					    </div>
-					    <div class="carousel-item">
-					      <img th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  19.JPG}" class="d-block w-100" alt="...">
-					    </div>
-					    <div class="carousel-item">
-					      <img th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  20.JPG}" class="d-block w-100" alt="...">
-					    </div>
-					    <div class="carousel-item">
-					      <img th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  5.JPG}" class="d-block w-100" alt="...">
-					    </div>
-					    <div class="carousel-item">
-					      <img th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  6.JPG}" class="d-block w-100" alt="...">
-					    </div>
-					    <div class="carousel-item">
-					      <img th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  7.JPG}" class="d-block w-100" alt="...">
-					    </div>
-					    <div class="carousel-item">
-					      <img th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  8.JPG}" class="d-block w-100" alt="...">
-					    </div>
-					    <div class="carousel-item">
-					      <img th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  9.JPG}" class="d-block w-100" alt="...">
-					    </div>
-					  </div>
-					  
-					 
-					  <button class="carousel-control-prev" type="button" data-bs-target="#galeriaTesting" data-bs-slide="prev">
-					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					    <span class="visually-hidden">Atrás</span>
-					  </button>
-					  <button class="carousel-control-next" type="button" data-bs-target="#galeriaTesting" data-bs-slide="next">
-					    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-					    <span class="visually-hidden">Adelante</span>
-					  </button>
+				<div class="row my-5 mx-3">
+
+				
+				<div class="fotorama" data-nav="thumbs" data-allowfullscreen="true" data-loop="true">
+				  <a th:href="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  1.JPG}"></a>
+				  <a th:href="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  10.JPG}"></a>
+				  <a th:href="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  11.JPG}"></a>
+				  <a th:href="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  12.JPG}"></a>
+				  <a th:href="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  15.JPG}"></a>
+				  <a th:href="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  16.JPG}"></a>
+				  <a th:href="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  17.JPG}"></a>
+				  <a th:href="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  18.JPG}"></a>
+				  <a th:href="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  19.JPG}"></a>
+				  <a th:href="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  20.JPG}"></a>
+				  <a th:href="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  5.JPG}"></a>
+				  <a th:href="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  6.JPG}"></a>
+				  <a th:href="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  7.JPG}"></a>
+				  <a th:href="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  8.JPG}"></a>
+				  <a th:href="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  9.JPG}"></a>
 				</div>
 				
-				
+			  </div>	
 				
 				<div class="row my-5 mx-3">
 					<h3> Departamento en venta, 1 Dormitorio + 1 Baño en Metro Santa Lucía. Santa Rosa 249. Valor UF 2.100</h3>
