@@ -29,3 +29,14 @@ spring.mail.host=mail.vivimos.cl
 spring.mail.port=465
 spring.mail.username=p.perez@vivimos.cl
 spring.mail.password=po098765		
+
+//
+esta función es para decile a facebook que trackee un custom event
+en el onclick -en este caso- le decimos que ejecute la función whatsAppClick()
+
+y en JS:
+function whatsAppClick(){
+fbq('trackCustom', 'WhatsAppClick'); //para facebook
+ga('send','event','contact','click','WhatsAppClick')// para Analytics
+
+}

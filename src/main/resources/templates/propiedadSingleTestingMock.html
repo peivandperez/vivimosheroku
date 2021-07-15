@@ -46,7 +46,9 @@
 				<div class="row my-5 mx-3">
 					<div class="col md-4">
 						<button class="btn btn-primary" >AGENDAR VISITA</button>
-					</div>	
+						<a href="https://api.whatsapp.com/send?phone=56989997466&amp;text=Quisiera consultar por el departamento de Santa Rosa 249" target="_blank" onclick="whatsAppClick()">
+						<img style="padding-left: 30px" th:src="@{/imgs/whatsapp-logo.png}"></a>	
+					</div>		 
 				</div>
 				
 				<div class="row my-5 mx-3">
@@ -63,11 +65,7 @@
 						</ul>
 				</div>
 				
-				<div class="row my-5 mx-3">
-					<div class="col md-4">
-						<button class="btn btn-primary">AGENDAR VISITA</button>
-					</div>	
-				</div>
+			
 				
 				<div class="row my-5 mx-3">
 					<h4>Detalles de la propiedad</h4>
@@ -105,7 +103,74 @@
 									<li>Muebles de cocina</li>
 								</ul>
 						</ul>
+				</div>
+				
+				<div class="row my-5 mx-3">
+					<div class="col md-4">
+						<button class="btn btn-primary" >AGENDAR VISITA</button>
+						<a href="https://api.whatsapp.com/send?phone=56989997466&amp;text=Quisiera consultar por el departamento de Santa Rosa 249" target="_blank" onclick="whatsAppClick()">
+						<img style="padding-left: 30px" th:src="@{/imgs/whatsapp-logo.png}"></a>	
+					</div>		 
 				</div>	
+				
+				<div class="row my-5 mx-3">
+					<h6>Descargar Presentación</h6>
+				</div>
+				
+				<div class="row my-5 mx-3">
+					<iframe title="YouTube video player" src="https://www.youtube.com/embed/t1Q1cchabfs" 
+					  width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen">
+					</iframe>
+				</div>
+				
+				<div class="row my-5 mx-3">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.076758213041!2d-70.64768498493814!3d-33.44730668077479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5752af40fe7%3A0x53ce2ea1ac8db409!2sSta.%20Rosa%20249%2C%20Santiago%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1sen!2scl!4v1626361283223!5m2!1sen!2scl" 
+					width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+					</iframe>
+				</div>
+				
+				<div class="row my-5 mx-3">
+					<p>
+						Pide más información por WhatsApp: <a href="https://api.whatsapp.com/send?phone=56989997466&amp;text=Quisiera consultar por el departamento de Santa Rosa 249" target="_blank" onclick="whatsAppClick()">
+						<img th:src="@{/imgs/whatsapp-logo.png}"></a> 
+				</div>
+				
+				<div class="row my-5 mx-3">
+					
+						<div class="col-md-6 col-xxl-4">
+							<form>
+							<h4>Agenda tu visita</h4>
+							<div class="row mb-4">
+							  <label for="nombreFormControl" class="form-label">Nombre</label>
+							  <input type="text" class="form-control" id="nombreFormControl" placeholder="Juan Pablo Gómez">
+							</div>
+							  
+							<div class="row mb-4">  
+							  <label for="telefonoFormControl" class="form-label">Teléfono</label>
+							  <input type="text" class="form-control" id="telefonoFormControl" placeholder="56 9 1234 5678">
+							</div>
+							  
+							<div class="row mb-4"> 
+							  <label for="mailFormControl" class="form-label">Mail</label>
+							  <input type="email" class="form-control" id="mailFormControl" placeholder="juan.gomez@gmail.com">
+							</div> 
+							
+							<div class="row mb-4"> 
+							  <div class="col md-4">
+							  	<button type="submit" class=" btn btn-primary btn-sm" id="submitButtonAgendaVisita">Agenda Visita</button>
+							  </div>
+							  <div class="col-4 col-xxl-4">
+							  </div>
+							</div> 
+							
+							</form>
+						</div>
+						
+					
+						
+					
+				</div>
+
 			</div>
 		</div>
 	</div>
