@@ -8,3 +8,12 @@
     color:#FF8800;
 }
 
+/* hacer click en la imagen para que se abra a pantalla completa al tiro*/
+.fotorama__fullscreen-icon {
+    background: url('../img/bg.png') no-repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
+    width: 100% !important;
+    height: 100% !important;
+    right: 0 !important;
+    top: 0 !important;
+    z-index: 10 !important;
+}
