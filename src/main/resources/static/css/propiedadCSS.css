@@ -1,0 +1,41 @@
+h1{
+	font-family: 'Product Sans';
+	font-size:22pt;
+	color: #696A6D;
+	text-transform: uppercase;
+}
+
+h3{
+	font-family: 'Product Sans';
+	color: #696A6D;
+}
+
+h4{
+	font-family: 'Product Sans';
+	font-size:16pt;
+	color: #696A6D;
+	text-transform: uppercase;
+}
+
+
+
+#resumenPropiedad{
+	background-color:#EBEBEC;
+}
+
+#detallesEdificio{
+	background-color:#F4F4F4;
+}
+
+#agendaVisita{
+	background-color:#F4F4F4;
+}
+
+ul li{
+	margin-left:40px;
+}
+
+.btn-secondary {
+    background: #2F385B;
+    color: #ffffff;
+}

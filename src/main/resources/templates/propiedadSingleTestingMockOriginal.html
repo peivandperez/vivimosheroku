@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		
+		<div th:insert="fragments/head :: headGeneral"></div>
+		<div th:insert="fragments/bootstrap :: headerBootstrap"></div>
+		<div th:insert="fragments/head :: customCSS"></div>
+		<div th:insert="fragments/head :: propiedadCSS"></div>
+		
+		<!-- jQuery 1.8 or later, 33 KB -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Fotorama from CDNJS, 19 KB -->
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+		<!--  <div th:insert="fragments/pixels :: pixels"></div>-->
+		
+		
+
+	<!-- Insertar los tags individuales de cada página -->
+	<title>Departamento en venta 1 Dormitorio + 1 Baño , Metro Santa Lucía. Santa Rosa 249</title>
+	
+	
+	<!--  
+	<meta name="description" content="HTML meta tags are a cornerstone of coding. 
+	But which are the most essential? We give you a rundown of all the meta tags you need to know."/>
+	
+	<meta name="keywords" content="Como vender departamento">
+	-->
+	
+	</head>	
+
+
+	<body>
+	
+	<section id="menuVivimos">	
+	<div th:insert="fragments/menu :: menu"></div>
+	</section>
+	
+	<main id="propiedad">
+	<div class="container-md">
+		<div class="row justify-content-center">
+			<div class="col-md-8">
+				<h1>Departamento en venta  1 Dormitorio + 1 Baño, Metro Santa Lucía. Santa Rosa 249, Santiago Centro</h1>
+				
+			<section id="imágenesPropiedad">		
+				<div class="row my-5 mx-3">
+				<div class="fotorama" data-nav="thumbs" data-allowfullscreen="true" data-loop="true">
+				  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  1.JPG}">
+				  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  10.JPG}">
+				  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  11.JPG}">
+				  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  12.JPG}">
+				  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  15.JPG}">
+				  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  16.JPG}">
+				  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  17.JPG}">
+				  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  18.JPG}">
+				  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  19.JPG}">
+				  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  20.JPG}">
+				  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  5.JPG}">
+				  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  6.JPG}">
+				  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  7.JPG}">
+				  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  8.JPG}">
+				  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  9.JPG}">
+				</div>
+			  </div>	
+			</section>
+			
+			<section id="descripciónPropiedad">
+				<div class="row my-5 mx-3">
+					<h3> Departamento en venta, 1 Dormitorio + 1 Baño en Metro Santa Lucía. Santa Rosa 249. Valor UF 2.100</h3>
+					<p>Luminoso departamento de 1 dormitorio ubicado en Metro Santa Lucía. Ideal para inversión, en pleno centro,
+					cerca de Universidad de Chile, Universidad Católica, Hospitales, transporte público. Zona de alta demanda tanto para arrendatarios como para inversionistas.
+					</p>
+				</div>
+		
+				<div class="row my-5 mx-3">
+					<div class="col md-4">
+						<div class="btn btn-group">
+							<button class="btn btn-primary mx-2" >Agendar visita</button>
+					   		<a href="https://api.whatsapp.com/send?phone=56989997466&amp;text=Quisiera consultar por el departamento de Santa Rosa 249" target="_blank" onclick="whatsAppClick()">
+								<button class="btn btn-primary mx-2">
+									WhatsApp
+									<img th:src="@{/imgs/whatsapp_verde.svg}"  width="25" height="25">
+								</button>
+							</a>
+						</div>
+					</div>		 
+				</div>
+			</section>
+			
+			<section id="resumenPropiedad" >	
+				<div class="row my-5 mx-3 pt-5">
+					<h4>Resumen de la propiedad</h4>
+						<ul>
+							<li>Departamento en venta</li>
+							<li>Santa Rosa 249, Santiago Centro</li>
+							<li>Metro Santa Lucía</li>
+							<li>UF 2.100 </li>
+							<li>1 Dormitorio + 1 Baño</li>
+							<li>Sin estacionamiento</li>
+							<li>Sin bodega</li>
+							<li>30 m2</li>			
+						</ul>
+				</div>
+			</section>
+			
+			<section id="detallesPropiedad">
+				<div class="row my-5 mx-3 pt-5">
+					<h4>Detalles de la propiedad</h4>
+						<ul>
+							<li>Sin terraza</li>
+							<li>Orientación norponiente</li>
+							<li>Cocina americana</li>	
+						</ul>
+				</div>
+			</section>	
+			
+			<section id="detallesEdificio">
+				<div class="row my-5 mx-3 pt-5">
+					<h4>Edificio</h4>
+						<ul>
+							<li>Año 2008</li>
+							<li>Gimnasio</li>
+							<li>Quincho</li>
+							<li>Piscina</li>
+							<li>Sala eventos</li>
+							<li>Conserjería</li>
+							<li>Juegos infantiles</li>
+							<li>Gastos comunes: $45.000 mensual</li>
+							<li>Contribuciones: Exento</li>
+							<li>Basuras: $12.000 trimestral</li>	
+						</ul>	
+				</div>	
+			</section>	
+			
+			<section id="otrosDetalles">
+				<div class="row my-5 mx-3 pt-5">
+					<h4>Otros</h4>
+						<ul>
+							<li>Requiere arreglos menores</li>
+								<ul>
+									<li>Guardapolvos</li>
+									<li>Muebles de cocina</li>
+								</ul>
+						</ul>
+				</div>
+			</section>	
+			
+			<section id="botonesAbajo">
+				<div class="row my-5 mx-3 pt-5">
+					<div class="col md-4">
+						<div class="btn btn-group">
+							<button class="btn btn-primary mx-2" >Agendar visita</button>
+						   	<a href="https://api.whatsapp.com/send?phone=56989997466&amp;text=Quisiera consultar por el departamento de Santa Rosa 249" target="_blank" onclick="whatsAppClick()">
+								<button class="btn btn-primary mx-2">
+									WhatsApp
+									<img th:src="@{/imgs/whatsapp_verde.svg}"  width="25" height="25">
+								</button>
+							</a>
+						</div>
+					</div>		 
+				</div>	
+			</section>
+			
+			<section id="descargarPresentación">
+				<div class="row my-5 mx-3">
+					<h6>Descargar Presentación</h6>
+				</div>
+			</section>	
+			
+			<section id="videoYouTube">
+				<div class="row my-5 mx-3">
+					<iframe title="YouTube video player" src="https://www.youtube.com/embed/t1Q1cchabfs" 
+					  width="560" height="415" frameborder="0" allowfullscreen="allowfullscreen">
+					</iframe>
+				</div>
+			</section>	
+			
+			<section id="mapaGoogleMaps">
+				<div class="row my-5 mx-3">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.076758213041!2d-70.64768498493814!3d-33.44730668077479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5752af40fe7%3A0x53ce2ea1ac8db409!2sSta.%20Rosa%20249%2C%20Santiago%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1sen!2scl!4v1626361283223!5m2!1sen!2scl" 
+					width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+					</iframe>
+				</div>
+			</section>		
+			
+			<section id="contactoSoloWhatsApp">
+				<div class="row my-5 mx-3">
+					<p>
+						Pide más información por WhatsApp: <a href="https://api.whatsapp.com/send?phone=56989997466&amp;text=Quisiera consultar por el departamento de Santa Rosa 249" target="_blank" onclick="whatsAppClick()">
+						<img th:src="@{/imgs/whatsapp_verde.svg}"  width="25" height="25"></a> 
+				</div>
+			</section>	
+			
+			<section id="agendaVisita">
+				<div class="row my-5 mx-3">
+					
+						<div class="col-md-6 col-xxl-4">
+							<form>
+								<h4>Agenda tu visita</h4>
+								<div class="row mb-4">
+								  <label for="nombreFormControl" class="form-label">Nombre</label>
+								  <input type="text" class="form-control" id="nombreFormControl" placeholder="Juan Pablo Gómez">
+								</div>
+								  
+								<div class="row mb-4">  
+								  <label for="telefonoFormControl" class="form-label">Teléfono</label>
+								  <input type="text" class="form-control" id="telefonoFormControl" placeholder="56 9 1234 5678">
+								</div>
+								  
+								<div class="row mb-4"> 
+								  <label for="mailFormControl" class="form-label">Mail</label>
+								  <input type="email" class="form-control" id="mailFormControl" placeholder="juan.gomez@gmail.com">
+								</div> 
+								
+								<div class="row mb-4"> 
+								  <div class="col md-4">
+								  	<button type="submit" class=" btn btn-primary btn-sm" id="submitButtonAgendaVisita">Enviar</button>
+								  </div>
+								  <div class="col-4 col-xxl-4">
+								  </div>
+								</div> 
+							</form>
+						</div>	
+				</div>
+			</section>	
+			
+			</div>
+		</div>
+	</div>
+	</main>
+	
+	<section id="linkedInTag">
+	<!-- 	<div th:insert="fragments/linkedInTag :: linkedInTag"></div> -->
+		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>		
+	</section>
+			
+	</body>		
+
+</html>
