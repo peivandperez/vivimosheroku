@@ -47,21 +47,21 @@
 								<section id="imágenesPropiedad">		
 									<div class="row my-5 mx-3">
 									<div class="fotorama" data-nav="thumbs" data-allowfullscreen="true" data-loop="true">
-									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  1.JPG}">
-									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  10.JPG}">
-									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  11.JPG}">
-									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  12.JPG}">
-									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  15.JPG}">
-									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  16.JPG}">
-									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  17.JPG}">
-									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  18.JPG}">
-									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  19.JPG}">
-									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  20.JPG}">
-									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  5.JPG}">
-									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  6.JPG}">
-									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  7.JPG}">
-									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  8.JPG}">
-									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249  9.JPG}">
+									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249_01.JPG}">
+									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249_10.JPG}">
+									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249_11.JPG}">
+									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249_12.JPG}">
+									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249_15.JPG}">
+									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249_16.JPG}">
+									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249_17.JPG}">
+									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249_18.JPG}">
+									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249_19.JPG}">
+									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249_20.JPG}">
+									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249_05.JPG}">
+									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249_06.JPG}">
+									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249_07.JPG}">
+									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249_08.JPG}">
+									  <img loading="lazy" th:src="@{/imgs/propiedades/santa_rosa_249/Santa Rosa 249_09.JPG}">
 									</div>
 								  </div>	
 								</section>
@@ -309,15 +309,23 @@
 		
 	</main>
 	
+	<section id="testimoniales">
+		  <div th:insert="fragments/testimoniales :: fragmentTestimoniales"></div>
+						
+	</section>
+	
+	<section id="propiedadesSimilares">
+		  <div th:insert="fragments/propiedadesSimilares :: fragmentPropiedadesSimilares"></div>
+						
+	</section>
+	
 	<section id="linkedInTag">
 	<!-- 	<div th:insert="fragments/linkedInTag :: linkedInTag"></div> -->
 		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>		
 	</section>
 	
-	<section id="testimoniales">
-				<div th:insert="fragments/testimoniales :: testimoniales"></div>
-						
-	</section>
+
+	
 			
 	</body>		
 
