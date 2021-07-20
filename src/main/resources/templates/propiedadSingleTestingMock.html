@@ -199,7 +199,7 @@
 									</div>
 								</div>		
 							<div class="row mx-3">
-								<div class="col md-4">
+								<div class="col md-4 justify-content-center">
 									<a th:href="@{pdf/cod_1446_Santa_Rosa_249.pdf}" target="_blank">
 									<button class="btn btn-secondary">Descargar Presentación PDF</button>
 									</a>
@@ -244,9 +244,22 @@
 					<div class="row justify-content-center">
 						<div class="col-md-8">
 							<div class="row my-5 mx-3">
-								<p>
-									Pide más información por WhatsApp: <a href="https://api.whatsapp.com/send?phone=56989997466&amp;text=Quisiera consultar por el departamento de Santa Rosa 249" target="_blank" onclick="whatsAppClick()">
-									<img th:src="@{/imgs/whatsapp_verde.svg}"  width="25" height="25"></a> 
+								<div class="col-md-4 ms-5">
+										Pide más información por </br>
+										WhatsApp:
+										<a href="https://api.whatsapp.com/send?phone=56989997466&amp;text=Quisiera consultar por el departamento de Santa Rosa 249" target="_blank" onclick="whatsAppClick()">
+										+56989997466 
+										</a>
+								</div>
+								
+								<div class="col-md-4 justify-content-center">
+									<a href="https://api.whatsapp.com/send?phone=56989997466&amp;text=Quisiera consultar por el departamento de Santa Rosa 249" target="_blank" onclick="whatsAppClick()">
+									<img id="whatsAppVerde" th:src="@{/imgs/whatsapp_verde.svg}"  width="75" height="75">
+									</a>
+								</div>
+								
+								
+											
 							</div>
 						</div>
 					</div>

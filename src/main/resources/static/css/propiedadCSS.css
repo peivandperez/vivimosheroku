@@ -39,3 +39,7 @@ ul li{
     background: #2F385B;
     color: #ffffff;
 }
+
+#whatsAppVerde{
+	filter: drop-shadow(15px 10px 4px #F4F4F4);
+}
