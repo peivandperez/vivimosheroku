@@ -73,13 +73,11 @@ public class UsersSimpleController {
 	}
 	
 	@RequestMapping("/propiedadSingleTestingMock")
-	public String getPropiedadSingleTestingMock(){
-		
-	/*public String showFormVenderPropiedad(Model model) {
+	public String getPropiedadSingleTestingMock(Model model){
 		model.addAttribute("user", new UsersSimpleDTO());
 		List<TestimonialesDTO> testimoniales=testimonialesService.todas();
 		model.addAttribute("testimoniales", testimoniales);
-	*/
+	
 		return "propiedadSingleTestingMock";
 	
 	}
