@@ -41,7 +41,7 @@
 				</p>
 				
 				<p>
-					<img id="thumbnail01" alt="imagePreview"/>
+					<img id="thumbnail" alt="imagePreview"/>
 				</p>
 				
 				
@@ -58,6 +58,30 @@
 	
 		<div th:insert="fragments/linkedInTag :: linkedInTag"></div>
 		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>			
-	</body>		
+	</body>	
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			//cuando cambiamos "fileImage", se ejecuta la función para mostrar thumnail
+			$('#fileImage').change(function(){
+				showImageThumbnail(this);
+			})
+		})
+		
+		//función para mostrar thumbnail
+		function showImageThumbnail(fileInput){
+			file= fileInput.files[0];
+			reader=new FileReader();
+			reader.onload= function(e){
+				$('thumbnail').attr('src', e.target.result);
+				$('thumbnail').attr('height', 150);
+				$('thumbnail').attr('width', 200);
+			};
+			
+			reader.readAsDataUrl(file);
+			
+		}
+	</script>	
 
 </html>
