@@ -30,9 +30,12 @@
 	<div class="container-md">
 		<div class="row py-5 my-5">
 			<h1>File Upload Testing</h1>
-			<form>
+			<form th:action="@{fileUpload/save}" th:object="{images}" method="post">
+				
+				<input type="hidden" th:field="*{id}">
+				
 				<label>Photos: </label>
-			    <input type="file" class="btn btn-secondary" name="image" accept="image/png, image/jpeg" />
+			    <input type="file" class="btn btn-secondary" name="image" accept="image/png, image/jpeg" id="fileImage"/>
 			</form>
 		</div>
 	</div>
