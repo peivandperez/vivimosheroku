@@ -4,6 +4,7 @@
 		
 		<div th:insert="fragments/head :: headGeneral"></div>
 		<div th:insert="fragments/bootstrap :: headerBootstrap"></div>
+		<div th:insert="fragments/bootstrap :: jQuery"></div>
 		<div th:insert="fragments/head :: customCSS"></div>
 		<div th:insert="fragments/pixels :: pixels"></div>
 		
@@ -34,8 +35,20 @@
 				
 				<input type="hidden" th:field="*{id}">
 				
-				<label>Photos: </label>
-			    <input type="file" class="btn btn-secondary" name="image" accept="image/png, image/jpeg" id="fileImage"/>
+				<p>
+					<label>Photos: </label>
+				    <input type="file" class="btn btn-secondary" name="image" accept="image/png, image/jpeg" id="fileImage"/>
+				</p>
+				
+				<p>
+					<img id="thumbnail01" alt="imagePreview"/>
+				</p>
+				
+				
+				
+				
+			
+			
 			</form>
 		</div>
 	</div>
