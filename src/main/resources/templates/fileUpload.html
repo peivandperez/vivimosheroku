@@ -31,18 +31,24 @@
 	<div class="container-md">
 		<div class="row py-5 my-5">
 			<h1>File Upload Testing</h1>
-			<form th:action="@{fileUpload/save}" th:object="${images}" enctype="multipart/form-data" method="post">
+			
+			<div th:if="${message}">
+				<p class="alert alert-primary" role="alert" th:text="${message}">Hola</p>
+			</div>
+			
+			<form th:action="@{/fileUpload/Save}" th:object="${images}" enctype="multipart/form-data" method="post">
 				
 				<input type="hidden" th:field="*{id}">
 				
 				<p>
 					<label>Photos: </label>
-				    <input type="file" class="btn btn-secondary" name="image" accept="image/png, image/jpeg" id="fileImage"/>
+				    <input type="file" class="btn btn-secondary" name="fileImage" accept="image/png, image/jpeg" id="fileImage"/>
 				</p>
 				
 				<p>
 					<img id="thumbnail" alt="imagePreview"/>
 				</p>
+					<input class="btn btn-secondary" type="submit" value="Enviar"/>
 				
 				
 				
@@ -74,12 +80,13 @@
 			file= fileInput.files[0];
 			reader=new FileReader();
 			reader.onload= function(e){
-				$('thumbnail').attr('src', e.target.result);
-				$('thumbnail').attr('height', 150);
-				$('thumbnail').attr('width', 200);
+				$('#thumbnail').attr('src', e.target.result);
+				$('#thumbnail').attr('height', '150');
+				$('#thumbnail').attr('width', '200');
+				
 			};
 			
-			reader.readAsDataUrl(file);
+			reader.readAsDataURL(file);
 			
 		}
 	</script>	

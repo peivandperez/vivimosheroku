@@ -30,4 +30,23 @@ public class MailDetailsImpl implements MailDetails{
 	
 		mailDTO.setMailContent(htmlBody);
 	}
+
+	@Override
+	public void mailAgendaVisita(MailDTO mailDTO) {
+		Context thymeleafContext = new Context();
+		thymeleafContext.setVariable("email", mailDTO.getMailTo());
+		String htmlBody= thymeleafTemplateEngine.process("mailAgendaVisita", thymeleafContext);
+		
+		String from="p.perez@vivimos.cl";
+		String fromPersonal="Visitas Vivimos";
+		String subjectDetail="Visita agendada Vivimos.cl";
+		
+		mailDTO.setMailFrom(from);
+		mailDTO.setMailFromPersonal(fromPersonal);
+		mailDTO.setMailSubject(subjectDetail);
+		
+	
+		mailDTO.setMailContent(htmlBody);
+		
+	}
 }

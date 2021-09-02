@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class ImagesDAOImpl implements ImagesDAO {
 	
 	public String insertImage="INSERT INTO images (name,idpropiedad,filepath)"
-			+ "VALUES (:name ,:idPropiedad,filePath)";
+			+ "VALUES (:name ,:idPropiedad ,:filePath)";
 		
 
 	@Autowired
@@ -22,7 +22,7 @@ public class ImagesDAOImpl implements ImagesDAO {
 		int rows=0;
 		
 		MapSqlParameterSource params=new MapSqlParameterSource();
-		params.addValue("name", imagesDTO.getId());
+		params.addValue("name", imagesDTO.getName());
 		params.addValue("idPropiedad", imagesDTO.getIdpropiedad());
 		params.addValue("filePath", imagesDTO.getFilepath());
 		

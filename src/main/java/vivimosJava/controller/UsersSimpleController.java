@@ -114,7 +114,7 @@ public class UsersSimpleController {
 		 	if(!reCaptchaResponse.isSuccess()) {
 		 		model.addAttribute("reCaptchaError", reCaptchaResponse.getErrors());
 		 	System.out.println(reCaptchaResponse.getErrorCodes());
-		 		return "invierte";
+		 		return "propiedadSingleTestingMock";
 		 	}else {
 		 		
 		 		 mailDTO.setMailTo(usersSimpleDTO.getEmail());
@@ -124,6 +124,29 @@ public class UsersSimpleController {
 			
 				 usersSimpleService.insert(usersSimpleDTO);
 				 return "gracias-vende-con-nosotros";
+		 	}		 
+	    } 
+	 
+	 
+	 @PostMapping("/agendaVisitaForm")
+	   public String submissionResultAgendaVisita(@ModelAttribute("user") UsersSimpleDTO usersSimpleDTO, MailDTO mailDTO, @RequestParam(name="g-recaptcha-response") String response,
+			   BindingResult result,ModelMap model) throws MessagingException, UnsupportedEncodingException {
+		 
+		 //Verify ReCaptcha response
+		 ReCaptchaResponse reCaptchaResponse= reCaptchaRegisterService.verify(response);
+		 	if(!reCaptchaResponse.isSuccess()) {
+		 		model.addAttribute("reCaptchaError", reCaptchaResponse.getErrors());
+		 	System.out.println(reCaptchaResponse.getErrorCodes());
+		 		return "invierte";
+		 	}else {
+		 		
+		 		 mailDTO.setMailTo(usersSimpleDTO.getEmail());
+				 mailDTO.setMailToName(usersSimpleDTO.getEmail());
+				 mailDetails.mailAgendaVisita(mailDTO); 
+				 mailService.sendMessageUsingThymleafTemplate(mailDTO);
+			
+				 usersSimpleService.insert(usersSimpleDTO);
+				 return "gracias-invertir-propiedades";
 		 	}		 
 	    } 
 	}
