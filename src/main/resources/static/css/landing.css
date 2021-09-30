@@ -26,6 +26,10 @@ body{
 	background: linear-gradient(170deg, rgba(52,74,81,1) 0%, rgba(78,116,127,1) 100%, rgba(0,212,255,1) 100%);
 }
 
+.gradientVende{
+	background: rgb(154,67,64);
+	background: linear-gradient(170deg, rgba(154,67,64,1) 0%, rgba(190,110,58,1) 100%);
+}
 
 
 .dash{
@@ -137,7 +141,7 @@ body{
 
 .invierteSeccion04Titulo03{
 	font-weight:regular;
-	font-size: 19px;
+	font-size: 16px;
  	color: #ffffff;
 }
 

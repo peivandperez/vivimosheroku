@@ -8,6 +8,8 @@
 	    <meta charset="utf-8"/>
 	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 	    <meta name="google-site-verification" content="xxH8BxWynPpiPCpCDkT-xr1LKXlHV9Av7lof-OSWLFA" />
+	    <meta name="facebook-domain-verification" content="mbzjq785g4q7bemhis3pqr0nflpsb2" />
+	    
 	    <meta name="robots" content="index,follow"/>
 	    <meta name="author" content="Peivand Pérez" />
 		<meta name="copyright" content="Vivimos.cl" />
@@ -19,7 +21,7 @@
 	<div th:fragment="customCSS">
 		 <!-- Custom CSS General -->
 	 
-	 		<link rel="stylesheet" type="text/css" href="/css/customCSS.css" th:href="@{/css/customCSS.css}"/> 	
+	 		<link rel="stylesheet" type="text/css" th:href="@{/css/customCSS.css}"/> 	
 	</div> 
 	
 	<div th:fragment="landingCSS">
@@ -29,9 +31,21 @@
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">	
 		
 		<!-- Custom CSS Landing -->
-		<link rel="stylesheet" type="text/css" href="/css/landing.css" th:href="@{/css/landing.css}"/> 		
-
-</div>	
+		<link rel="stylesheet" type="text/css" th:href="@{/css/landing.css}"/> 		
+	
+	</div>
+	
+	
+	<div th:fragment="propiedadCSS">
+		
+		<!-- Google Fonts -->	
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+		
+		
+		<!-- Propiedad CSS Landing -->
+		<link rel="stylesheet" type="text/css" th:href="@{/css/propiedadCSS.css}"/> 		
+	</div>	
 
 </body>
 

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		
+		<div th:insert="fragments/head :: headGeneral"></div>
+		<div th:insert="fragments/bootstrap :: headerBootstrap"></div>
+		<div th:insert="fragments/bootstrap :: jQuery"></div>
+		<div th:insert="fragments/head :: customCSS"></div>
+		<div th:insert="fragments/pixels :: pixels"></div>
+		
+		
+
+	<!-- Insertar los tags individuales de cada página -->
+	<title>Título de prueba Index</title>
+	
+	
+	<!--  
+	<meta name="description" content="HTML meta tags are a cornerstone of coding. 
+	But which are the most essential? We give you a rundown of all the meta tags you need to know."/>
+	
+	<meta name="keywords" content="Como vender departamento">
+	-->
+	
+	</head>	
+
+
+	<body>
+	
+	<div th:insert="fragments/menu :: menu"></div>
+	
+	<div class="container-md">
+		<div class="row py-5 my-5">
+			<h1>File Upload Testing</h1>
+			
+			<div th:if="${message}">
+				<p class="alert alert-primary" role="alert" th:text="${message}">Hola</p>
+			</div>
+			
+			<form th:action="@{/fileUpload/Save}" th:object="${images}" enctype="multipart/form-data" method="post">
+				
+				<input type="hidden" th:field="*{id}">
+				
+				<p>
+					<label>Photos: </label>
+				    <input type="file" class="btn btn-secondary" name="fileImage" accept="image/png, image/jpeg" id="fileImage"/>
+				</p>
+				
+				<p>
+					<img id="thumbnail" alt="imagePreview"/>
+				</p>
+					<input class="btn btn-secondary" type="submit" value="Enviar"/>
+				
+				
+				
+				
+			
+			
+			</form>
+		</div>
+	</div>
+	
+
+	
+	
+		<div th:insert="fragments/linkedInTag :: linkedInTag"></div>
+		<div th:insert="fragments/bootstrap :: footerBootstrap"></div>			
+	</body>	
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			//cuando cambiamos "fileImage", se ejecuta la función para mostrar thumnail
+			$('#fileImage').change(function(){
+				showImageThumbnail(this);
+			})
+		})
+		
+		//función para mostrar thumbnail
+		function showImageThumbnail(fileInput){
+			file= fileInput.files[0];
+			reader=new FileReader();
+			reader.onload= function(e){
+				$('#thumbnail').attr('src', e.target.result);
+				$('#thumbnail').attr('height', '150');
+				$('#thumbnail').attr('width', '200');
+				
+			};
+			
+			reader.readAsDataURL(file);
+			
+		}
+	</script>	
+
+</html>

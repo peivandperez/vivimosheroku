@@ -18,6 +18,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import vivimosJava.controller.recaptcha.ReCaptchaResponse;
 import vivimosJava.model.MailDTO;
@@ -62,9 +63,28 @@ public class UsersSimpleController {
 	
 	}
 	
+	@GetMapping("/vende-con-nosotros")
+	public String showFormVenderPropiedad(Model model) {
+		model.addAttribute("user", new UsersSimpleDTO());
+		List<TestimonialesDTO> testimoniales=testimonialesService.todas();
+		model.addAttribute("testimoniales", testimoniales);
+		return "vende-con-nosotros";
+	
+	}
+	
+	@RequestMapping("/propiedadSingleTestingMock")
+	public String getPropiedadSingleTestingMock(Model model){
+		model.addAttribute("user", new UsersSimpleDTO());
+		List<TestimonialesDTO> testimoniales=testimonialesService.todas();
+		model.addAttribute("testimoniales", testimoniales);
+	
+		return "propiedadSingleTestingMock";
+	
+	}
+	
 	
 	 @PostMapping("/invierteForm")
-	   public String submissionResult(@ModelAttribute("user") UsersSimpleDTO usersSimpleDTO, MailDTO mailDTO, @RequestParam(name="g-recaptcha-response") String response,
+	   public String submissionResultInvierte(@ModelAttribute("user") UsersSimpleDTO usersSimpleDTO, MailDTO mailDTO, @RequestParam(name="g-recaptcha-response") String response,
 			   BindingResult result,ModelMap model) throws MessagingException, UnsupportedEncodingException {
 		 
 		 //Verify ReCaptcha response
@@ -78,6 +98,51 @@ public class UsersSimpleController {
 		 		 mailDTO.setMailTo(usersSimpleDTO.getEmail());
 				 mailDTO.setMailToName(usersSimpleDTO.getEmail());
 				 mailDetails.mailInvierte(mailDTO); 
+				 mailService.sendMessageUsingThymleafTemplate(mailDTO);
+			
+				 usersSimpleService.insert(usersSimpleDTO);
+				 return "gracias-invertir-propiedades";
+		 	}		 
+	    } 
+	 
+	 @PostMapping("/vendeForm")
+	   public String submissionResultVende(@ModelAttribute("user") UsersSimpleDTO usersSimpleDTO, MailDTO mailDTO, @RequestParam(name="g-recaptcha-response") String response,
+			   BindingResult result,ModelMap model) throws MessagingException, UnsupportedEncodingException {
+		 
+		 //Verify ReCaptcha response
+		 ReCaptchaResponse reCaptchaResponse= reCaptchaRegisterService.verify(response);
+		 	if(!reCaptchaResponse.isSuccess()) {
+		 		model.addAttribute("reCaptchaError", reCaptchaResponse.getErrors());
+		 	System.out.println(reCaptchaResponse.getErrorCodes());
+		 		return "propiedadSingleTestingMock";
+		 	}else {
+		 		
+		 		 mailDTO.setMailTo(usersSimpleDTO.getEmail());
+				 mailDTO.setMailToName(usersSimpleDTO.getEmail());
+				 mailDetails.mailInvierte(mailDTO); 
+				 mailService.sendMessageUsingThymleafTemplate(mailDTO);
+			
+				 usersSimpleService.insert(usersSimpleDTO);
+				 return "gracias-vende-con-nosotros";
+		 	}		 
+	    } 
+	 
+	 
+	 @PostMapping("/agendaVisitaForm")
+	   public String submissionResultAgendaVisita(@ModelAttribute("user") UsersSimpleDTO usersSimpleDTO, MailDTO mailDTO, @RequestParam(name="g-recaptcha-response") String response,
+			   BindingResult result,ModelMap model) throws MessagingException, UnsupportedEncodingException {
+		 
+		 //Verify ReCaptcha response
+		 ReCaptchaResponse reCaptchaResponse= reCaptchaRegisterService.verify(response);
+		 	if(!reCaptchaResponse.isSuccess()) {
+		 		model.addAttribute("reCaptchaError", reCaptchaResponse.getErrors());
+		 	System.out.println(reCaptchaResponse.getErrorCodes());
+		 		return "invierte";
+		 	}else {
+		 		
+		 		 mailDTO.setMailTo(usersSimpleDTO.getEmail());
+				 mailDTO.setMailToName(usersSimpleDTO.getEmail());
+				 mailDetails.mailAgendaVisita(mailDTO); 
 				 mailService.sendMessageUsingThymleafTemplate(mailDTO);
 			
 				 usersSimpleService.insert(usersSimpleDTO);
