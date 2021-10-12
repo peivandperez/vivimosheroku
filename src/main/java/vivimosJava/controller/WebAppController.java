@@ -22,6 +22,11 @@ public class WebAppController {
 		return "index";
 	}
 	
+	@RequestMapping("/")
+	public String getIndex() {
+		return "index";
+	}
+	
 	@RequestMapping("/5errores")
 	public String get5errores() {
 		return "5errores";
