@@ -14,6 +14,13 @@
 	<packaging>war</packaging>
 	<name>VivimosJava</name>
 	<description>pruebathymeleaf</description>
+	
+	<configuration>
+<appName>VivimosJava</appName>
+  <processTypes>
+     <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+  </processTypes>
+</configuration>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -85,8 +92,6 @@
 		</plugins>
 	</build>
 	
-	<processTypes>
-    		 <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
-  	</processTypes>
+	
 
 </project>
