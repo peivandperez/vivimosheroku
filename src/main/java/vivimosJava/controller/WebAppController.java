@@ -23,7 +23,7 @@ public class WebAppController {
 	}
 	
 	@RequestMapping("/")
-	public String getIndex() {
+	public String getIndex2() {
 		return "index";
 	}
 	
