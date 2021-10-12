@@ -84,5 +84,9 @@
 	      		</plugin>
 		</plugins>
 	</build>
+	
+	<processTypes>
+    		 <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+  	</processTypes>
 
 </project>
